@@ -1,11 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class dashboardmanager extends CI_Controller {
 
    
     public function index()
     {
-        if(!(isset($_SESSION['UsernameAdmin'])) || $_SESSION['UsernameAdmin']==null){redirect(base_url());}
+        if(!(isset($_SESSION['email'])) || $_SESSION['email']==null){redirect(base_url());}
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $email = $this->input->post("email");
@@ -17,11 +17,11 @@ class Home extends CI_Controller {
 
             if($valid)
             {
-                redirect("Estatistica");
+                redirect("dashboardmanager");
             }
         }
 
-        $this->load->view('Home/indexView');
+        $this->load->view('dashboardmanager/indexView');
         
     }
 

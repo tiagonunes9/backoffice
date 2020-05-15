@@ -3,8 +3,7 @@ class utilizadoresModel extends CI_Model {
 
   function getAll()
   {
-    $result=$this->db->query('SELECT * FROM alunos, encarregados, utilizadores, professores,turma
-    WHERE utilizadores.ID_User = alunos.ID_User  AND alunos.ID_Encarregado= encarregados.ID_Encarregado');
+    $result=$this->db->query('SELECT * FROM utilizadores');
 		
 		return $result->result();
   }

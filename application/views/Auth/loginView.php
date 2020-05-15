@@ -15,7 +15,7 @@
 			background-image: url("assets/img/fundo.svg");
 			background-repeat: no-repeat;
 			background-size: 100%;
-			background-color: #13616D;
+			background-color: #F2F2F2;
 		}
 
 		.login-container {
@@ -94,11 +94,11 @@
 						<?php echo form_open(base_url() . 'index.php/auth/signIn'); ?>
 
 						<div class="form-group">
-							<input type="text" name="UsernameAdmin" placeholder="Username" class="form-control">
+							<input type="text" placeholder="Email" name="email" class="form-control">
 						</div>
 						<div class="form-group">
 
-							<input type="password" placeholder="Password" name="PasswordAdmin" class="form-control">
+							<input type="password" placeholder="Password" name="password" class="form-control">
 						</div>
 
 						<button type="submit" class="btn btn-default">Login</button>

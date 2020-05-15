@@ -14,16 +14,18 @@
 
 <style>
 .jumbotron{
-    background-color: #13616D !important;
+    background-color: #F2F2F2 !important;
 }
 h1{
-  color: #fff;
+  color: #EDB347;
+  font-family: "Oswald";
+  font-weight: bold;
 }
 body {
 			background-image: url("assets/img/fundo.svg");
 			background-repeat: no-repeat;
 			background-size: 100%;
-			background-color: #13616D;
+			background-color: #F2F2F2;
 		}
 
 .tabela2{
@@ -43,7 +45,7 @@ body {
 
 
     <?php
-		$this->load->view('common/navBar');
+		$this->load->view('common/navBaradmin');
     ?>
     
 	<div id="container">

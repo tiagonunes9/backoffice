@@ -14,22 +14,24 @@
   <link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.png">
   <style>
     .jumbotron {
-      background-color: #13616D !important;
+      background-color: #F2F2F2 !important;
     }
 
     .container {
       margin-top: 5% !important;
     }
 
-    h1 {
-      color: #fff;
-    }
+    h1{
+  color: #EDB347;
+  font-family: "Oswald";
+  font-weight: bold;
+}
 
     body {
       background-image: url("assets/img/fundo.svg");
       background-repeat: no-repeat;
       background-size: 100%;
-      background-color: #13616D;
+      background-color: #F2F2F2;
     }
 
     .admin {
@@ -48,7 +50,7 @@
 
 
   <?php
-  $this->load->view('common/navBar');
+  $this->load->view('common/navBaradmin');
   ?>
   <div id="container">
     <div class="jumbotron">

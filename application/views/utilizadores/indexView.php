@@ -15,16 +15,14 @@
       background-image: url("assets/img/fundo.svg");
       background-repeat: no-repeat;
       background-size: 100%;
-      background-color: #13616D;
+      background-color: #F2F2F2;
     }
 
-    .jumbotron {
-      background-color: #13616D !important;
-    }
-
-    h1 {
-      font-size: 200% !important;
-    }
+    h1{
+  color: #EDB347;
+  font-family: "Oswald";
+  font-weight: bold;
+}
 
     .container {
       margin-top: 5% !important;
@@ -41,32 +39,12 @@
 
 <body>
   <?php
-  $this->load->view('common/navBar');
+  $this->load->view('common/navBaradmin');
   ?>
 
 
 
   <div class="container">
-    <div class="jumbotron">
-      
-        <div class="row">
-          <div class="col"><a class="nav-link menu" href="<?php echo base_url(); ?>index.php/Alunos"><img src="<?php echo base_url('assets/img/book.png'); ?>" width=50% /></a></div>
-          <div class="col"><a class="nav-link menu" href="<?php echo base_url(); ?>index.php/Professores"><img src="<?php echo base_url('assets/img/teacher.png'); ?>" width=50% /></a></div>
-          <div class="col"><a class="nav-link menu" href="<?php echo base_url(); ?>index.php/Encarregados"><img src="<?php echo base_url('assets/img/family.png'); ?>" width=50% /></a></div>
-        </div><br>
-        <div class="row">
-          <div class="col"><a class="nav-link menu" href="<?php echo base_url(); ?>index.php/Alunos">
-              <p>Alunos</p>
-            </a></div>
-          <div class="col"><a class="nav-link menu" href="<?php echo base_url(); ?>index.php/Professores">
-              <p>Professores</p>
-            </a></div>
-          <div class="col"><a class="nav-link menu" href="<?php echo base_url(); ?>index.php/Encarregados">
-              <p>Encarregados <br>de Educação</p>
-            </a></div>
-        
-      </div>
-    </div>
   </div>
 </body>
 

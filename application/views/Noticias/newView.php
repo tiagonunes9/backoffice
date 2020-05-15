@@ -14,14 +14,14 @@
 <style>
 
 .jumbotron{
-    background-color: #13616D !important;
+    background-color: #F2F2F2 !important;
 }
 
 body {
 			background-image: url("assets/img/fundo.svg");
 			background-repeat: no-repeat;
 			background-size: 100%;
-			background-color: #13616D;
+			background-color: #F2F2F2;
 		}
 .btnadmin{
     background-color:#3990D7;
@@ -29,7 +29,9 @@ body {
     width:100%;
 }
 h1{
-  color: #fff;
+  color: #EDB347;
+  font-family: "Oswald";
+  font-weight: bold;
 }
 
 .formadmin{
@@ -44,7 +46,7 @@ h1{
 <body>
 
 <?php
-		$this->load->view('common/navBar');
+		$this->load->view('common/navBaradmin');
     ?>
     
 	<div id="container">

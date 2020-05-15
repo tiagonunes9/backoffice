@@ -4,7 +4,7 @@ class Utilizadores extends CI_Controller {
 
 	public function index()
 	{
-		if(!(isset($_SESSION['UsernameAdmin'])) || $_SESSION['UsernameAdmin']==null){redirect(base_url());}
+		if(!(isset($_SESSION['email'])) || $_SESSION['email']==null){redirect(base_url());}
 		$this->load->model('utilizadoresModel');
 
 		$utilizadores = $this->utilizadoresModel->getAll();

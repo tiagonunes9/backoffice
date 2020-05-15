@@ -12,13 +12,13 @@ class Auth extends CI_Controller {
 	public function signIn(){
 		$this->load->library('form_validation');
 		$this->load->model('usersModel');
-		$UsernameAdmin = $this->input->post('UsernameAdmin');
-		$PasswordAdmin = $this->input->post('PasswordAdmin');
+		$email = $this->input->post('email');
+		$password = $this->input->post('password');
 
-		$result = $this->usersModel->isValidLogin($UsernameAdmin, $PasswordAdmin);
+		$result = $this->usersModel->isValidLogin($email, $password);
 		if($result != null){
-			$_SESSION['UsernameAdmin'] = $result[0]->UsernameAdmin;
-					redirect('Home');
+			$_SESSION['email'] = $result[0]->email;
+					redirect('dashboardadmin');
 		}
 		else{
 			echo('<div class="alert alert-danger" role="alert">

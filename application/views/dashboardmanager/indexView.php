@@ -19,6 +19,11 @@
 body{
   background-color:#B1E7EE !important;
 }
+h1{
+  color: #EDB347;
+  font-family: "Oswald";
+  font-weight: bold;
+}
 </style>
 </head>
 <body>

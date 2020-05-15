@@ -3,9 +3,9 @@
 
 class UsersModel extends CI_Model {
 
-  function isValidLogin($UsernameAdmin, $PasswordAdmin)
+  function isValidLogin($email, $password)
   {
-    $result = $this->db->get_where('administradores', array('UsernameAdmin' => $UsernameAdmin, 'PasswordAdmin' => $PasswordAdmin));
+    $result = $this->db->get_where('utilizadores', array('email' => $email, 'password' => $password));
     return $result->result();
   }
 }
