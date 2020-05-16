@@ -1,6 +1,6 @@
 <style>
 .barranavegacao{
-  background-color:#45AB99;
+  background-color:#333333;
 }
 
 
@@ -13,12 +13,12 @@
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-light barranavegacao">
-<a class="nav-link menu" href="<?php echo base_url(); ?>index.php/home"><img  src="<?php echo base_url('assets/img/logoV.png'); ?>" width=125px /></a>  
+<a class="nav-link menu" href="<?php echo base_url(); ?>index.php/dashboardadmin"><img  src="<?php echo base_url('assets/img/logoV.png'); ?>" width=125px /></a>  
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="vertical-menu">
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link menu" href="<?php echo base_url(); ?>index.php/dashboardadmin">Dashboard</a>
@@ -41,7 +41,6 @@
       
       
     </ul>
-    <a></a>
         <a class="nav-link menu" href="<?php echo base_url(); ?>index.php/auth/logout">Terminar Sessão</a>
   </div>
 </nav>
