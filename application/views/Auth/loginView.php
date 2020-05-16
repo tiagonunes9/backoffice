@@ -11,109 +11,80 @@
 	$this->load->view('common/headLibraries');
 	?>
 	<style>
-		body {
-			background-image: url("assets/img/fundo.svg");
-			background-repeat: no-repeat;
-			background-size: 100%;
-			background-color: #F2F2F2;
+		.branco {
+			background-color: white;
+			height: max-content;
 		}
 
-		.login-container {
-			margin-top: auto;
-			margin-bottom: auto;
-
-
-
+		.amarelo {
+			background-color: #EEC94C;
+			height: 100%;
 		}
 
-		.login-form-1 {
-			padding: 4%;
-			box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.07), 0 9px 26px 0 rgba(0, 0, 0, 0.12);
-			background-color: #6CA39A
+		p{
+			color:white;
+			font-family: "Oswald";
+			font-weight: bold;
+			font-size:25px;
 		}
 
-		.login-form-1 h3 {
-			margin-bottom: 10%;
+		.geral{
+			background-color: #E47A3F;
+			color:white;
+			font-family: "Oswald";
+			font-weight: bold;
+			font-size:25px;
+			height:150%;
 		}
 
-		form {
-			align-content: middle !important;
+		.outra{
+			color:white;
+			font-family: "Oswald";
+			font-weight: bold;
+			font-size:15px;
 		}
 
-		.btn-primary {
-			width: 100% !important;
-		}
-
-		h1 {
-			font-size: 200% !important;
-		}
-
-		h3 {
-			color: #D4BC4F;
-		}
-
-		.container {
-			margin-top: 10% !important;
-		}
-
-		.teste {
-			align-content: right;
+		.formulario{
+			margin-left: auto;
+  			margin-right: auto;
+			float: right;
 		}
 	</style>
-	<link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.png">
+	<link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.ico">
 </head>
 
 <body>
-
-	<div class="container login-container">
-
-
+	<div class="container">
 		<div class="row">
-			<div class="col-4 col-xs-3">
-			</div>
-			<div class="col-4 login-form-1">
 
+			<?php
+			if (validation_errors() != false) {
+				echo '<div class="alert alert-warning">' . validation_errors() . '</div>';
+			}
+			?>
+		</div>
+		<div class="row">
+			<div class="col-sm-8 branco">
 				<img src="assets/img/logo.svg" height="100px">
+			</div>
+			<div class="col-sm-4 amarelo">
+				<div class="formulario">
+				<?php echo form_open(base_url() . 'index.php/auth/signIn'); ?>
 
-
-				<h3> MY VIRIATO </h3>
-
-				<div class="container">
-					<div class="row">
-					</div>
-					<div class="row">
-
-						<?php
-						if (validation_errors() != false) {
-							echo '<div class="alert alert-warning">' . validation_errors() . '</div>';
-						}
-						?>
-					</div>
-					<div class="row">
-
-						<?php echo form_open(base_url() . 'index.php/auth/signIn'); ?>
-
-						<div class="form-group">
-							<input type="text" placeholder="Email" name="email" class="form-control">
-						</div>
-						<div class="form-group">
-
-							<input type="password" placeholder="Password" name="password" class="form-control">
-						</div>
-
-						<button type="submit" class="btn btn-default">Login</button>
-
-
-
-					</div>
+				<div class="form-group">
+					<p>Email</p>
+					<input type="text" name="email" class="form-control">
 				</div>
-
-				<div class="col-4 col-xs-3">
+				<div class="form-group">
+					<p>Password</p>
+					<input type="password" name="password" class="form-control">
+				</div>
+					<p class="outra">Recuperar password</p>
+				<button type="submit" class="btn btn-default geral">LOGIN</button>
 				</div>
 			</div>
 		</div>
 	</div>
-
 </body>
 
 </html>
