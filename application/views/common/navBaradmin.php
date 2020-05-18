@@ -6,6 +6,15 @@
   position:center;
 }
 
+a{
+  color:white;
+  margin-left:10%;
+}
+a:hover{
+color: white;
+font-size:20px;
+}
+
 </style>
 
 <div class="btn-group-vertical fundo">

@@ -35,16 +35,13 @@
 
   <div id="container">
     <div class="row">
-      <div class="col">
+      <div class="col-9">
         <?php
         $this->load->view('common/navBaradmin');
         ?>
       </div>
       <div class="col-6">
         Dashboard
-      </div>
-      <div class="col">
-        3 of 3
       </div>
     </div>
 
