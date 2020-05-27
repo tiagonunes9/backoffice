@@ -1,14 +1,9 @@
 <style>
-.fundo{
-  background-color:#333333;
-  height: 1000px;
-  width:15%;
-  position:center;
-}
 
 a{
   color:white;
   margin-left:10%;
+  font-size: 50%;
 }
 a:hover{
 color: white;

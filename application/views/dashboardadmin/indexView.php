@@ -26,25 +26,52 @@
       font-family: "Oswald";
       font-weight: bold;
     }
+
+    .flex-container{
+      display:flex;
+      flex-flow:row wrap;
+      justify-content: space-around;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+.flex-item {
+  background: tomato;
+  padding: 5px;
+  width: 200px;
+  height: 150px;
+  margin-top: 10px;
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+  }
+  .nav{
+    width:15%;
+    background-color:#333333;
+    height: 1000px;
+    position:center;
+    margin-left:0px;
+  }
+
   </style>
 </head>
 
 <body>
 
 
-
-  <div id="container">
-    <div class="row">
-      <div class="col-9">
+<ul class="flex-container">
+  <li class="flex-item nav">
         <?php
         $this->load->view('common/navBaradmin');
-        ?>
-      </div>
-      <div class="col-6">
-        Dashboard
-      </div>
-    </div>
-
+        ?></li>
+  <li class="flex-item">2</li>
+  <li class="flex-item">3</li>
+  <li class="flex-item">4</li>
+  <li class="flex-item">5</li>
+  <li class="flex-item">6</li>
+</ul>
 
 
 </body>
