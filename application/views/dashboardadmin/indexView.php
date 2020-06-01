@@ -27,51 +27,62 @@
       font-weight: bold;
     }
 
-    .flex-container{
-      display:flex;
-      flex-flow:row wrap;
-      justify-content: space-around;
+    .flex-container {
+      display: flex;
+      flex-flow: row wrap;
       padding: 0;
       margin: 0;
       list-style: none;
     }
-.flex-item {
-  background: tomato;
-  padding: 5px;
-  width: 200px;
-  height: 150px;
-  margin-top: 10px;
-  line-height: 150px;
-  color: white;
-  font-weight: bold;
-  font-size: 3em;
-  text-align: center;
-  }
-  .nav{
-    width:15%;
-    background-color:#333333;
-    height: 1000px;
-    position:center;
-    margin-left:0px;
-  }
 
+    .flex-item {
+      background: tomato;
+      line-height: 150px;
+      color: white;
+      font-weight: bold;
+      font-size: 3em;
+      text-align: center;
+      flex-grow:1;
+      width: 20vw;
+    }
+
+    .flex-x {
+      line-height: 150px;
+      color: white;
+      font-weight: bold;
+      font-size: 3em;
+      text-align: center;
+      flex-grow:4;
+      width:50vw;
+    }
+
+    .nav {
+      flex-basis: auto;
+      background-color: #333333;
+      margin-left: 0px;
+    }
   </style>
 </head>
 
 <body>
 
 
-<ul class="flex-container">
-  <li class="flex-item nav">
-        <?php
-        $this->load->view('common/navBaradmin');
-        ?></li>
-  <li class="flex-item">2</li>
-  <li class="flex-item">3</li>
-  <li class="flex-item">4</li>
-  <li class="flex-item">5</li>
-  <li class="flex-item">6</li>
-</ul>
+  <ul class="flex-container">
+    <li class="flex-item nav">
+      <?php
+      $this->load->view('common/navBaradmin');
+      ?></li>
+    <li class="flex-x">
+      <ul class="flex-container">
+
+        <li class="flex-item">2</li>
+        <li class="flex-item">3</li>
+        <li class="flex-item">4</li>
+        <li class="flex-item">5</li>
+        <li class="flex-item">6</li>
+      </ul>
+    </li>
+  </ul>
 
 
 </body>
