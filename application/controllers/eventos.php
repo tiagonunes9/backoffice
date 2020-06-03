@@ -4,7 +4,7 @@ class Eventos extends CI_Controller {
 
 	public function index()
 	{
-		if(!(isset($_SESSION['UsernameAdmin'])) || $_SESSION['UsernameAdmin']==null){redirect(base_url());}
+		if(!(isset($_SESSION['email'])) || $_SESSION['email']==null){redirect(base_url());}
 		$this->load->model('eventosModel');
 
 		$eventos = $this->eventosModel->getAll();
@@ -17,10 +17,12 @@ class Eventos extends CI_Controller {
 	public function novoevento()
 	{
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-			$dados['NomeEvento'] = $this->input->post("NomeEvento");
-			$dados['Descricao'] = $this->input ->post("Descricao");
-			$dados['Data'] = $this->input ->post("Data");
-			$dados['ID_Clube'] = $this->input ->post("ID_clube");
+			$dados['nome'] = $this->input->post("nome");
+			$dados['local'] = $this->input ->post("local");
+			$dados['descricao'] = $this->input ->post("descricao");
+			$dados['autor'] = $this->input ->post("autor");
+			$dados['estado'] = $this->input ->post("estado");
+			$dados['imagem'] = $this->input ->post("imagem");
 			
 			$this->load->model('eventosModel');
 
@@ -72,16 +74,20 @@ class Eventos extends CI_Controller {
 		$this->load->helper(array('form'));
 		
 		
-		$NomeEvento = $this->input->post('NomeEvento');
-		$Descricao = $this->input->post('Descricao');
-		$Data = $this->input->post('Data');
-		$ID_Clube = $this ->input ->post ('ID_Clube');
+		$nome = $this->input->post('nome');
+		$local = $this->input->post('local');
+		$descricao = $this->input->post('descricao');
+		$autor = $this ->input ->post ('autor');
+		$estado = $this ->input ->post ('estado');
+		$imagem = $this ->input ->post ('imagem');
 		
 		$data = array(
-			'NomeEvento' => $NomeEvento,
-			'Descricao' => $Descricao,
-			'Data' => $Data,
-			'ID_Clube' => $ID_Clube,
+			'nome' => $nome,
+			'local' => $local,
+			'descricao' => $descricao,
+			'autor' => $autor,
+			'estado' => $estado,
+			'imagem' => $imagem,
 			
 		);
 		$this->load->model('eventosModel');

@@ -17,31 +17,51 @@
       background-color: #F2F2F2 !important;
     }
 
-    .container {
-      margin-top: 5% !important;
-    }
-
-    h1{
-  color: #EDB347;
-  font-family: "Oswald";
-  font-weight: bold;
-}
-
     body {
-      background-image: url("assets/img/fundo.svg");
-      background-repeat: no-repeat;
-      background-size: 100%;
-      background-color: #F2F2F2;
+      background-color: #F2F2F2 !important;
     }
 
-    .admin {
-      background-color: white !important;
-      border-radius: 10px !important;
+    h1 {
+      color: #EDB347;
+      font-family: "Oswald";
+      font-weight: bold;
     }
 
-    .tabela1 {
-      background-color: white;
-      border-radius: 10px !important;
+    .flex-container {
+      display: flex;
+      flex-flow: row wrap;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .flex-item {
+      background: white;
+      line-height: 150px;
+      color: white;
+      font-weight: bold;
+      font-size: 3em;
+      color: orange;
+      text-align: center;
+      flex-grow: 0;
+      width: 20vw;
+    }
+
+
+    .flex-x {
+      line-height: 150px;
+      color: white;
+      font-weight: bold;
+      font-size: 3em;
+      text-align: center;
+      flex-grow: 5;
+      width: 50vw;
+    }
+
+    .nav {
+      flex-basis: auto;
+      background-color: #333333;
+      margin-left: 0px;
     }
   </style>
 </head>
@@ -49,39 +69,49 @@
 <body>
 
 
-  <?php
-  $this->load->view('common/navBaradmin');
-  ?>
-  <div id="container">
-    <div class="jumbotron">
-    <div class="container">
-      <h1>Gerir Eventos</h1><br><br><br>
+  <ul class="flex-container">
+    <li class="flex-item nav">
+      <?php
+      $this->load->view('common/navBaradmin');
+      ?></li>
+    <li class="flex-x">
+      <ul class="flex-container">
 
-      <table class="table admin">
-        <tr class="tabela1">
-          <th width="200"> Nome do Evento </th>
-          <th width="30"> Descricao </th>
-          <th> Data </th>
-          <th> ID_Clube </th>
-          <th width="70"></th>
-          <th width="70"><a class="btn btn-sm btn-primary" href="eventos/novoEvento">Novo</a></th>
-        </tr>
-        <?php
-        foreach ($eventos as $key => $value) {
-          echo '<tr><td>' . $value->NomeEvento . "</td>";
-          echo '<td>' . $value->Descricao . "</td>";
-          echo '<td>' . $value->Data . '</td>';
-          echo '<td>' . $value->ID_Clube . '</td>';
+        <li class="flex-item">
+          <div class="container">
+            <h1>Gerir Professores</h1> <br>
+            <div class="form-group input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+              <input name="consulta" id="txt_consulta" placeholder="Pesquisar..." type="text" class="form-control">
+            </div>
 
-          echo '<td><a href="' . base_url() . 'index.php/eventos/uptade/' . $value->ID_Evento . '" class="btn btn-sm btn-warning">Editar</a></td>';
-          echo '<td><a href="' . base_url() . 'index.php/eventos/delete/' . $value->ID_Evento . '" class="btn btn-sm btn-danger">Eliminar</a></td></tr>';
-        }
-        ?>
-      </table>
-      </div>
-    </div>
-  </div>
 
+            <table class="table admin">
+              <tr class="tabela1">
+                <th width="250"> Nome </th>
+                <th width="250"> Descricao </th>
+                <th width="70"></th>
+                <th width="70"><a class="btn btn-sm btn-primary" href="eventos/novoevento">Novo</a></th>
+              </tr>
+              <?php
+              foreach ($eventos as $key => $value) {
+                echo '<tr><td>' . $value->nome . "</td>";
+                echo '<td>' . $value->descricao . '</td>';
+                echo '<td><a href="' . base_url() . 'index.php/noticias/uptade/' . $value->id_evento . '" class="btn btn-sm btn-warning">Editar</a></td>';
+                echo '<td><a href="' . base_url() . 'index.php/noticias/delete/' . $value->id_evento . '" class="btn btn-sm btn-danger">Eliminar</a></td></tr>';
+              }
+              ?>
+            </table>
+          </div><br><br>
+
+
+          <script>
+            $('input#txt_consulta').quicksearch('table#tabela tbody tr');
+          </script>
+        </li>
+      </ul>
+    </li>
+  </ul>
 
 
 </body>

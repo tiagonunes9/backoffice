@@ -17,7 +17,7 @@ class utilizadoresModel extends CI_Model {
 
   function get($id)
   {
-    $result = $this->db->get_where('utilizadores', array('ID_User' => $id));
+    $result = $this->db->get_where('utilizadores', array('id_user' => $id));
     return $result->result();
   }
 
@@ -26,12 +26,12 @@ class utilizadoresModel extends CI_Model {
   }
 
   function put($id, $data){
-    $this->db->where('ID_User', $id);
+    $this->db->where('id_user', $id);
     $this->db->update('utilizadores', $data);
   }
 
   function delete($id){
-    $this->db->delete('utilizadores', array('ID_User' => $id));
+    $this->db->delete('utilizadores', array('id_user' => $id));
   }
 }
 ?>

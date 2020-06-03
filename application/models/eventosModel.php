@@ -19,17 +19,17 @@ class eventosModel extends CI_Model {
   }
 
   function delete($id){
-    $this->db->delete('eventos', array('ID_Evento' => $id));
+    $this->db->delete('eventos', array('id_evento' => $id));
   }
 
   function get($id)
   {
-    $result = $this->db->get_where('eventos', array('ID_Evento' => $id));
+    $result = $this->db->get_where('eventos', array('id_evento' => $id));
     return $result->result();
   }
 
   function put($id, $data){
-    $this->db->where('ID_Evento', $id);
+    $this->db->where('id_evento', $id);
     $this->db->update('eventos', $data);
   }
 

@@ -19,17 +19,17 @@ class noticiasModel extends CI_Model {
   }
 
   function delete($id){
-    $this->db->delete('noticias', array('ID_Noticia' => $id));
+    $this->db->delete('noticias', array('id_noticia' => $id));
   }
 
   function get($id)
   {
-    $result = $this->db->get_where('noticias', array('ID_Noticia' => $id));
+    $result = $this->db->get_where('noticias', array('id_noticia' => $id));
     return $result->result();
   }
 
   function put($id, $data){
-    $this->db->where('ID_Noticia', $id);
+    $this->db->where('id_noticia', $id);
     $this->db->update('noticias', $data);
   }
 

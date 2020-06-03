@@ -4,7 +4,7 @@ class Noticias extends CI_Controller {
 
 	public function index()
 	{
-		if(!(isset($_SESSION['UsernameAdmin'])) || $_SESSION['UsernameAdmin']==null){redirect(base_url());}
+		if(!(isset($_SESSION['email'])) || $_SESSION['email']==null){redirect(base_url());}
 		$this->load->model('noticiasModel');
 
 		$noticias = $this->noticiasModel->getAll();
@@ -17,12 +17,12 @@ class Noticias extends CI_Controller {
 	public function novanoticia()
 	{
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-			$dados['NomeNoticia'] = $this->input->post("NomeNoticia");
-			$dados['DescricaoNoticia'] = $this->input ->post("DescricaoNoticia");
-			$dados['DataNoticia'] = $this->input ->post("DataNoticia");
-			$dados['ID_Noticia'] = $this->input ->post("ID_Noticia");
-			$dados['ClubeNoticia'] = $this->input ->post("ClubeNoticia");
-			$dados['ProfNoticia'] = $this->input ->post("ProfNoticia");
+			$dados['nome'] = $this->input->post("nome");
+			$dados['local'] = $this->input ->post("local");
+			$dados['descricao'] = $this->input ->post("descricao");
+			$dados['autor'] = $this->input ->post("autor");
+			$dados['estado'] = $this->input ->post("estado");
+			$dados['imagem'] = $this->input ->post("imagem");
 			
 			$this->load->model('noticiasModel');
 
@@ -55,12 +55,12 @@ class Noticias extends CI_Controller {
 	public function uptade()
 	{
 		$uri =& load_class('URI', 'core');
-		$ID_Noticia = $uri->segment(3);
+		$id_noticia = $uri->segment(3);
 
 		$this->load->helper(array('form'));
 		$this->load->model('noticiasModel');
 
-		$noticias = $this->noticiasModel->get($ID_Noticia);
+		$noticias = $this->noticiasModel->get($id_noticia);
 
 		$data['noticias'] = $noticias;
 
@@ -73,17 +73,19 @@ class Noticias extends CI_Controller {
 
 		$this->load->helper(array('form'));
 
-		$NomeNoticia = $this->input->post('NomeNoticia');
-		$DescricaoNoticia = $this->input->post('DescricaoNoticia');
-		$DataNoticia = $this->input->post('DataNoticia');
-		$ClubeNoticia = $this ->input ->post ('ClubeNoticia');
-		$ProfNoticia = $this ->input ->post ('ProfNoticia');
+		$nome = $this->input->post('nome');
+		$local = $this->input->post('local');
+		$descricao = $this->input->post('descricao');
+		$autor = $this ->input ->post ('autor');
+		$estado = $this ->input ->post ('estado');
+		$ProfNoticia = $this ->input ->post ('imagem');
 		
 		$data = array(
-			'NomeNoticia' => $NomeNoticia,
-			'DescricaoNoticia' => $DescricaoNoticia,
-			'DataNoticia' => $DataNoticia,
-			'ClubeNoticia' => $ClubeNoticia,
+			'nome' => $nome,
+			'local' => $local,
+			'descricao' => $descricao,
+			'autor' => $autor,
+			'estado' => $estado,
 			'ProfNoticia' => $ProfNoticia,
 			
 		);

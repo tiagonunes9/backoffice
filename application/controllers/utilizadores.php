@@ -18,9 +18,9 @@ class Utilizadores extends CI_Controller {
 	{
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-			$dados['TipoUser'] = $this->input->post("TipoUser");
-			$dados['NumeroEscolar'] = $this->input->post("NumeroEscolar");
-			$dados['Password'] = $this->input ->post("Password");
+			$dados['tipo_user'] = $this->input->post("tipo_user");
+			$dados['email'] = $this->input->post("email");
+			$dados['password'] = $this->input ->post("password");
 
 			$this->load->model('utilizadoresModel');
 
@@ -36,12 +36,12 @@ class Utilizadores extends CI_Controller {
 	public function uptade()
 	{
 		$uri =& load_class('URI', 'core');
-		$ID_User = $uri->segment(3);
+		$id_user = $uri->segment(3);
 
 		$this->load->helper(array('form'));
 		$this->load->model('utilizadoresModel');
 
-		$utilizadores = $this->utilizadoresModel->get($ID_User);
+		$utilizadores = $this->utilizadoresModel->get($id_user);
 
 		$data['utilizadores'] = $utilizadores;
 
@@ -55,17 +55,17 @@ class Utilizadores extends CI_Controller {
 
 		$this->load->helper(array('form'));
 		
-		$TipoUser = $this->input->post('TipoUser');
-		$NumeroEscolar = $this->input->post('NumeroEscolar');
-		$Password = $this->input->post('Password');
+		$tipo_user = $this->input->post('tipo_user');
+		$email = $this->input->post('email');
+		$password = $this->input->post('password');
 		$data = array(
-			'TipoUser' => $TipoUser,
-			'NumeroEscolar' => $NumeroEscolar,
-			'Password' => $Password,
+			'tipo_user' => $tipo_user,
+			'email' => $email,
+			'password' => $password,
 		);
 		$this->load->model('utilizadoresModel');
 
-		$utilizadores = $this->utilizadorModel->put($id, $data);
+		$utilizadores = $this->utilizadoresModel->put($id, $data);
 		
 		redirect('utilizadores');
 	}

@@ -36,23 +36,67 @@
     }
 
     .flex-item {
-      background: tomato;
+      background: white;
       line-height: 150px;
       color: white;
       font-weight: bold;
       font-size: 3em;
+      color: orange;
+      text-align: center;
+      flex-grow:0;
+      width: 20vw;
+    }
+    .perfil{
+      background: white;
+      line-height: 150px;
+      color: white;
+      font-weight: bold;
+      font-size: 3em;
+      color: orange;
       text-align: center;
       flex-grow:1;
       width: 20vw;
     }
-
+    .outros{
+      background: black;
+      line-height: 150px;
+      color: white;
+      font-weight: bold;
+      font-size: 3em;
+      color: orange;
+      text-align: center;
+      flex-grow:1;
+      width: 20vw;
+    }
+    .eventos{
+      background: black;
+      line-height: 150px;
+      color: white;
+      font-weight: bold;
+      font-size: 3em;
+      color: orange;
+      text-align: center;
+      flex-grow:1;
+      width: 20vw;
+    }
+    .noticias{
+      background: black;
+      line-height: 150px;
+      color: white;
+      font-weight: bold;
+      font-size: 3em;
+      color: orange;
+      text-align: center;
+      flex-grow:1;
+      width: 20vw;
+    }
     .flex-x {
       line-height: 150px;
       color: white;
       font-weight: bold;
       font-size: 3em;
       text-align: center;
-      flex-grow:4;
+      flex-grow:5;
       width:50vw;
     }
 
@@ -75,11 +119,24 @@
     <li class="flex-x">
       <ul class="flex-container">
 
-        <li class="flex-item">2</li>
-        <li class="flex-item">3</li>
-        <li class="flex-item">4</li>
-        <li class="flex-item">5</li>
-        <li class="flex-item">6</li>
+        <li class="flex-item perfil">
+          <div> <img src="assets/img/logo.svg" height="100px"></div>
+          <h2>Tiago Nunes</h2>
+          <h3>Administrador</h2>
+          <button>Editar Perfil</button>
+        </li>
+        <li class="flex-item outros">
+        <div> <img src="assets/img/logo.svg" height="100px"></div>
+          <h2>Tiago Nunes</h2>
+          <h3>Administrador</h2>
+          <button>Editar Perfil</button>
+        </li><br><br>
+        <h1>Por Aprovar _______________________________________________________________________________________</h1><br>
+        <li class="flex-item eventos">
+          <h2>Eventos</h2>
+        <li class="flex-item noticias">
+          <h2>Noticias</h2>
+        </li>
       </ul>
     </li>
   </ul>

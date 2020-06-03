@@ -13,22 +13,22 @@
 <div class="btn-group-vertical fundo">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link menu" href="<?php echo base_url(); ?>index.php/dashboardadmin">Dashboard</a>
+      <a class="nav-link" href="<?php echo base_url(); ?>index.php/dashboardadmin">Dashboard</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link menu" href="<?php echo base_url(); ?>index.php/utilizadores">Utilizadores</a>
+      <a class="nav-link" href="<?php echo base_url(); ?>index.php/utilizadores">Utilizadores</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link menu" href="<?php echo base_url(); ?>index.php/eventos">Eventos</a>
+      <a class="nav-link" href="<?php echo base_url(); ?>index.php/eventos">Eventos</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link menu" href="<?php echo base_url(); ?>index.php/noticias">Noticias</a>
+      <a class="nav-link" href="<?php echo base_url(); ?>index.php/noticias">Noticias</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link menu" href="<?php echo base_url(); ?>index.php/suporte">Suporte</a>
+      <a class="nav-link" href="<?php echo base_url(); ?>index.php/suporte">Suporte</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link menu" href="<?php echo base_url(); ?>index.php/perfil">Perfil</a>
+      <a class="nav-link" href="<?php echo base_url(); ?>index.php/perfil">Perfil</a>
     </li>
 
 

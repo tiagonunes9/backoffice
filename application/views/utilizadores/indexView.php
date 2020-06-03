@@ -3,54 +3,118 @@
 
 <head>
   <meta charset="utf-8">
-  <title>MY VIRIATO ADMINISTRADOR</title>
+  <title>Dashboard</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <?php
   $this->load->view('common/headLibraries');
   ?>
+  <link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.png">
   <style>
+    .jumbotron {
+      background-color: #F2F2F2 !important;
+    }
+
     body {
-      background-image: url("assets/img/fundo.svg");
-      background-repeat: no-repeat;
-      background-size: 100%;
-      background-color: #F2F2F2;
+      background-color: #F2F2F2 !important;
     }
 
-    h1{
-  color: #EDB347;
-  font-family: "Oswald";
-  font-weight: bold;
-}
-
-    .container {
-      margin-top: 5% !important;
+    h1 {
+      color: #EDB347;
+      font-family: "Oswald";
+      font-weight: bold;
     }
 
-    p {
-      color: #fff;
-      font-family: "Rubik"Medium !important;
-      align-items: center;
+    .flex-container {
+      display: flex;
+      flex-flow: row wrap;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .flex-item {
+      background: white;
+      line-height: 150px;
+      color: white;
+      font-weight: bold;
+      font-size: 3em;
+      color: orange;
+      text-align: center;
+      flex-grow: 0;
+      width: 20vw;
+    }
+
+
+    .flex-x {
+      line-height: 150px;
+      color: white;
+      font-weight: bold;
+      font-size: 3em;
+      text-align: center;
+      flex-grow: 5;
+      width: 50vw;
+    }
+
+    .nav {
+      flex-basis: auto;
+      background-color: #333333;
+      margin-left: 0px;
     }
   </style>
-  <link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.png">
 </head>
 
 <body>
-  <?php
-  $this->load->view('common/navBaradmin');
-  ?>
 
 
+  <ul class="flex-container">
+    <li class="flex-item nav">
+      <?php
+      $this->load->view('common/navBaradmin');
+      ?></li>
+    <li class="flex-x">
+      <ul class="flex-container">
 
-  <div class="container">
-  </div>
+        <li class="flex-item">
+          <div class="container">
+            <h1>Gerir Professores</h1> <br>
+            <div class="form-group input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+              <input name="consulta" id="txt_consulta" placeholder="Pesquisar..." type="text" class="form-control">
+            </div>
+
+
+            <table class="table admin">
+              <tr class="tabela1">
+                <th width="250"> Tipo Utilizador </th>
+                <th width="250"> Email </th>
+                <th> Morada </th>
+                <th width="70"></th>
+                <th width="70"><a class="btn btn-sm btn-primary" href="utilizadores/novoutilizador">Novo</a></th>
+              </tr>
+              <?php
+              foreach ($utilizadores as $key => $value) {
+                echo '<tr><td>' . $value->tipo_user . "</td>";
+                echo '<td>' . $value->email . '</td>';
+                echo '<td><a href="' . base_url() . 'index.php/utilizadores/uptade/' . $value->id_user . '" class="btn btn-sm btn-warning">Editar</a></td>';
+                echo '<td><a href="' . base_url() . 'index.php/utilizadores/delete/' . $value->id_user . '" class="btn btn-sm btn-danger">Eliminar</a></td></tr>';
+              }
+              ?>
+            </table>
+          </div><br><br>
+
+
+          <script>
+            $('input#txt_consulta').quicksearch('table#tabela tbody tr');
+          </script>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+
 </body>
 
 </html>
-
-
-<?php
-$this->load->view('common/footLibraries');
-?>

@@ -3,24 +3,56 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>MY VIRIATO ADMINISTRADOR</title>
+	<title>Dashboard</title>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<?php
 	$this->load->view('common/headLibraries');
 	?>
+	<link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.png">
 	<style>
-		.branco {
+		.jumbotron {
+			background-color: #F2F2F2 !important;
+		}
+
+		h1 {
+			color: #EDB347;
+			font-family: "Oswald";
+			font-weight: bold;
+		}
+
+		.flex-container {
+			display: flex;
+			flex-flow: row wrap;
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+
+		.flex-x {
+			line-height: 150px;
+			color: white;
+			font-weight: bold;
+			font-size: 3em;
+			text-align: center;
+			flex-grow: 1;
+			width: 50vw;
+		}
+
+		.direito {
+			flex-basis: auto;
 			background-color: white;
-			height: max-content;
+			margin-left: 0px;
+			flex-grow: 50;
 		}
 
-		.amarelo {
+		.formulario {
 			background-color: #EEC94C;
-			height: 100%;
+			flex-basis: auto;
 		}
-
+		
 		p{
 			color:white;
 			font-family: "Oswald";
@@ -28,47 +60,20 @@
 			font-size:25px;
 		}
 
-		.geral{
-			background-color: #E47A3F;
-			color:white;
-			font-family: "Oswald";
-			font-weight: bold;
-			font-size:25px;
-			height:150%;
-		}
-
-		.outra{
-			color:white;
-			font-family: "Oswald";
-			font-weight: bold;
-			font-size:15px;
-		}
-
-		.formulario{
-			margin-left: auto;
-  			margin-right: auto;
-			float: right;
-		}
 	</style>
-	<link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.ico">
 </head>
 
 <body>
-	<div class="container">
-		<div class="row">
 
-			<?php
-			if (validation_errors() != false) {
-				echo '<div class="alert alert-warning">' . validation_errors() . '</div>';
-			}
-			?>
-		</div>
-		<div class="row">
+
+	<ul class="flex-container">
+		<li class="flex-item direito">
 			<div class="col-sm-8 branco">
 				<img src="assets/img/logo.svg" height="100px">
 			</div>
-			<div class="col-sm-4 amarelo">
-				<div class="formulario">
+		<li class="flex-x">
+			<ul class="flex-container formulario">
+
 				<?php echo form_open(base_url() . 'index.php/auth/signIn'); ?>
 
 				<div class="form-group">
@@ -79,16 +84,13 @@
 					<p>Password</p>
 					<input type="password" name="password" class="form-control">
 				</div>
-					<p class="outra">Recuperar password</p>
+				<p class="outra">Recuperar password</p>
 				<button type="submit" class="btn btn-default geral">LOGIN</button>
-				</div>
-			</div>
-		</div>
-	</div>
+			</ul>
+		</li>
+	</ul>
+
+
 </body>
 
 </html>
-
-<?php
-$this->load->view('common/footLibraries');
-?>
