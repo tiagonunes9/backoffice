@@ -51,17 +51,34 @@
     .flex-x {
       line-height: 150px;
       color: white;
-      font-weight: bold;
+      font-weight: lighter;
       font-size: 3em;
       text-align: center;
       flex-grow: 5;
       width: 50vw;
+      color:#707070;
+      font-family: 'Oswald';
     }
 
     .nav {
       flex-basis: auto;
       background-color: #333333;
       margin-left: 0px;
+    }
+
+    .admin{
+      background-color: white;
+    }
+
+    p{
+      color:#707070;
+    }
+
+    .admin{
+      background-color: white;
+      margin:5%;
+      -webkit-box-shadow: 1px 1px 20px 3px rgba(0,0,0,0.23); 
+      box-shadow: 1px 1px 20px 3px rgba(0,0,0,0.23);
     }
   </style>
 </head>
@@ -76,10 +93,7 @@
       ?></li>
     <li class="flex-x">
       <ul class="flex-container">
-
-        <li class="flex-item">
-          <div class="container">
-            <h1>Gerir Suporte</h1> <br>
+            <h1>Suporte</h1> <br>
             <div class="form-group input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
               <input name="consulta" id="txt_consulta" placeholder="Pesquisar..." type="text" class="form-control">
@@ -87,7 +101,7 @@
 
 
             <table class="table admin">
-              <tr class="tabela1">
+              <tr class="tabela">
                 <th width="250"> Nome </th>
                 <th width="250"> Assunto </th>
                 <th width="70"></th>
@@ -100,13 +114,10 @@
               }
               ?>
             </table>
-          </div><br><br>
-
 
           <script>
             $('input#txt_consulta').quicksearch('table#tabela tbody tr');
           </script>
-        </li>
       </ul>
     </li>
   </ul>

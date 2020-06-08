@@ -51,11 +51,13 @@
     .flex-x {
       line-height: 150px;
       color: white;
-      font-weight: bold;
+      font-weight: lighter;
       font-size: 3em;
       text-align: center;
       flex-grow: 5;
       width: 50vw;
+      color:#707070;
+      font-family: 'Oswald';
     }
 
     .nav {
@@ -63,6 +65,35 @@
       background-color: #333333;
       margin-left: 0px;
     }
+
+    p{
+      color:#707070;
+    }
+
+    .admin{
+      background-color: white;
+      margin:5%;
+      -webkit-box-shadow: 1px 1px 20px 3px rgba(0,0,0,0.23); 
+      box-shadow: 1px 1px 20px 3px rgba(0,0,0,0.23);
+    }
+
+    .link{
+      color:#2F898D;
+      font-family: 'Oswald';
+      font-weight: bold;
+    }
+
+    .info{
+      background-color:#2F898D;
+      font-family: 'Oswald';
+      font-weight: bold;
+    }
+    .eliminar{
+      color:#E47A3F;
+      font-family: 'Oswald';
+      font-weight: bold;
+    }
+    
   </style>
 </head>
 
@@ -76,10 +107,7 @@
       ?></li>
     <li class="flex-x">
       <ul class="flex-container">
-
-        <li class="flex-item">
-          <div class="container">
-            <h1>Gerir Professores</h1> <br>
+            <h1>Utilizadores</h1> <br>
             <div class="form-group input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
               <input name="consulta" id="txt_consulta" placeholder="Pesquisar..." type="text" class="form-control">
@@ -87,29 +115,26 @@
 
 
             <table class="table admin">
-              <tr class="tabela1">
-                <th width="250"> Tipo Utilizador </th>
-                <th width="250"> Email </th>
-                <th> Morada </th>
-                <th width="70"></th>
-                <th width="70"><a class="btn btn-sm btn-primary" href="utilizadores/novoutilizador">Novo</a></th>
+              <tr class="tabela">
+                <th width="25%"><p> Nome </p></th>
+                <th width="25%"> <p>Permissões</p> </th>
+                <th width="7%"></th>
+                <th width="10%"><a img src="assets/img/add.PNG" href="utilizadores/novoutilizador"><p class="link">Adicionar utilizador</p></a></th>
               </tr>
               <?php
               foreach ($utilizadores as $key => $value) {
-                echo '<tr><td>' . $value->tipo_user . "</td>";
+                echo '<tr><td>' . $value->nome . "</td>"; 
+                echo '<td><a href="' . base_url() . 'index.php/utilizadores/uptade/' . $value->id_user . '" class="btn btn-sm info">Info</a></td>';
                 echo '<td>' . $value->email . '</td>';
-                echo '<td><a href="' . base_url() . 'index.php/utilizadores/uptade/' . $value->id_user . '" class="btn btn-sm btn-warning">Editar</a></td>';
-                echo '<td><a href="' . base_url() . 'index.php/utilizadores/delete/' . $value->id_user . '" class="btn btn-sm btn-danger">Eliminar</a></td></tr>';
+                echo '<td><a href="' . base_url() . 'index.php/utilizadores/delete/' . $value->id_user . '" ><p class="eliminar">Eliminar</p></a></td></tr>';
               }
               ?>
             </table>
-          </div><br><br>
 
 
           <script>
             $('input#txt_consulta').quicksearch('table#tabela tbody tr');
           </script>
-        </li>
       </ul>
     </li>
   </ul>

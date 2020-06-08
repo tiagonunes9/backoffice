@@ -76,14 +76,7 @@
       ?></li>
     <li class="flex-x">
       <ul class="flex-container">
-
-        <li class="flex-item">
-          <div class="container">
-            <h1>Gerir Professores</h1> <br>
-            <div class="form-group input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-              <input name="consulta" id="txt_consulta" placeholder="Pesquisar..." type="text" class="form-control">
-            </div>
+            <h1>Eventos</h1> <br>
 
 
             <table class="table admin">
@@ -102,13 +95,7 @@
               }
               ?>
             </table>
-          </div><br><br>
 
-
-          <script>
-            $('input#txt_consulta').quicksearch('table#tabela tbody tr');
-          </script>
-        </li>
       </ul>
     </li>
   </ul>

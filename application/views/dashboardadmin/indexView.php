@@ -130,7 +130,7 @@
           <h2>Tiago Nunes</h2>
           <h3>Administrador</h2>
           <button>Editar Perfil</button>
-        </li><br><br>
+        </li><br>
         <h1>Por Aprovar _______________________________________________________________________________________</h1><br>
         <li class="flex-item eventos">
           <h2>Eventos</h2>
