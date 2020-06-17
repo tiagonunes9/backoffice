@@ -12,6 +12,7 @@
 
 <div class="btn-group-vertical fundo">
   <ul class="navbar-nav mr-auto">
+  <img src="assets/img/logo.svg" class="imagem">
     <li class="nav-item">
       <a class="nav-link" href="<?php echo base_url(); ?>index.php/dashboardadmin">Dashboard</a>
     </li>

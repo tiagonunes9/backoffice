@@ -1,46 +1,37 @@
 <style>
-.barranavegacao{
-  background-color:#333333;
-}
+  a {
+    color: white;
+    font-size: 20%;
+  }
 
-
-.menu{
-  color:white !important;
-  font-family: "Oswald" !important;
-  font-weight: lighter;
-  font-size:25px;
-}
+  a:hover {
+    color: white;
+    font-size: 30%;
+  }
 </style>
 
-<nav class="navbar navbar-expand-lg navbar-light barranavegacao">
-<a class="nav-link menu" href="<?php echo base_url(); ?>index.php/dashboardadmin"><img  src="<?php echo base_url('assets/img/logoV.png'); ?>" width=125px /></a>  
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<div class="btn-group-vertical fundo">
+  <ul class="navbar-nav mr-auto">
+  <img src="assets/img/logo.svg" class="imagem">
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo base_url(); ?>index.php/dashboarmanager">Dashboard</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo base_url(); ?>index.php/eventos">Eventos</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo base_url(); ?>index.php/noticias">Noticias</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo base_url(); ?>index.php/suporte">Suporte</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo base_url(); ?>index.php/perfil">Perfil</a>
+    </li>
 
-  <div class="vertical-menu">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link menu" href="<?php echo base_url(); ?>index.php/dashboardadmin">Dashboard</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link menu" href="<?php echo base_url(); ?>index.php/utilizadores">Utilizadores</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link menu" href="<?php echo base_url(); ?>index.php/eventos">Eventos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link menu" href="<?php echo base_url(); ?>index.php/noticias">Noticias</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link menu" href="<?php echo base_url(); ?>index.php/suporte">Suporte</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link menu" href="<?php echo base_url(); ?>index.php/perfil">Perfil</a>
-      </li>
-      
-      
-    </ul>
-        <a class="nav-link menu" href="<?php echo base_url(); ?>index.php/auth/logout">Terminar Sessão</a>
-  </div>
-</nav>
+
+  </ul>
+  <a></a>
+  <a class="nav-link menu" href="<?php echo base_url(); ?>index.php/auth/logout">Terminar Sessão</a>
+</div>
+</div>

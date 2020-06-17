@@ -30,7 +30,7 @@ h1{
 
 
     <?php
-		$this->load->view('common/navBar');
+		$this->load->view('common/navBarmanager');
     ?>
 	<div id="container">
 		<div class="jumbotron">

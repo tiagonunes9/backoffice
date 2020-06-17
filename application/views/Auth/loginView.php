@@ -50,16 +50,29 @@
 
 		.formulario {
 			background-color: #EEC94C;
-			flex-basis: auto;
+			width: 100%;
 		}
 		
 		p{
 			color:white;
 			font-family: "Oswald";
 			font-weight: bold;
-			font-size:25px;
+			font-size:45%;
 		}
 
+		.geral{
+			background-color: #E47A3F;
+			color:white;
+			font-family: "Oswald";
+			font-weight: bold;
+			width:100%;
+		}
+
+		.imagem{
+			width: 25%;
+			margin-top: 50%;
+			margin-left:50%;
+		}
 	</style>
 </head>
 
@@ -69,7 +82,7 @@
 	<ul class="flex-container">
 		<li class="flex-item direito">
 			<div class="col-sm-8 branco">
-				<img src="assets/img/logo.svg" height="100px">
+				<img src="assets/img/logo.svg" class="imagem">
 			</div>
 		<li class="flex-x">
 			<ul class="flex-container formulario">

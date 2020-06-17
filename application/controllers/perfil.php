@@ -5,92 +5,52 @@ class perfil extends CI_Controller {
 	public function index()
 	{
 		if(!(isset($_SESSION['email'])) || $_SESSION['email']==null){redirect(base_url());}
-		$this->load->model('noticiasModel');
+		$this->load->model('utilizadoresModel');
 
-		$noticias = $this->noticiasModel->getAll();
+		$utilizadores = $this->utilizadoresModel->getAll();
 
-		$data['noticias'] = $noticias;
+		$data['utilizadores'] = $utilizadores;
 
 		$this->load->view('perfil/indexView', $data);
 	}
 
-	public function novanoticia()
-	{
-		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-			$dados['NomeNoticia'] = $this->input->post("NomeNoticia");
-			$dados['DescricaoNoticia'] = $this->input ->post("DescricaoNoticia");
-			$dados['DataNoticia'] = $this->input ->post("DataNoticia");
-			$dados['ID_Noticia'] = $this->input ->post("ID_Noticia");
-			$dados['ClubeNoticia'] = $this->input ->post("ClubeNoticia");
-			$dados['ProfNoticia'] = $this->input ->post("ProfNoticia");
-			
-			$this->load->model('noticiasModel');
-
-			$valid = $this->noticiasModel->post($dados);
-
-			redirect("noticias");
-		}
-		
-		$this->load->helper(array('form', 'url'));
-		$this->load->view("noticias/newView");
-	}
-
-	
-
-	public function delete(){
-		$uri =& load_class('URI', 'core');
-		$id = $uri->segment(3);
-
-		$this->load->helper(array('form', 'url'));
-		
-		$this->load->model('noticiasModel');
-
-		$this->noticiasModel->delete($id);
-		
-		redirect('noticias');
-	}
-
-	
-
 	public function uptade()
 	{
 		$uri =& load_class('URI', 'core');
-		$ID_Noticia = $uri->segment(3);
+		$id_user = $uri->segment(3);
 
 		$this->load->helper(array('form'));
-		$this->load->model('noticiasModel');
+		$this->load->model('utilizadoresModel');
 
-		$noticias = $this->noticiasModel->get($ID_Noticia);
+		$utilizadores = $this->utilizadoresModel->get($id_user);
 
-		$data['noticias'] = $noticias;
+		$data['utilizadores'] = $utilizadores;
 
-		$this->load->view('noticias/editView', $data);
-	}
+		$this->load->view('perfil/editView', $data);
+	}	
+
 
 	public function update(){
 		$uri =& load_class('URI', 'core');
 		$id = $uri->segment(3);
 
 		$this->load->helper(array('form'));
-
-		$NomeNoticia = $this->input->post('NomeNoticia');
-		$DescricaoNoticia = $this->input->post('DescricaoNoticia');
-		$DataNoticia = $this->input->post('DataNoticia');
-		$ClubeNoticia = $this ->input ->post ('ClubeNoticia');
-		$ProfNoticia = $this ->input ->post ('ProfNoticia');
 		
+		$tipo_user = $this->input->post('tipo_user');
+		$email = $this->input->post('email');
+		$password = $this->input->post('password');
+		$morada = $this->input->post('morada');
+		$contacto = $this->input->post('contacto');
 		$data = array(
-			'NomeNoticia' => $NomeNoticia,
-			'DescricaoNoticia' => $DescricaoNoticia,
-			'DataNoticia' => $DataNoticia,
-			'ClubeNoticia' => $ClubeNoticia,
-			'ProfNoticia' => $ProfNoticia,
-			
+			'tipo_user' => $tipo_user,
+			'email' => $email,
+			'password' => $password,
+			'contacto' => $contacto,
 		);
-		$this->load->model('noticiasModel');
+		$this->load->model('utilizadoresModel');
 
-		$noticias = $this->noticiasModel->put($id, $data);
+		$utilizadores = $this->utilizadoresModel->put($id, $data);
 		
-		redirect('noticias');
+		redirect('perfil');
 	}
 }

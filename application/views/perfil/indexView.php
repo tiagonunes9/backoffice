@@ -76,8 +76,28 @@
       ?></li>
     <li class="flex-x">
       <ul class="flex-container">
-            <h1>Perfil</h1> <br>
-          
+        <h1>Perfil</h1> <br>
+        <?php echo form_open(base_url() . 'index.php/perfil/update/' . $perfil[0]->id_user); ?>
+
+        <div class="form-group col-md-6 offset-md-3 tabela2">
+          <br><label>Tipo de Utilizador:</label>
+          <input type="text" name="id_user" value="<?php echo $perfil[0]->id_user; ?>" class="form-control" placeholder="Tem de ser 2!">
+          <label>Nome:</label>
+          <input type="text" name="nome" value="<?php echo $perfil[0]->nome; ?>" class="form-control">
+          <label>Email:</label>
+          <input type="text" name="email" value="<?php echo $perfil[0]->email; ?>" class="form-control">
+          <label>Telemóvel:</label>
+          <input type="text" name="contacto" value="<?php echo $perfil[0]->contacto; ?>" class="form-control">
+          <label>Localidade:</label>
+          <input type="text" name="morada" value="<?php echo $perfil[0]->morada; ?>" class="form-control">
+          <label>Password:</label>
+          <input type="password" name="password" value="<?php echo $perfil[0]->password; ?>" class="form-control">
+          <br>
+          <div class="col-md-6 offset-md-3">
+            <button type="submit" class="btn btn-default btnadmin">Guardar</button><br><br>
+          </div>
+        </div>
+
       </ul>
     </li>
   </ul>
