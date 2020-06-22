@@ -23,6 +23,7 @@ class Noticias extends CI_Controller {
 			$dados['autor'] = $this->input ->post("autor");
 			$dados['estado'] = $this->input ->post("estado");
 			$dados['imagem'] = $this->input ->post("imagem");
+			$dados['data'] = $this->input ->post("data");
 			
 			$this->load->model('noticiasModel');
 
@@ -78,7 +79,8 @@ class Noticias extends CI_Controller {
 		$descricao = $this->input->post('descricao');
 		$autor = $this ->input ->post ('autor');
 		$estado = $this ->input ->post ('estado');
-		$ProfNoticia = $this ->input ->post ('imagem');
+		$imagem = $this ->input ->post ('imagem');
+		$data = $this ->input ->post ('data');
 		
 		$data = array(
 			'nome' => $nome,
@@ -86,7 +88,8 @@ class Noticias extends CI_Controller {
 			'descricao' => $descricao,
 			'autor' => $autor,
 			'estado' => $estado,
-			'ProfNoticia' => $ProfNoticia,
+			'imagem' => $imagem,
+			'data' => $data,
 			
 		);
 		$this->load->model('noticiasModel');

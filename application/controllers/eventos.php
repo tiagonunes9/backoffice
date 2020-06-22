@@ -23,6 +23,7 @@ class Eventos extends CI_Controller {
 			$dados['autor'] = $this->input ->post("autor");
 			$dados['estado'] = $this->input ->post("estado");
 			$dados['imagem'] = $this->input ->post("imagem");
+			$dados['data'] = $this->input ->post("data");
 			
 			$this->load->model('eventosModel');
 
@@ -80,6 +81,7 @@ class Eventos extends CI_Controller {
 		$autor = $this ->input ->post ('autor');
 		$estado = $this ->input ->post ('estado');
 		$imagem = $this ->input ->post ('imagem');
+		$data = $this ->input ->post ('data');
 		
 		$data = array(
 			'nome' => $nome,
@@ -88,6 +90,7 @@ class Eventos extends CI_Controller {
 			'autor' => $autor,
 			'estado' => $estado,
 			'imagem' => $imagem,
+			'data' => $data,
 			
 		);
 		$this->load->model('eventosModel');
