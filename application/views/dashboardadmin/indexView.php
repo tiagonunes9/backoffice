@@ -43,10 +43,11 @@
       font-size: 3em;
       color: orange;
       text-align: center;
-      flex-grow:0;
-      width: 20vw;
+      flex-grow: 0;
+      width: 15vw;
     }
-    .perfil{
+
+    .perfil {
       background: white;
       line-height: 150px;
       color: white;
@@ -54,10 +55,11 @@
       font-size: 3em;
       color: orange;
       text-align: center;
-      flex-grow:1;
+      flex-grow: 1;
       width: 20vw;
     }
-    .outros{
+
+    .outros {
       background: black;
       line-height: 150px;
       color: white;
@@ -65,10 +67,11 @@
       font-size: 3em;
       color: orange;
       text-align: center;
-      flex-grow:1;
+      flex-grow: 1;
       width: 20vw;
     }
-    .eventos{
+
+    .eventos {
       background: black;
       line-height: 150px;
       color: white;
@@ -76,34 +79,45 @@
       font-size: 3em;
       color: orange;
       text-align: center;
-      flex-grow:1;
+      flex-grow: 1;
       width: 20vw;
     }
-    .noticias{
+
+    .noticias {
       background: black;
       line-height: 150px;
       color: white;
       font-weight: bold;
       font-size: 3em;
-      color: orange;
+      color: blue;
       text-align: center;
-      flex-grow:1;
+      flex-grow: 1;
       width: 20vw;
     }
+
     .flex-x {
       line-height: 150px;
       color: white;
       font-weight: bold;
       font-size: 3em;
       text-align: center;
-      flex-grow:5;
-      width:50vw;
+      flex-grow: 5;
+      width: 50vw;
     }
 
     .nav {
       flex-basis: auto;
       background-color: #333333;
       margin-left: 0px;
+    }
+
+    .extra {
+      color: white;
+      -webkit-box-shadow: -4px 4px 23px -5px rgba(145, 145, 145, 1);
+      -moz-box-shadow: -4px 4px 23px -5px rgba(145, 145, 145, 1);
+      box-shadow: -4px 4px 23px -5px rgba(145, 145, 145, 1);
+      font-family: "Oswald";
+      font-weight:normal;
     }
   </style>
 </head>
@@ -120,20 +134,24 @@
       <ul class="flex-container">
 
         <li class="flex-item perfil">
-          <div> <img src="assets/img/logo.svg" height="100px"></div>
-          <h2>Tiago Nunes</h2>
-          <h3>Administrador</h2>
-          <button>Editar Perfil</button>
+          <div> <img src="assets/img/user.png" height="100px"></div>
+          <h2><?php
+              if (isset($this->session->nome))
+                echo $_SESSION['nome'];
+              echo $_SESSION['email'];
+              ?></h2>
+          <button class="btn btn-warning extra">Editar Perfil</button>
         </li>
         <li class="flex-item outros">
-        <div> <img src="assets/img/logo.svg" height="100px"></div>
-          <h2>Tiago Nunes</h2>
-          <h3>Administrador</h2>
-          <button>Editar Perfil</button>
+          <div> <img src="assets/img/calendar.png" height="100px"></div>
+          <h2>Gestão de Utilizadores</h2>
+          <h3>Adicione ou remova utilizadores</h3>
+          <button class="btn btn-warning extra">Ir para lá</button>
         </li><br>
         <h1>Por Aprovar _______________________________________________________________________________________</h1><br>
         <li class="flex-item eventos">
           <h2>Eventos</h2>
+          
         <li class="flex-item noticias">
           <h2>Noticias</h2>
         </li>

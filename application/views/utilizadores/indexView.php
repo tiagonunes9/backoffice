@@ -44,7 +44,7 @@
       color: orange;
       text-align: center;
       flex-grow: 0;
-      width: 20vw;
+      width: 15vw;
     }
 
 
@@ -83,13 +83,14 @@
       color: #2F898D;
       font-family: 'Oswald';
       font-weight: bold;
-      font-size: 200%;
+      font-size: 50%;
     }
 
     .info {
       background-color: #2F898D;
       font-family: 'Oswald';
       font-weight: bold;
+      color:white;
     }
 
     .eliminar {
@@ -112,6 +113,11 @@
     .outro {
       background-color: white;
     }
+
+     .title-divider-right {
+    width: 30%;
+    padding: 0 10% 0 0; 
+  }
   </style>
 </head>
 
@@ -125,7 +131,10 @@
       ?></li>
     <li class="flex-x">
       <ul class="flex-container">
-        <h1>Utilizadores</h1> <br>
+        <h1>Utilizadores</h1> 
+        <div class="title-divider-right">
+                <hr>
+            </div> <br>
 
 
 
@@ -140,8 +149,7 @@
             <th width="5%"></th>
             <th width="30%"></th>
             <th width="10%">
-              <a img src="assets/img/add.PNG" href="utilizadores/novoutilizador">
-                <p class="link">Adicionar utilizador</p>
+               <a href="utilizadores/novoutilizador" class="link"><img src="assets/img/add.PNG"/>Adicionar utilizador</a>
               </a>
             </th>
           </tr>

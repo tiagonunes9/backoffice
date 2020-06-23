@@ -44,7 +44,7 @@
       color: orange;
       text-align: center;
       flex-grow: 0;
-      width: 20vw;
+      width: 15vw;
     }
 
 
@@ -63,6 +63,21 @@
       background-color: #333333;
       margin-left: 0px;
     }
+
+    .adicionar {
+      color: #2F898D;
+      font-family: "Oswald";
+      font-weight: normal;
+      font-size: 50%;
+    }
+
+    .adicionar:hover {
+      color: #2F898D;
+      font-family: "Oswald";
+      font-weight: normal;
+      font-size: 50%;
+      text-decoration: none;
+    }
   </style>
 </head>
 
@@ -76,25 +91,17 @@
       ?></li>
     <li class="flex-x">
       <ul class="flex-container">
-            <h1>Eventos</h1> <br>
+        <h1>Eventos</h1>
+        <hr><br>
 
-
-            <table class="table admin">
-              <tr class="tabela1">
-                <th width="250"> Nome </th>
-                <th width="250"> Descricao </th>
-                <th width="70"></th>
-                <th width="70"><a class="btn btn-sm btn-primary" href="eventos/novoevento">Novo</a></th>
-              </tr>
-              <?php
-              foreach ($eventos as $key => $value) {
-                echo '<tr><td>' . $value->nome . "</td>";
-                echo '<td>' . $value->descricao . '</td>';
-                echo '<td><a href="' . base_url() . 'index.php/noticias/uptade/' . $value->id_evento . '" class="btn btn-sm btn-warning">Editar</a></td>';
-                echo '<td><a href="' . base_url() . 'index.php/noticias/delete/' . $value->id_evento . '" class="btn btn-sm btn-danger">Eliminar</a></td></tr>';
-              }
-              ?>
-            </table>
+        <a class="adicionar" href="eventos/novoevento">Adicionar Evento</a>
+        <?php
+        foreach ($eventos as $key => $value) {
+          echo '<tr><td>' . $value->nome . "</td>";
+          echo '<td>' . $value->descricao . '</td>';
+          echo '<td><a href="' . base_url() . 'index.php/noticias/delete/' . $value->id_evento . '" class="btn btn-sm btn-danger">Eliminar</a></td></tr>';
+        }
+        ?>
 
       </ul>
     </li>

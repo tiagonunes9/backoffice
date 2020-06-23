@@ -44,7 +44,7 @@
       color: orange;
       text-align: center;
       flex-grow: 0;
-      width: 20vw;
+      width: 15vw;
     }
 
 
@@ -79,9 +79,8 @@
         <h1>Perfil</h1> <br>
         <?php echo form_open(base_url() . 'index.php/perfil/update/' . $perfil[0]->id_user); ?>
 
-        <div class="form-group col-md-6 offset-md-3 tabela2">
-          <br><label>Tipo de Utilizador:</label>
-          <input type="text" name="id_user" value="<?php echo $perfil[0]->id_user; ?>" class="form-control" placeholder="Tem de ser 2!">
+        <div >
+          <br>
           <label>Nome:</label>
           <input type="text" name="nome" value="<?php echo $perfil[0]->nome; ?>" class="form-control">
           <label>Email:</label>

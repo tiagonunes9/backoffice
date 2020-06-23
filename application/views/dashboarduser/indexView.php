@@ -44,7 +44,7 @@
       color: orange;
       text-align: center;
       flex-grow:0;
-      width: 20vw;
+      width: 15vw;
     }
     .perfil{
       background: white;

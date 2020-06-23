@@ -5,9 +5,9 @@ class perfil extends CI_Controller {
 	public function index()
 	{
 		if(!(isset($_SESSION['email'])) || $_SESSION['email']==null){redirect(base_url());}
-		$this->load->model('utilizadoresModel');
+		$this->load->model('perfilModel');
 
-		$utilizadores = $this->utilizadoresModel->getAll();
+		$utilizadores = $this->perfilModel->getAll();
 
 		$data['utilizadores'] = $utilizadores;
 
@@ -20,13 +20,13 @@ class perfil extends CI_Controller {
 		$id_user = $uri->segment(3);
 
 		$this->load->helper(array('form'));
-		$this->load->model('utilizadoresModel');
+		$this->load->model('perfilModel');
 
-		$utilizadores = $this->utilizadoresModel->get($id_user);
+		$utilizadores = $this->perfilModel->get($id_user);
 
 		$data['utilizadores'] = $utilizadores;
 
-		$this->load->view('perfil/editView', $data);
+		$this->load->view('perfil/indexView', $data);
 	}	
 
 
@@ -36,21 +36,26 @@ class perfil extends CI_Controller {
 
 		$this->load->helper(array('form'));
 		
-		$tipo_user = $this->input->post('tipo_user');
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 		$morada = $this->input->post('morada');
-		$contacto = $this->input->post('contacto');
+		$contato = $this->input->post('contato');
+		$imagem = $this->input->post('imagem');
+		$nome = $this->input->post('nome');
 		$data = array(
-			'tipo_user' => $tipo_user,
 			'email' => $email,
 			'password' => $password,
-			'contacto' => $contacto,
+			'morada' => $morada,
+			'contato' => $contato,
+			'imagem' => $imagem,
+			'nome' => $nome,
+			
 		);
-		$this->load->model('utilizadoresModel');
+		$this->load->model('perfilModel');
 
-		$utilizadores = $this->utilizadoresModel->put($id, $data);
+		$utilizadores = $this->perfilModel->put($id, $data);
 		
 		redirect('perfil');
 	}
+	
 }

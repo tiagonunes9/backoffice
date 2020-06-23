@@ -81,8 +81,6 @@
             width:80%;
             border:20;
         }
-
-     
     </style>
 </head>
 
@@ -96,10 +94,10 @@
             ?></li>
         <li class="flex-x">
             <ul class="flex-container">
-                <h1>Eventos</h1> <hr class="traço"><br>
+                <h1>Utilizadores</h1> <hr class="traço"><br>
 
 
-                <?php echo form_open(base_url() . 'index.php/eventos/novoevento/'); ?>
+                <?php echo form_open(base_url() . 'index.php/utilizadores/novoutilizador/'); ?>
 
                 <div class="admin">
                     <label class="textito">Nome do Evento:</label>

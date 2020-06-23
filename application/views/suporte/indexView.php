@@ -44,7 +44,7 @@
       color: orange;
       text-align: center;
       flex-grow: 0;
-      width: 20vw;
+      width: 15vw;
     }
 
 
@@ -94,30 +94,63 @@
     <li class="flex-x">
       <ul class="flex-container">
             <h1>Suporte</h1> <br>
-            <div class="form-group input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-              <input name="consulta" id="txt_consulta" placeholder="Pesquisar..." type="text" class="form-control">
-            </div>
-
-
+            
             <table class="table admin">
-              <tr class="tabela">
-                <th width="250"> Nome </th>
-                <th width="250"> Assunto </th>
-                <th width="70"></th>
-              </tr>
-              <?php
-              foreach ($suporte as $key => $value) {
-                echo '<tr><td>' . $value->nome . "</td>";
-                echo '<td>' . $value->assunto . '</td>';
-                echo '<td><a href="' . base_url() . 'index.php/suporte/uptade/' . $value->id_suporte . '" class="btn btn-sm btn-warning">Editar</a></td>';
-              }
-              ?>
-            </table>
+          <tr class="outro">
+            <th width="10%">
+              <div class="form-group input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                <input name="consulta" id="txt_consulta" placeholder="Procurar..." type="text" class="form-control">
+              </div>
+            </th>
+            <th width="5%"></th>
+            <th width="30%"></th>
+          </tr>
 
-          <script>
-            $('input#txt_consulta').quicksearch('table#tabela tbody tr');
-          </script>
+
+          <tr class="tabela">
+            <th width="10%">
+              <p>Nome</p>
+            </th>
+            <th width="5%"></th>
+            <th width="30%">
+              <p>Assunto</p>
+            </th>
+            <th width="10%"></th>
+          </tr>
+          <?php
+          foreach ($suporte as $key => $value) {
+            echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
+            echo '<td><button type="button" class="btn btn-primary info" data-toggle="modal" data-target="#exampleModal">'.'<p>Info</p></button></td>';
+            echo '<td>' . '<p class="texto">' . $value->assunto . '</p>' . '</td>';
+            echo '<td><a href="' . base_url() . 'index.php/suporte/delete/' . $value->id_user . '" ><p class="eliminar">Eliminar</p></a></td></tr>';
+          }
+          ?>
+        </table>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          $('input#txt_consulta').quicksearch('table#tabela tbody tr');
+        </script>
       </ul>
     </li>
   </ul>
