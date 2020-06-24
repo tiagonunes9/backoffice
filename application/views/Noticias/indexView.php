@@ -78,6 +78,10 @@
       font-size: 50%;
       text-decoration: none;
     }
+    .icone{
+    width: 25%;
+    height: auto;
+  }
   </style>
 </head>
 
@@ -95,7 +99,7 @@
         <hr><br>
 
 
-        <a class="adicionar" href="noticias/novanoticia"><img src="assets/img/add.PNG"/>Adicionar Noticia</a>
+        <a class="adicionar" href="noticias/novanoticia"><img src="../assets/img/add.PNG" class="icone"/>Adicionar Noticia</a>
         </tr>
         <?php
         foreach ($noticias as $key => $value) {

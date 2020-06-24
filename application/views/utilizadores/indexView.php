@@ -122,6 +122,11 @@
     width: 30%;
     padding: 0 10% 0 0; 
   }
+
+  .icone{
+    width: 20%;
+    height: auto;
+  }
   </style>
 </head>
 
@@ -153,7 +158,7 @@
             <th width="5%"></th>
             <th width="30%"></th>
             <th width="10%">
-               <a href="utilizadores/novoutilizador" class="link"><img src="assets/img/add.PNG"/>Adicionar utilizador</a>
+               <a href="utilizadores/novoutilizador" class="link"><img src="../assets/img/add.PNG" class="icone"/>Adicionar utilizador</a>
               </a>
             </th>
           </tr>

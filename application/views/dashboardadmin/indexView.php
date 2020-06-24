@@ -84,7 +84,7 @@
     }
 
     .noticias {
-      background: black;
+      background: white;
       line-height: 150px;
       color: white;
       font-weight: bold;
@@ -111,14 +111,6 @@
       margin-left: 0px;
     }
 
-    .extra {
-      color: white;
-      -webkit-box-shadow: -4px 4px 23px -5px rgba(145, 145, 145, 1);
-      -moz-box-shadow: -4px 4px 23px -5px rgba(145, 145, 145, 1);
-      box-shadow: -4px 4px 23px -5px rgba(145, 145, 145, 1);
-      font-family: "Oswald";
-      font-weight:normal;
-    }
   </style>
 </head>
 
@@ -134,7 +126,7 @@
       <ul class="flex-container">
 
         <li class="flex-item perfil">
-          <div> <img src="assets/img/user.png" height="100px"></div>
+          <div> <img src="../assets/img/person.png" height="100px"></div>
           <h2><?php
               if (isset($this->session->nome))
                 echo $_SESSION['nome'];
@@ -143,10 +135,10 @@
           <button class="btn btn-warning extra">Editar Perfil</button>
         </li>
         <li class="flex-item outros">
-          <div> <img src="assets/img/calendar.png" height="100px"></div>
+          <div> <img src="../assets/img/calendar.png" height="100px"></div>
           <h2>Gestão de Utilizadores</h2>
           <h3>Adicione ou remova utilizadores</h3>
-          <button class="btn btn-warning extra">Ir para lá</button>
+          <a href="utilizadores" class="w3-button w3-black"><button class="btn btn-warning extra">Ir para lá</button></a>
         </li><br>
         <h1>Por Aprovar _______________________________________________________________________________________</h1><br>
         <li class="flex-item eventos">
