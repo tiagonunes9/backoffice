@@ -76,10 +76,11 @@
       -webkit-box-shadow: 1px 1px 20px 3px rgba(0,0,0,0.23); 
       box-shadow: 1px 1px 20px 3px rgba(0,0,0,0.23);
       border-radius: 15px;
+      padding:0;
     }
     .tabela {
       background-color: #F2F2F2;
-      height: 10%;
+      padding:0;
     }
 
     p {

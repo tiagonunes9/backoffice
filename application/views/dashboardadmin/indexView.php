@@ -56,11 +56,13 @@
       color: orange;
       text-align: center;
       flex-grow: 1;
-      width: 20vw;
+      width: 40vw;
+      margin:2%;
+      color:#333333;
     }
 
     .outros {
-      background: black;
+      background: white;
       line-height: 150px;
       color: white;
       font-weight: bold;
@@ -68,11 +70,13 @@
       color: orange;
       text-align: center;
       flex-grow: 1;
-      width: 20vw;
+      width: 30vw;
+      margin:2%;
+      color:#333333;
     }
 
     .eventos {
-      background: black;
+      background: white;
       line-height: 150px;
       color: white;
       font-weight: bold;
@@ -81,6 +85,9 @@
       text-align: center;
       flex-grow: 1;
       width: 20vw;
+      margin:2%;
+      color:#333333;
+      
     }
 
     .noticias {
@@ -93,6 +100,8 @@
       text-align: center;
       flex-grow: 1;
       width: 20vw;
+      margin:2%;
+      color:#333333;
     }
 
     .flex-x {
@@ -110,7 +119,18 @@
       background-color: #333333;
       margin-left: 0px;
     }
+    .extra{
+      color:white;
+    }
 
+    .barra{
+      width: 82%;
+      margin-top: 2%;
+    }
+
+    .texto{
+      margin-left: 2%;
+    }
   </style>
 </head>
 
@@ -132,7 +152,7 @@
                 echo $_SESSION['nome'];
               echo $_SESSION['email'];
               ?></h2>
-          <button class="btn btn-warning extra">Editar Perfil</button>
+          <a href="perfil" class="w3-button w3-black"><button class="btn btn-warning extra">Editar Perfil</button></a>
         </li>
         <li class="flex-item outros">
           <div> <img src="../assets/img/calendar.png" height="100px"></div>
@@ -140,7 +160,7 @@
           <h3>Adicione ou remova utilizadores</h3>
           <a href="utilizadores" class="w3-button w3-black"><button class="btn btn-warning extra">Ir para lá</button></a>
         </li><br>
-        <h1>Por Aprovar _______________________________________________________________________________________</h1><br>
+        <h1 class="texto">Por Aprovar</h1><hr class="barra">
         <li class="flex-item eventos">
           <h2>Eventos</h2>
           

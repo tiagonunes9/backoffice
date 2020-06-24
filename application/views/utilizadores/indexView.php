@@ -25,6 +25,7 @@
       color: #EDB347;
       font-family: "Oswald";
       font-weight: bold;
+      margin-left: 5%;
     }
 
     .flex-container {
@@ -84,21 +85,29 @@
       color: #2F898D;
       font-family: 'Oswald';
       font-weight: bold;
-      font-size: 50%;
+      font-size: 40%;
+    }
+
+    .link:hover {
+      color: #2F898D;
+      font-family: 'Oswald';
+      font-weight: bold;
+      font-size: 42%;
+      text-decoration: none;
     }
 
     .info {
       background-color: #2F898D;
       font-family: 'Oswald';
       font-weight: bold;
-      color:white;
+      color: white;
     }
 
     .eliminar {
       color: #E47A3F;
       font-family: 'Oswald';
       font-weight: lighter;
-      font-size: 200%;
+      font-size: 150%;
     }
 
     .texto {
@@ -109,7 +118,7 @@
 
     .tabela {
       background-color: #F2F2F2;
-      
+
       border-radius: 15px;
     }
 
@@ -118,15 +127,18 @@
       border-radius: 15px;
     }
 
-     .title-divider-right {
-    width: 30%;
-    padding: 0 10% 0 0; 
-  }
+    .title-divider-right {
+      margin-left: 1%;
+      margin-top: 0.6%;
+      width: 81%;
+      padding: 0 10% 0 0;
+      border-radius: 5px;
+    }
 
-  .icone{
-    width: 20%;
-    height: auto;
-  }
+    .icone {
+      width: 20%;
+      height: auto;
+    }
   </style>
 </head>
 
@@ -140,10 +152,10 @@
       ?></li>
     <li class="flex-x">
       <ul class="flex-container">
-        <h1>Utilizadores</h1> 
+        <h1>Utilizadores</h1>
         <div class="title-divider-right">
-                <hr>
-            </div> <br>
+          <hr>
+        </div> <br>
 
 
 
@@ -158,7 +170,7 @@
             <th width="5%"></th>
             <th width="30%"></th>
             <th width="10%">
-               <a href="utilizadores/novoutilizador" class="link"><img src="../assets/img/add.PNG" class="icone"/>Adicionar utilizador</a>
+              <a href="utilizadores/novoutilizador" class="link"><img src="../assets/img/add.PNG" class="icone" />Adicionar utilizador</a>
               </a>
             </th>
           </tr>
@@ -177,7 +189,7 @@
           <?php
           foreach ($utilizadores as $key => $value) {
             echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
-            echo '<td><button type="button" class="btn btn-primary info" data-toggle="modal" data-target="#exampleModal">'.'<p>Info</p></button></td>';
+            echo '<td><button type="button" class="btn btn-primary info" data-toggle="modal" data-target="#exampleModal">' . '<p>Info</p></button></td>';
             echo '<td>' . '<p class="texto">' . $value->email . '</p>' . '</td>';
             echo '<td><a href="' . base_url() . 'index.php/utilizadores/delete/' . $value->id_user . '" ><p class="eliminar">Eliminar</p></a></td></tr>';
           }
