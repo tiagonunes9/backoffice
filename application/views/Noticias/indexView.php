@@ -95,7 +95,7 @@
         <hr><br>
 
 
-        <a class="adicionar" href="noticias/novanoticia">Adicionar Noticia</a>
+        <a class="adicionar" href="noticias/novanoticia"><img src="assets/img/add.PNG"/>Adicionar Noticia</a>
         </tr>
         <?php
         foreach ($noticias as $key => $value) {

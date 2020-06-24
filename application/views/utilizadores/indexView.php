@@ -77,6 +77,7 @@
       margin: 5%;
       -webkit-box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.23);
       box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.05);
+      border-radius: 15px;
     }
 
     .link {
@@ -108,10 +109,13 @@
 
     .tabela {
       background-color: #F2F2F2;
+      
+      border-radius: 15px;
     }
 
     .outro {
       background-color: white;
+      border-radius: 15px;
     }
 
      .title-divider-right {

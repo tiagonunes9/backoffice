@@ -94,7 +94,7 @@
         <h1>Eventos</h1>
         <hr><br>
 
-        <a class="adicionar" href="eventos/novoevento">Adicionar Evento</a>
+        <a class="adicionar" href="eventos/novoevento"><img src="assets/img/add.PNG"/>Adicionar Evento</a>
         <?php
         foreach ($eventos as $key => $value) {
           echo '<tr><td>' . $value->nome . "</td>";

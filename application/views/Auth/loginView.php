@@ -82,7 +82,7 @@
 	<ul class="flex-container">
 		<li class="flex-item direito">
 			<div class="col-sm-8 branco">
-				<img src="assets/img/logo.svg" class="imagem">
+				<img src="assets/img/logo.svg" class="imagem"/>
 			</div>
 		<li class="flex-x">
 			<ul class="flex-container formulario">

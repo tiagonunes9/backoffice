@@ -66,10 +66,6 @@
       margin-left: 0px;
     }
 
-    .admin{
-      background-color: white;
-    }
-
     p{
       color:#707070;
     }
@@ -79,7 +75,20 @@
       margin:5%;
       -webkit-box-shadow: 1px 1px 20px 3px rgba(0,0,0,0.23); 
       box-shadow: 1px 1px 20px 3px rgba(0,0,0,0.23);
+      border-radius: 15px;
     }
+    .tabela {
+      background-color: #F2F2F2;
+      height: 10%;
+    }
+
+    p {
+      color: #707070;
+      font-family: "Oswald";
+      font-size: 55%;
+    }
+
+    
   </style>
 </head>
 
@@ -109,21 +118,26 @@
 
 
           <tr class="tabela">
-            <th width="10%">
+            <th width="15%">
               <p>Nome</p>
             </th>
-            <th width="5%"></th>
-            <th width="30%">
-              <p>Assunto</p>
+            <th width="15%"><p>Assunto</p></th>
+            <th width="5%">
+              <p></p>
             </th>
             <th width="10%"></th>
           </tr>
           <?php
           foreach ($suporte as $key => $value) {
             echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
-            echo '<td><button type="button" class="btn btn-primary info" data-toggle="modal" data-target="#exampleModal">'.'<p>Info</p></button></td>';
             echo '<td>' . '<p class="texto">' . $value->assunto . '</p>' . '</td>';
-            echo '<td><a href="' . base_url() . 'index.php/suporte/delete/' . $value->id_user . '" ><p class="eliminar">Eliminar</p></a></td></tr>';
+            echo '<td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">'.'<p>Info</p></button></td>';
+            if($value->estado ="0"){
+            echo "Pendente";
+          }
+            else{
+              echo "Resolvido";
+            }
           }
           ?>
         </table>
