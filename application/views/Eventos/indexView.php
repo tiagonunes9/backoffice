@@ -109,7 +109,7 @@
         foreach ($eventos as $key => $value) {
           echo '<tr><td>' . $value->nome . "</td>";
           echo '<td>' . $value->descricao . '</td>';
-          echo '<td><a href="' . base_url() . 'index.php/noticias/delete/' . $value->id_evento . '" class="btn btn-sm btn-danger">Eliminar</a></td></tr>';
+          echo '<td><a href="' . base_url() . 'index.php/eventos/delete/' . $value->id_evento . '" class="btn btn-sm btn-danger">Eliminar</a></td></tr>';
         }
         ?>
 
