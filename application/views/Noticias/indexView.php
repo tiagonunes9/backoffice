@@ -89,9 +89,14 @@
 
 
   <ul class="flex-container">
-    <li class="flex-item nav">
+  <li class="flex-item nav">
       <?php
+      if ($_SESSION['admin']=="1")
       $this->load->view('common/navBaradmin');
+      else if ($_SESSION['admin']=="2")
+      $this->load->view('common/navBarmanager');
+      else
+      $this->load->view('common/navBaruser');
       ?></li>
     <li class="flex-x">
       <ul class="flex-container">

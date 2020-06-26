@@ -4,7 +4,7 @@ class perfil extends CI_Controller {
 
 	public function index()
 	{
-		if(!(isset($_SESSION['email'])) || $_SESSION['email']==null){redirect(base_url());}
+		if(!(isset($_SESSION['admin'])) || $_SESSION['admin']==null){redirect(base_url());}
 		$this->load->model('perfilModel');
 
 		$utilizadores = $this->perfilModel->getAll();

@@ -133,7 +133,7 @@
             echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
             echo '<td>' . '<p class="texto">' . $value->assunto . '</p>' . '</td>';
             echo '<td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">'.'<p>Info</p></button></td>';
-            if($value->estado ="0"){
+            if($value->estado =="0"){
             echo "Pendente";
           }
             else{

@@ -149,8 +149,6 @@
           <div> <img src="../assets/img/person.png" height="100px"></div>
           <h2><?php
               if (isset($this->session->nome))
-                echo $_SESSION['nome'];
-              echo $_SESSION['email'];
               ?></h2>
           <a href="perfil" class="w3-button w3-black"><button class="btn btn-warning extra">Editar Perfil</button></a>
         </li>

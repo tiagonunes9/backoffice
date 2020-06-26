@@ -17,8 +17,20 @@ class Auth extends CI_Controller {
 
 		$result = $this->usersModel->isValidLogin($email, $password);
 		if($result != null){
-			$_SESSION['email'] = $result[0]->email;
-					redirect('dashboardadmin');
+			if($result[0]->tipo_user=="1"){
+			$_SESSION['admin']= 1;
+			redirect('dashboardadmin');
+			}
+			else if($result[0]->tipo_user=="2"){
+			$_SESSION['admin']= 2;
+			redirect('dashboardmanager');
+			}
+			else if($result[0]->tipo_user=="3"){
+				$_SESSION['admin']= 3;
+				redirect('dashboarduser');
+				}
+			
+			$_SESSION['admin'] = $result[0]->email;
 		}
 		else{
 			echo('<div class="alert alert-danger" role="alert">
