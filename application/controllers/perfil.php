@@ -7,9 +7,9 @@ class perfil extends CI_Controller {
 		if(!(isset($_SESSION['admin'])) || $_SESSION['admin']==null){redirect(base_url());}
 		$this->load->model('perfilModel');
 
-		$utilizadores = $this->perfilModel->getAll();
+		$perfil = $this->perfilModel->getAll();
 
-		$data['utilizadores'] = $utilizadores;
+		$data['perfil'] = $perfil;
 
 		$this->load->view('perfil/indexView', $data);
 	}
@@ -22,9 +22,9 @@ class perfil extends CI_Controller {
 		$this->load->helper(array('form'));
 		$this->load->model('perfilModel');
 
-		$utilizadores = $this->perfilModel->get($id_user);
+		$perfil = $this->perfilModel->get($id_user);
 
-		$data['utilizadores'] = $utilizadores;
+		$data['perfil'] = $perfil;
 
 		$this->load->view('perfil/indexView', $data);
 	}	
@@ -53,9 +53,8 @@ class perfil extends CI_Controller {
 		);
 		$this->load->model('perfilModel');
 
-		$utilizadores = $this->perfilModel->put($id, $data);
+		$perfil = $this->perfilModel->put($id, $data);
 		
 		redirect('perfil');
 	}
-	
 }

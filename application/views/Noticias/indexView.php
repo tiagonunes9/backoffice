@@ -17,53 +17,42 @@
       background-color: #F2F2F2 !important;
     }
 
-    body {
-      background-color: #F2F2F2 !important;
-    }
-
     h1 {
       color: #EDB347;
       font-family: "Oswald";
       font-weight: bold;
     }
 
-    .flex-container {
-      display: flex;
-      flex-flow: row wrap;
-      padding: 0;
+    
+    html,
+    body {
+      background-color: #F2F2F2 !important;
+      height: 100%;
       margin: 0;
-      list-style: none;
     }
 
-    .flex-item {
-      background: white;
-      line-height: 150px;
-      color: white;
-      font-weight: bold;
-      font-size: 3em;
-      color: orange;
-      text-align: center;
-      flex-grow: 0;
-      width: 15vw;
+    .main-container {
+      height: 100%;
+      display: flex;
+      flex-direction: row;
     }
 
-
-    .flex-x {
-      line-height: 150px;
-      color: white;
-      font-weight: bold;
-      font-size: 3em;
-      text-align: center;
-      flex-grow: 5;
-      width: 50vw;
+    .navigation-side {
+      flex: 0 0 20%;
+      background-color: gray;
     }
 
-    .nav {
-      flex-basis: auto;
-      background-color: #333333;
-      margin-left: 0px;
+    .content-side {
+      flex: 1 1;
+      background-color: #F2F2F2;
+      overflow: auto;
     }
 
+    .content-info {
+      font-size: 28px;
+      padding: 0px 10px;
+      margin: 0px 100px;
+    }
     .adicionar {
       color: #2F898D;
       font-family: "Oswald";
@@ -82,45 +71,115 @@
     width: 25%;
     height: auto;
   }
+
+  .div-title {
+      height: 15%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .title-divider-right {
+      flex-grow: 1;
+      width: 60%;
+      padding: 2% 10% 0 0;
+    }
+
+    .title-h1 {
+      flex-grow: 1;
+      width: 0em;
+      margin-top:2%;
+      text-align: center;
+    }
+
+
+    .title-divider-right hr {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      height: 10px;
+      background-color: #EDB347;
+    }
+
+    .flex-container {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      padding: 0;
+      margin-left: 5%;
+      margin-right: 5%;
+      list-style: none;
+    }
+
+    .flex-item {
+      background: blue;
+      width: 250px;
+      height: 200px;
+      margin-top: 6%;
+      margin-left: 3%;
+      margin-right: 3%;
+      margin-bottom: 5%;
+      line-height: 150px;
+      color: white;
+      font-weight: bold;
+      font-size: 3em;
+      text-align: center;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    .myDIV:hover+.hide {
+      display: block;
+      color: white;
+    }
   </style>
 </head>
 
 <body>
 
 
-  <ul class="flex-container">
-  <li class="flex-item nav">
-      <?php
-      if ($_SESSION['admin']=="1")
-      $this->load->view('common/navBaradmin');
-      else if ($_SESSION['admin']=="2")
-      $this->load->view('common/navBarmanager');
-      else
-      $this->load->view('common/navBaruser');
-      ?></li>
-    <li class="flex-x">
-      <ul class="flex-container">
-        <h1>Noticias</h1>
-        <hr><br>
-
-
-        <a class="adicionar" href="noticias/novanoticia"><img src="../assets/img/add.PNG" class="icone"/>Adicionar Noticia</a>
-        </tr>
+<div class="main-container">
+    <div class="navigation-side">
         <?php
-        foreach ($noticias as $key => $value) {
-          echo '<tr><td>' . $value->nome . "</td>";
-          echo '<td>' . $value->descricao . '</td>';
-          echo '<td><a href="' . base_url() . 'index.php/noticias/uptade/' . $value->id_noticia . '" class="btn btn-sm btn-warning">Editar</a></td>';
-          echo '<td><a href="' . base_url() . 'index.php/noticias/delete/' . $value->id_noticia . '" class="btn btn-sm btn-danger">Eliminar</a></td></tr>';
-        }
+        if ($_SESSION['admin'] == "1")
+          $this->load->view('common/navBaradmin');
+        else if ($_SESSION['admin'] == "2")
+          $this->load->view('common/navBarmanager');
+        else
+          $this->load->view('common/navBaruser');
         ?>
-        </table>
+    </div>
+    <div class="content-side">
+      <div class="content-info">
+        <div class="div-title">
+          <div class="title-h1">
+            <h1>Noticias</h1>
+          </div>
+          <div class="title-divider-right">
+            <hr>
+          </div>
+        </div>
 
-      </ul>
-    </li>
-  </ul>
 
+        <a class="adicionar" href="noticias/novanoticia"><img src="../assets/img/add.PNG" class="icone" />Adicionar Noticia</a>
+        <div class="content-info">
+          <ul class="flex-container">
 
+            <?php
+            foreach ($noticias as $key => $value) {
+              echo '<li class="flex-item myDIV">' . $value->nome . "</li>";
+              echo '<a href="' . base_url() . 'index.php/noticias/delete/' . $value->id_noticia . '" class="btn btn-sm btn-danger hide">Eliminar</a>';
+            }
+            ?>
+          </ul>
+        </div>
+      </div>
+    </div>
 </body>
 
 </html>

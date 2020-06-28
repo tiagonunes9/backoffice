@@ -33,5 +33,6 @@ class utilizadoresModel extends CI_Model {
   function delete($id){
     $this->db->delete('utilizadores', array('id_user' => $id));
   }
+
 }
 ?>

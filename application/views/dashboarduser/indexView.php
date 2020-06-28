@@ -164,8 +164,12 @@
         <li class="flex-item perfil">
           <div> <img src="../assets/img/person.png" height="100px"></div>
           <h2><?php
-              if (isset($this->session->nome))
-                
+              if ($_SESSION['admin'] == "1")
+                echo "Administrador";
+              else if ($_SESSION['admin'] == "2")
+              echo "Gestor";
+              else
+              echo "Utilizador";
               ?></h2>
           <a href="perfil" class="w3-button w3-black"><button class="btn btn-warning extra">Editar Perfil</button></a>
         </li>
@@ -176,11 +180,11 @@
           <a href="utilizadores" class="w3-button w3-black"><button class="btn btn-warning extra">Ir para lá</button></a>
         </li><br><br>
         <li class="flex-item eventos">
-        <img src="../assets/img/plus.png" class="mais">
-          <h2 class="adde">Adicionar evento </h2>
+        <a href="eventos/novoevento"><img src="../assets/img/plus.png" class="mais">
+        <h2 class="adde">Adicionar evento </h2></a>
         <li class="flex-item noticias">
-        <img src="../assets/img/plus.png" class="mais">
-        <h2 class="addn">Adicionar Noticia </h2>
+        <a href="noticias/novanoticia"><img src="../assets/img/plus.png" class="mais">
+        <h2 class="addn">Adicionar Noticia </h2></a>
         </li>
       </ul>
     </li>

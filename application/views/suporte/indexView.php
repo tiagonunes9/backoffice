@@ -17,7 +17,8 @@
       background-color: #F2F2F2 !important;
     }
 
-    body {
+    body,
+    html {
       background-color: #F2F2F2 !important;
     }
 
@@ -27,90 +28,142 @@
       font-weight: bold;
     }
 
-    .flex-container {
+    .main-container {
+      height: 100%;
       display: flex;
-      flex-flow: row wrap;
-      padding: 0;
-      margin: 0;
-      list-style: none;
+      flex-direction: row;
     }
 
-    .flex-item {
-      background: white;
-      line-height: 150px;
-      color: white;
-      font-weight: bold;
-      font-size: 3em;
-      color: orange;
-      text-align: center;
-      flex-grow: 0;
-      width: 15vw;
+    .navigation-side {
+      flex: 0 0 20%;
+      background-color: gray;
+    }
+
+    .content-side {
+      flex: 1 1;
+      background-color: #F2F2F2;
+      overflow: auto;
     }
 
 
-    .flex-x {
-      line-height: 150px;
-      color: white;
-      font-weight: lighter;
-      font-size: 3em;
-      text-align: center;
-      flex-grow: 5;
-      width: 50vw;
-      color:#707070;
-      font-family: 'Oswald';
+    .content-info {
+      font-size: 28px;
+      padding-right: 5%;
+      padding-left: 0%;
+      margin: 0px 100px;
     }
 
-    .nav {
-      flex-basis: auto;
-      background-color: #333333;
-      margin-left: 0px;
+    p {
+      color: #707070;
     }
 
-    p{
-      color:#707070;
-    }
-
-    .admin{
+    .admin {
       background-color: white;
-      margin:5%;
-      -webkit-box-shadow: 1px 1px 20px 3px rgba(0,0,0,0.23); 
-      box-shadow: 1px 1px 20px 3px rgba(0,0,0,0.23);
+      margin: 5%;
+      -webkit-box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.23);
+      box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.23);
       border-radius: 15px;
-      padding:0;
+      padding: 0;
     }
+
     .tabela {
       background-color: #F2F2F2;
-      padding:0;
+      padding: 0;
     }
 
     p {
       color: #707070;
       font-family: "Oswald";
-      font-size: 55%;
+      font-size: 100%;
     }
 
-    
+    .resolvido {
+      color: #42B19D;
+      font-family: "Oswald";
+      font-size: 100%;
+    }
+
+    .pendente {
+      color: #E47A3F;
+      font-family: "Oswald";
+      font-weight: normal;
+      font-size: 100%;
+    }
+
+    .texto {
+      color: #707070;
+      font-family: "Oswald";
+      font-weight: normal;
+      font-size: 100%;
+    }
+
+    .div-title {
+      height: 15%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .title-divider-right {
+      flex-grow: 1;
+      width: 60%;
+      padding: 2% 10% 0 0;
+    }
+
+    .title-h1 {
+      flex-grow: 1;
+      width: 0em;
+      margin-top:2%;
+      text-align: center;
+    }
+
+
+    .title-divider-right hr {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      height: 10px;
+      background-color: #EDB347;
+    }
+
   </style>
 </head>
 
 <body>
 
 
-  <ul class="flex-container">
-    <li class="flex-item nav">
+  <div class="main-container">
+    <div class="navigation-side">
       <?php
-      $this->load->view('common/navBaradmin');
-      ?></li>
-    <li class="flex-x">
-      <ul class="flex-container">
-            <h1>Suporte</h1> <br>
-            
-            <table class="table admin">
+      if ($_SESSION['admin'] == "1")
+        $this->load->view('common/navBaradmin');
+      else if ($_SESSION['admin'] == "2")
+        $this->load->view('common/navBarmanager');
+      else
+        $this->load->view('common/navBaruser');
+      ?>
+
+    </div>
+    <div class="content-side">
+      <div class="content-info">
+        <div class="div-title">
+          <div class="title-h1">
+            <h1>Suporte</h1>
+          </div>
+          <div class="title-divider-right">
+            <hr>
+          </div>
+        </div>
+
+        <table class="table admin">
           <tr class="outro">
             <th width="10%">
               <div class="form-group input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                <input name="consulta" id="txt_consulta" placeholder="Procurar..." type="text" class="form-control">
+                <input name="consulta" id="txt_consulta" placeholder="Pesquisar..." type="text" class="form-control">
               </div>
             </th>
             <th width="5%"></th>
@@ -119,12 +172,13 @@
 
 
           <tr class="tabela">
-            <th width="15%">
+            <th width="20%">
               <p>Nome</p>
             </th>
-            <th width="15%"><p>Assunto</p></th>
-            <th width="5%">
-              <p></p>
+            <th width="15%">
+              <p>Assunto</p>
+            </th>
+            <th width="15%">
             </th>
             <th width="10%"></th>
           </tr>
@@ -132,14 +186,14 @@
           foreach ($suporte as $key => $value) {
             echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
             echo '<td>' . '<p class="texto">' . $value->assunto . '</p>' . '</td>';
-            echo '<td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">'.'<p>Info</p></button></td>';
-            echo '<td>' . '<p class="texto">';
-            if($value->estado =="0"){
-            echo "Pendente";
-          }
-            else{
-              echo "Resolvido";
-            }  '</p>' . '</td>';
+            echo '<td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">' . '<p>Info</p></button></td>';
+            echo '<td>';
+            if ($value->estado == "0") {
+              echo '<p class="pendente">' . "Pendente" . '</p>';
+            } else {
+              echo '<p class="resolvido">' . "Resolvido" . '</p>';
+            }
+            '</td>';
           }
           ?>
         </table>
@@ -167,11 +221,9 @@
         <script>
           $('input#txt_consulta').quicksearch('table#tabela tbody tr');
         </script>
-      </ul>
-    </li>
-  </ul>
-
-
+        </ul>
+      </div>
+    </div>
 </body>
 
 </html>

@@ -17,8 +17,32 @@
       background-color: #F2F2F2 !important;
     }
 
-    body {
+    body,html {
       background-color: #F2F2F2 !important;
+    }
+    .main-container {
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .navigation-side {
+      flex: 0 0 20%;
+      background-color: gray;
+    }
+
+    .content-side {
+      flex: 1 1;
+      background-color: #F2F2F2;
+      overflow: auto;
+    }
+
+
+    .content-info {
+      font-size: 28px;
+      padding-right: 5%;
+      padding-left: 0%;
+      margin: 0px 100px;
     }
 
     h1 {
@@ -26,45 +50,6 @@
       font-family: "Oswald";
       font-weight: bold;
       margin-left: 5%;
-    }
-
-    .flex-container {
-      display: flex;
-      flex-flow: row wrap;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    .flex-item {
-      background: white;
-      line-height: 150px;
-      color: white;
-      font-weight: bold;
-      font-size: 3em;
-      color: orange;
-      text-align: center;
-      flex-grow: 0;
-      width: 15vw;
-    }
-
-
-    .flex-x {
-      line-height: 150px;
-      color: white;
-      font-weight: lighter;
-      font-size: 3em;
-      text-align: center;
-      flex-grow: 5;
-      width: 50vw;
-      color: #707070;
-      font-family: 'Oswald';
-    }
-
-    .nav {
-      flex-basis: auto;
-      background-color: #333333;
-      margin-left: 0px;
     }
 
     p {
@@ -85,7 +70,7 @@
       color: #2F898D;
       font-family: 'Oswald';
       font-weight: bold;
-      font-size: 40%;
+      font-size: 60%;
     }
 
     .link:hover {
@@ -93,6 +78,13 @@
       font-family: 'Oswald';
       font-weight: bold;
       font-size: 42%;
+      text-decoration: none;
+    }
+    .eliminar:hover{
+      color: #E47A3F;
+      font-family: 'Oswald';
+      font-weight: lighter;
+      font-size: 100%;
       text-decoration: none;
     }
 
@@ -107,18 +99,18 @@
       color: #E47A3F;
       font-family: 'Oswald';
       font-weight: lighter;
-      font-size: 150%;
+      font-size: 100%;
     }
 
     .texto {
       font-family: "Oswald";
       font-weight: lighter;
+      font-size: 100%;
       color: #707070;
     }
 
     .tabela {
       background-color: #F2F2F2;
-
       border-radius: 15px;
     }
 
@@ -139,37 +131,79 @@
       width: 20%;
       height: auto;
     }
+
+    .div-title {
+      height: 15%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .title-divider-right {
+      flex-grow: 1;
+      width: 60%;
+      padding: 2% 0% 0 0;
+    }
+
+    .title-h1 {
+      flex-grow: 1;
+      width: 0em;
+      margin-top:2%;
+      text-align: center;
+    }
+
+
+    .title-divider-right hr {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      height: 10px;
+      background-color: #EDB347;
+    }
   </style>
 </head>
 
 <body>
 
 
-  <ul class="flex-container">
-    <li class="flex-item nav">
-      <?php
-      $this->load->view('common/navBaradmin');
-      ?></li>
-    <li class="flex-x">
-      <ul class="flex-container">
-        <h1>Utilizadores</h1>
-        <div class="title-divider-right">
-          <hr>
-        </div> <br>
+<div class="main-container">
+    <div class="navigation-side">
+        <?php
+        if ($_SESSION['admin'] == "1")
+          $this->load->view('common/navBaradmin');
+        else if ($_SESSION['admin'] == "2")
+          $this->load->view('common/navBarmanager');
+        else
+          $this->load->view('common/navBaruser');
+        ?>
+    </div>
+    <div class="content-side">
+      <div class="content-info">
+        <div class="div-title">
+          <div class="title-h1">
+            <h1>Utilizadores</h1>
+          </div>
+          <div class="title-divider-right">
+            <hr>
+          </div>
+        </div>
 
 
 
         <table class="table admin">
           <tr class="outro">
-            <th width="10%">
+            <th width="15%">
               <div class="form-group input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
                 <input name="consulta" id="txt_consulta" placeholder="Procurar..." type="text" class="form-control">
               </div>
             </th>
-            <th width="5%"></th>
+            <th width="10%"></th>
             <th width="30%"></th>
-            <th width="10%">
+            <th width="15%">
               <a href="utilizadores/novoutilizador" class="link"><img src="../assets/img/add.PNG" class="icone" />Adicionar utilizador</a>
               </a>
             </th>
@@ -189,8 +223,17 @@
           <?php
           foreach ($utilizadores as $key => $value) {
             echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
-            echo '<td><button type="button" class="btn btn-primary info" data-toggle="modal" data-target="#exampleModal">' . '<p>Info</p></button></td>';
-            echo '<td>' . '<p class="texto">' . $value->email . '</p>' . '</td>';
+            echo '<td>'.'<button type="button" class="btn btn-primary info" data-toggle="modal" data-target="exampleModal">' . '<p>Info</p>'.'</button></td>';
+            echo '<td>';
+            if ($value->tipo_user == "1") {
+              echo '<p class="texto">' . "Administrador" . '</p>';
+            } else if ($value->tipo_user =="2") {
+              echo '<p class="texto">' . "Gestor" . '</p>';
+            }
+            else {
+              echo '<p class="texto">' . "Utilizador" . '</p>';
+            }
+            '</td>';
             echo '<td><a href="' . base_url() . 'index.php/utilizadores/delete/' . $value->id_user . '" ><p class="eliminar">Eliminar</p></a></td></tr>';
           }
           ?>
@@ -206,7 +249,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                ...
+               teste
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -216,14 +259,11 @@
           </div>
         </div>
 
-        <script>
+
+        </div>
+    </div>
+</body>
+<script>
           $('input#txt_consulta').quicksearch('table#tabela tbody tr');
         </script>
-      </ul>
-    </li>
-  </ul>
-
-
-</body>
-
 </html>

@@ -21,9 +21,18 @@ class perfilModel extends CI_Model {
     return $result->result();
   }
 
+  function post($data){
+		$this->db->insert('utilizadores', $data);
+  }
+
   function put($id, $data){
     $this->db->where('id_user', $id);
     $this->db->update('utilizadores', $data);
   }
+
+  function delete($id){
+    $this->db->delete('utilizadores', array('id_user' => $id));
+  }
+
 }
 ?>

@@ -39,6 +39,7 @@
 			text-align: center;
 			flex-grow: 1;
 			width: 50vw;
+			height: 100vh;
 		}
 
 		.direito {
@@ -51,27 +52,42 @@
 		.formulario {
 			background-color: #EEC94C;
 			width: 100%;
-		}
-		
-		p{
-			color:white;
-			font-family: "Oswald";
-			font-weight: bold;
-			font-size:45%;
+			height: 100%;
 		}
 
-		.geral{
+		label {
+			color: white;
+			font-family: "Oswald";
+			font-weight: bold;
+			font-size: 45%;
+		}
+
+		.outra {
+			color: white;
+			font-family: "Oswald";
+			font-weight: bold;
+			font-size: 35%;
+		}
+
+		.geral {
 			background-color: #E47A3F;
-			color:white;
+			color: white;
 			font-family: "Oswald";
 			font-weight: bold;
-			width:100%;
+			width: 100%;
+			margin-top:-50%
 		}
 
-		.imagem{
-			width: 25%;
-			margin-top: 50%;
-			margin-left:50%;
+		.imagem {
+			width: 70%;
+			margin-top: 55%;
+			margin-bottom: 35%;
+			margin-left: 40%;
+			margin-right: 60%;
+		}
+
+		form {
+			margin-left: 35%;
 		}
 	</style>
 </head>
@@ -82,23 +98,20 @@
 	<ul class="flex-container">
 		<li class="flex-item direito">
 			<div class="col-sm-8 branco">
-				<img src="assets/img/logo.svg" class="imagem"/>
+				<img src="assets/img/logo.svg" class="imagem" />
 			</div>
 		<li class="flex-x">
 			<ul class="flex-container formulario">
 
 				<?php echo form_open(base_url() . 'index.php/auth/signIn'); ?>
-
-				<div class="form-group">
-					<p>Email</p>
-					<input type="text" name="email" class="form-control">
-				</div>
-				<div class="form-group">
-					<p>Password</p>
-					<input type="password" name="password" class="form-control">
-				</div>
-				<p class="outra">Recuperar password</p>
-				<button type="submit" class="btn btn-default geral">LOGIN</button>
+				<form>
+					<label>Email</label>
+					<input type="text" name="email" class="form-control barra">
+					<label>Password</label>
+					<input type="password" name="password" class="form-control barra">
+					<p class="outra">Recuperar password</p>
+					<button type="submit" class="btn btn-default geral">LOGIN</button>
+				</form>
 			</ul>
 		</li>
 	</ul>
