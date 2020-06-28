@@ -17,18 +17,20 @@
       background-color: #F2F2F2 !important;
     }
 
-    body,html {
+    body,
+    html {
       background-color: #F2F2F2 !important;
     }
+
     .main-container {
-      height: 100%;
+      height: 100vh;
       display: flex;
       flex-direction: row;
     }
 
     .navigation-side {
       flex: 0 0 20%;
-      background-color: gray;
+      background-color: #333333;
     }
 
     .content-side {
@@ -37,11 +39,9 @@
       overflow: auto;
     }
 
-
     .content-info {
       font-size: 28px;
-      padding-right: 5%;
-      padding-left: 0%;
+      padding: 0px 10px;
       margin: 0px 100px;
     }
 
@@ -62,8 +62,9 @@
       background-color: white;
       margin: 5%;
       -webkit-box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.23);
-      box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.05);
+      box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.23);
       border-radius: 15px;
+      padding: 0;
     }
 
     .link {
@@ -80,7 +81,8 @@
       font-size: 42%;
       text-decoration: none;
     }
-    .eliminar:hover{
+
+    .eliminar:hover {
       color: #E47A3F;
       font-family: 'Oswald';
       font-weight: lighter;
@@ -114,11 +116,6 @@
       border-radius: 15px;
     }
 
-    .outro {
-      background-color: white;
-      border-radius: 15px;
-    }
-
     .title-divider-right {
       margin-left: 1%;
       margin-top: 0.6%;
@@ -144,14 +141,14 @@
 
     .title-divider-right {
       flex-grow: 1;
-      width: 60%;
+      width: 55%;
       padding: 2% 0% 0 0;
     }
 
     .title-h1 {
       flex-grow: 1;
       width: 0em;
-      margin-top:2%;
+      margin-top: 2%;
       text-align: center;
     }
 
@@ -169,16 +166,16 @@
 <body>
 
 
-<div class="main-container">
+  <div class="main-container">
     <div class="navigation-side">
-        <?php
-        if ($_SESSION['admin'] == "1")
-          $this->load->view('common/navBaradmin');
-        else if ($_SESSION['admin'] == "2")
-          $this->load->view('common/navBarmanager');
-        else
-          $this->load->view('common/navBaruser');
-        ?>
+      <?php
+      if ($_SESSION['admin'] == "1")
+        $this->load->view('common/navBaradmin');
+      else if ($_SESSION['admin'] == "2")
+        $this->load->view('common/navBarmanager');
+      else
+        $this->load->view('common/navBaruser');
+      ?>
     </div>
     <div class="content-side">
       <div class="content-info">
@@ -190,8 +187,6 @@
             <hr>
           </div>
         </div>
-
-
 
         <table class="table admin">
           <tr class="outro">
@@ -223,18 +218,17 @@
           <?php
           foreach ($utilizadores as $key => $value) {
             echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
-            echo '<td>'.'<button type="button" class="btn btn-primary info" data-toggle="modal" data-target="exampleModal">' . '<p>Info</p>'.'</button></td>';
+            echo '<td>' . '<button type="button" class="btn btn-info" data-toggle="modal" data-target="exampleModal">' . '<p>Info</p>' . '</button></td>';
             echo '<td>';
             if ($value->tipo_user == "1") {
               echo '<p class="texto">' . "Administrador" . '</p>';
-            } else if ($value->tipo_user =="2") {
+            } else if ($value->tipo_user == "2") {
               echo '<p class="texto">' . "Gestor" . '</p>';
-            }
-            else {
+            } else {
               echo '<p class="texto">' . "Utilizador" . '</p>';
             }
             '</td>';
-            echo '<td><a href="' . base_url() . 'index.php/utilizadores/delete/' . $value->id_user . '" ><p class="eliminar">Eliminar</p></a></td></tr>';
+            echo '<td><a href="' . base_url() . 'index.php/utilizadores/delete/' . $value->id_user . '" onclick="return confirm(\'Tem a certeza que pretende apagar esse utilizador?\')" ><p class="eliminar">Eliminar</p></a></td></tr>';
           }
           ?>
         </table>
@@ -249,7 +243,7 @@
                 </button>
               </div>
               <div class="modal-body">
-               teste
+                teste
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -258,12 +252,12 @@
             </div>
           </div>
         </div>
-
-
-        </div>
+      </div>
     </div>
+  </div>
 </body>
 <script>
-          $('input#txt_consulta').quicksearch('table#tabela tbody tr');
-        </script>
+  $('input#txt_consulta').quicksearch('table#tabela tbody tr');
+</script>
+
 </html>

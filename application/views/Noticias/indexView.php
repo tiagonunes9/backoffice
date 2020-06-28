@@ -32,14 +32,14 @@
     }
 
     .main-container {
-      height: 100%;
+      height: 100vh;
       display: flex;
       flex-direction: row;
     }
 
     .navigation-side {
       flex: 0 0 20%;
-      background-color: gray;
+      background-color: #333333;
     }
 
     .content-side {
@@ -57,20 +57,18 @@
       color: #2F898D;
       font-family: "Oswald";
       font-weight: normal;
-      font-size: 50%;
+      font-size: 80%;
+      margin-left: 65%;
+      margin-right: 0;
     }
 
     .adicionar:hover {
       color: #2F898D;
       font-family: "Oswald";
       font-weight: normal;
-      font-size: 50%;
+      font-size: 80%;
       text-decoration: none;
     }
-    .icone{
-    width: 25%;
-    height: auto;
-  }
 
   .div-title {
       height: 15%;
@@ -166,7 +164,7 @@
         </div>
 
 
-        <a class="adicionar" href="noticias/novanoticia"><img src="../assets/img/add.PNG" class="icone" />Adicionar Noticia</a>
+        <a class="adicionar" href="noticias/novanoticia"><img src="../assets/img/add.PNG" width="2%" />        Adicionar Noticia</a>
         <div class="content-info">
           <ul class="flex-container">
 

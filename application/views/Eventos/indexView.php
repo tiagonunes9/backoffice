@@ -55,20 +55,17 @@
       color: #2F898D;
       font-family: "Oswald";
       font-weight: normal;
-      font-size: 50%;
+      font-size: 80%;
+      margin-left: 65%;
+      margin-right: 0;
     }
 
     .adicionar:hover {
       color: #2F898D;
       font-family: "Oswald";
       font-weight: normal;
-      font-size: 50%;
+      font-size: 80%;
       text-decoration: none;
-    }
-
-    .icone {
-      width: 25%;
-      height: auto;
     }
 
     .div-title {
@@ -164,14 +161,14 @@
           </div>
         </div>
 
-        <a class="adicionar" href="eventos/novoevento"><img src="../assets/img/add.PNG" class="icone" />Adicionar Evento</a>
+        <a class="adicionar" href="eventos/novoevento"><img src="../assets/img/add.PNG" width="2%" />    Adicionar Evento</a>
         <div class="content-info">
           <ul class="flex-container">
 
             <?php
             foreach ($eventos as $key => $value) {
               echo '<li class="flex-item myDIV">' . $value->nome . "</li>";
-              echo '<a href="' . base_url() . 'index.php/eventos/delete/' . $value->id_evento . '" class="btn btn-sm btn-danger hide">Eliminar</a>';
+              echo '<a href="' . base_url() . 'index.php/eventos/updateestado/' . $value->id_evento . '" class="btn btn-sm btn-danger">Eliminar</a>';
             }
             ?>
           </ul>

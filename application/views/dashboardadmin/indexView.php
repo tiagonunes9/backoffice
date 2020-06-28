@@ -43,6 +43,7 @@
       font-size: 28px;
       padding: 0px 10px;
       margin: 0px 100px;
+      height: 100vh;
     }
 
     h1 {
@@ -60,8 +61,9 @@
       color: orange;
       text-align: center;
       flex-grow: 1;
-      width: 40vw;
-      margin:0;
+      width: 40%;
+      height: auto;
+      margin: 0;
       color: #333333;
     }
 
@@ -74,7 +76,7 @@
       color: orange;
       text-align: center;
       flex-grow: 1;
-      width: 30vw;
+      width: 30%;
       margin: 2%;
       color: #333333;
     }
@@ -88,7 +90,6 @@
       color: orange;
       text-align: center;
       flex-grow: 1;
-      width: 20vw;
       margin: 2%;
       color: #333333;
 
@@ -136,7 +137,7 @@
     .title-h1 {
       flex-grow: 1;
       width: 0em;
-      margin-top:2%;
+      margin-top: 2%;
       text-align: center;
     }
 
@@ -148,6 +149,21 @@
       height: 10px;
       background-color: #EDB347;
     }
+
+    .aprovar{
+      background-color: #42B19D;
+      border-color: #42B19D;
+    }
+
+    .rejeitar{
+      background-color: #E47A3F;
+      border-color: #E47A3F;
+    }
+
+    .info{
+      background-color: #2F898D;
+      border-color: #2F898D;
+    }
   </style>
 </head>
 
@@ -157,16 +173,10 @@
   <div class="main-container">
     <div class="navigation-side">
       <?php
-      if ($_SESSION['admin'] == "1")
-        $this->load->view('common/navBaradmin');
-      else if ($_SESSION['admin'] == "2")
-        $this->load->view('common/navBarmanager');
-      else
-        $this->load->view('common/navBaruser');
+      $this->load->view('common/navBaradmin');
       ?>
     </div>
     <div class="content-side">
-      <div class="content-info">
 
         <div class="content-info perfil">
           <div> <img src="../assets/img/person.png" height="100px"></div>
@@ -190,18 +200,47 @@
         <div class="div-title">
           <div class="title-h1">
             <h1 class="texto">Por Aprovar</h1>
+            <table class="table admin">
           </div>
           <div class="title-divider-right">
             <hr>
           </div>
+
+
         </div>
 
         <div class="content-info eventos">
           <h2>Eventos</h2>
+          <?php
+          foreach ($eventos as $key => $value) {
+            echo '<td>';
+            if ($value->estado == "0") {
+              echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
+              echo '<td><button type="button" class="btn btn-info info" ' . '<p>Info</p></button></td>';
+              echo '<td><a href="' . base_url() . 'index.php/eventos/delete/' . $value->id_evento . ' ><button type="button" class="btn btn-success aprovar">Aprovar</button></a></td>';
+              echo '<td><a href="' . base_url() . 'index.php/eventos/delete/' . $value->id_evento . '" onclick="return confirm(\'Tem a certeza que pretende apagar esse utilizador?\')" ><button type="button" class="btn btn-danger rejeitar">Eliminar</button></a></td></tr>';
+            } else {
+            }
+            '</td>';
+          }
+          ?>
+        </div>
+        <div class="content-info noticias">
+          <h2>Noticias</h2>
 
-          <div class="content-info noticias">
-            <h2>Noticias</h2>
-          </div>
+          <?php
+          foreach ($noticias as $key => $value) {
+            echo '<td>';
+            if ($value->estado == "0") {
+              echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
+              echo '<td><button type="button" class="btn btn-info info" ' . '<p>Info</p></button></td>';
+              echo '<td><a href="' . base_url() . 'index.php/noticias/delete/' . $value->id_noticia . ' ><button type="button" class="btn btn-success aprovar">Aprovar</button></a></td>';
+              echo '<td><a href="' . base_url() . 'index.php/noticia/delete/' . $value->id_noticia . '" onclick="return confirm(\'Tem a certeza que pretende apagar esse utilizador?\')" ><button type="button" class="btn btn-danger rejeitar">Eliminar</button></a></td></tr>';
+            } else {
+            }
+            '</td>';
+          }
+          ?>
         </div>
       </div>
     </div>

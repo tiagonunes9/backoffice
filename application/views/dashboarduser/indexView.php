@@ -17,7 +17,8 @@
       background-color: #F2F2F2 !important;
     }
 
-    body {
+    body,
+    html {
       background-color: #F2F2F2 !important;
     }
 
@@ -27,24 +28,27 @@
       font-weight: bold;
     }
 
-    .flex-container {
+    .main-container {
+      height: 100vh;
       display: flex;
-      flex-flow: row wrap;
-      padding: 0;
-      margin: 0;
-      list-style: none;
+      flex-direction: row;
     }
 
-    .flex-item {
-      background: white;
-      line-height: 150px;
-      color: white;
-      font-weight: bold;
-      font-size: 3em;
-      color: orange;
-      text-align: center;
-      flex-grow: 0;
-      width: 15vw;
+    .navigation-side {
+      flex: 0 0 20%;
+      background-color: #333333;
+    }
+
+    .content-side {
+      flex: 1 1;
+      background-color: #F2F2F2;
+      overflow: auto;
+    }
+
+    .content-info {
+      font-size: 28px;
+      padding: 0px 10px;
+      margin: 0px 100px;
     }
 
     .perfil {
@@ -57,8 +61,8 @@
       text-align: center;
       flex-grow: 1;
       width: 40vw;
-      margin:2%;
-      color:#333333;
+      margin: 2%;
+      color: #333333;
     }
 
     .outros {
@@ -71,8 +75,8 @@
       text-align: center;
       flex-grow: 1;
       width: 30vw;
-      margin:2%;
-      color:#333333;
+      margin: 2%;
+      color: #333333;
     }
 
     .eventos {
@@ -85,9 +89,9 @@
       text-align: center;
       flex-grow: 1;
       width: 20vw;
-      margin:2%;
-      color:#333333;
-      
+      margin: 2%;
+      color: #333333;
+
     }
 
     .noticias {
@@ -100,51 +104,36 @@
       text-align: center;
       flex-grow: 1;
       width: 20vw;
-      margin:2%;
-      color:#333333;
+      margin: 2%;
+      color: #333333;
     }
 
-    .flex-x {
-      line-height: 150px;
+    .extra {
       color: white;
-      font-weight: bold;
-      font-size: 3em;
-      text-align: center;
-      flex-grow: 5;
-      width: 50vw;
     }
 
-    .nav {
-      flex-basis: auto;
-      background-color: #333333;
-      margin-left: 0px;
-    }
-    .extra{
-      color:white;
-    }
-
-    .barra{
+    .barra {
       width: 82%;
       margin-top: 2%;
     }
 
-    .texto{
+    .texto {
       margin-left: 2%;
     }
 
-    .adde{
-      color:#2F898D;
+    .adde {
+      color: #2F898D;
       font-family: "Oswald";
       margin-top: 7%;
     }
 
-    .addn{
-      color:#2F898D;
+    .addn {
+      color: #2F898D;
       font-family: "Oswald";
       margin-top: 7%;
     }
 
-    .mais{
+    .mais {
       width: 30%;
     }
   </style>
@@ -153,42 +142,47 @@
 <body>
 
 
-  <ul class="flex-container">
-    <li class="flex-item nav">
+  <div class="main-container">
+    <div class="navigation-side">
       <?php
       $this->load->view('common/navBaruser');
-      ?></li>
-    <li class="flex-x">
-      <ul class="flex-container">
+      ?>
+    </div>
+    <div class="content-side">
+      <div class="content-info">
 
-        <li class="flex-item perfil">
+        <div class="content-info perfil">
           <div> <img src="../assets/img/person.png" height="100px"></div>
           <h2><?php
               if ($_SESSION['admin'] == "1")
                 echo "Administrador";
               else if ($_SESSION['admin'] == "2")
-              echo "Gestor";
+                echo "Gestor";
               else
-              echo "Utilizador";
-              ?></h2>
+                echo "Utilizador";
+              ?>
+          </h2>
           <a href="perfil" class="w3-button w3-black"><button class="btn btn-warning extra">Editar Perfil</button></a>
-        </li>
-        <li class="flex-item outros">
+        </div>
+        <div class="content-info outros">
           <div> <img src="../assets/img/calendar.png" height="100px"></div>
           <h2>Gestão de Utilizadores</h2>
           <h3>Adicione ou remova utilizadores</h3>
           <a href="utilizadores" class="w3-button w3-black"><button class="btn btn-warning extra">Ir para lá</button></a>
-        </li><br><br>
-        <li class="flex-item eventos">
-        <a href="eventos/novoevento"><img src="../assets/img/plus.png" class="mais">
-        <h2 class="adde">Adicionar evento </h2></a>
-        <li class="flex-item noticias">
-        <a href="noticias/novanoticia"><img src="../assets/img/plus.png" class="mais">
-        <h2 class="addn">Adicionar Noticia </h2></a>
-        </li>
-      </ul>
-    </li>
-  </ul>
+        </div><br><br>
+        <div class="eventos">
+          <a href="eventos/novoevento"><img src="../assets/img/plus.png" class="mais">
+            <h2 class="adde">Adicionar evento </h2>
+          </a>
+          <div class="flex-item noticias">
+            <a href="noticias/novanoticia"><img src="../assets/img/plus.png" class="mais">
+              <h2 class="addn">Adicionar Noticia </h2>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 </body>

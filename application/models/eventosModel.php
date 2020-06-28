@@ -7,19 +7,14 @@ class eventosModel extends CI_Model {
     $result = $this->db->get('eventos'); // from admin
     return $result->result(); // commit || mysql_query(sql);
   }
-  function getFirst()
-  {
-    $this->db->select(); // select *
-    $result = $this->db->get('eventos'); // from admin
-    return $result->result(); // commit || mysql_query(sql);
-  }
 
   function post($data){
 		$this->db->insert('eventos', $data);
   }
 
-  function delete($id){
-    $this->db->delete('eventos', array('id_evento' => $id));
+  function delete($id, $data){
+    $this->db->where('id_evento', $id);
+    $this->db->update('eventos', $data);
   }
 
   function get($id)

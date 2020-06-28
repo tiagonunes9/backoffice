@@ -17,34 +17,38 @@
       background-color: #F2F2F2 !important;
     }
 
-    body {
+    body,
+    html {
       background-color: #F2F2F2 !important;
+    }
+
+    .main-container {
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .navigation-side {
+      flex: 0 0 20%;
+      background-color: #333333;
+    }
+
+    .content-side {
+      flex: 1 1;
+      background-color: #F2F2F2;
+      overflow: auto;
+    }
+
+    .content-info {
+      font-size: 28px;
+      padding: 0px 10px;
+      margin: 0px 100px;
     }
 
     h1 {
       color: #EDB347;
       font-family: "Oswald";
       font-weight: bold;
-    }
-
-    .flex-container {
-      display: flex;
-      flex-flow: row wrap;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    .flex-item {
-      background: white;
-      line-height: 150px;
-      color: white;
-      font-weight: bold;
-      font-size: 3em;
-      color: orange;
-      text-align: center;
-      flex-grow: 0;
-      width: 15vw;
     }
 
     .perfil {
@@ -57,8 +61,8 @@
       text-align: center;
       flex-grow: 1;
       width: 40vw;
-      margin:2%;
-      color:#333333;
+      margin:0;
+      color: #333333;
     }
 
     .outros {
@@ -71,12 +75,12 @@
       text-align: center;
       flex-grow: 1;
       width: 30vw;
-      margin:2%;
-      color:#333333;
+      margin: 2%;
+      color: #333333;
     }
 
     .eventos {
-      background: #F2F2F2;
+      background: white;
       line-height: 150px;
       color: white;
       font-weight: bold;
@@ -85,13 +89,13 @@
       text-align: center;
       flex-grow: 1;
       width: 20vw;
-      margin:2%;
-      color:#333333;
-      
+      margin: 2%;
+      color: #333333;
+
     }
 
     .noticias {
-      background: #F2F2F2;
+      background: white;
       line-height: 150px;
       color: white;
       font-weight: bold;
@@ -100,52 +104,49 @@
       text-align: center;
       flex-grow: 1;
       width: 20vw;
-      margin:2%;
-      color:#333333;
+      margin: 2%;
+      color: #333333;
     }
 
-    .flex-x {
-      line-height: 150px;
+    .extra {
       color: white;
-      font-weight: bold;
-      font-size: 3em;
-      text-align: center;
-      flex-grow: 5;
-      width: 50vw;
     }
 
-    .nav {
-      flex-basis: auto;
-      background-color: #333333;
-      margin-left: 0px;
-    }
-    .extra{
-      color:white;
-    }
 
-    .barra{
-      width: 82%;
-      margin-top: 2%;
-    }
-
-    .texto{
+    .texto {
       margin-left: 2%;
     }
 
-    .adde{
-      color:#2F898D;
-      font-family: "Oswald";
-      margin-top: 7%;
+    .div-title {
+      height: 15%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
     }
 
-    .addn{
-      color:#2F898D;
-      font-family: "Oswald";
-      margin-top: 7%;
+    .title-divider-right {
+      flex-grow: 1;
+      width: 60%;
+      padding: 2% 10% 0 0;
     }
 
-    .mais{
-      width: 30%;
+    .title-h1 {
+      flex-grow: 1;
+      width: 0em;
+      margin-top:2%;
+      text-align: center;
+    }
+
+
+    .title-divider-right hr {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      height: 10px;
+      background-color: #EDB347;
     }
   </style>
 </head>
@@ -153,45 +154,53 @@
 <body>
 
 
-  <ul class="flex-container">
-    <li class="flex-item nav">
+  <div class="main-container">
+    <div class="navigation-side">
       <?php
-      $this->load->view('common/navBarmanager');
-      ?></li>
-    <li class="flex-x">
-      <ul class="flex-container">
+        $this->load->view('common/navBarmanager');
+      ?>
+    </div>
+    <div class="content-side">
+      <div class="content-info">
 
-        <li class="flex-item perfil">
+        <div class="content-info perfil">
           <div> <img src="../assets/img/person.png" height="100px"></div>
           <h2><?php
               if ($_SESSION['admin'] == "1")
                 echo "Administrador";
               else if ($_SESSION['admin'] == "2")
-              echo "Gestor";
+                echo "Gestor";
               else
-              echo "Utilizador";
+                echo "Utilizador";
               ?>
           </h2>
           <a href="perfil" class="w3-button w3-black"><button class="btn btn-warning extra">Editar Perfil</button></a>
-        </li>
-        <li class="flex-item outros">
+        </div>
+        <div class="content-info outros">
           <div> <img src="../assets/img/calendar.png" height="100px"></div>
           <h2>Gestão de Utilizadores</h2>
           <h3>Adicione ou remova utilizadores</h3>
           <a href="utilizadores" class="w3-button w3-black"><button class="btn btn-warning extra">Ir para lá</button></a>
-        </li><br>
-        <h1 class="texto">Por Aprovar</h1>
-        <hr class="barra">
-        <li class="flex-item eventos">
+        </div><br>
+        <div class="div-title">
+          <div class="title-h1">
+            <h1 class="texto">Por Aprovar</h1>
+          </div>
+          <div class="title-divider-right">
+            <hr>
+          </div>
+        </div>
+
+        <div class="content-info eventos">
           <h2>Eventos</h2>
 
-        <li class="flex-item noticias">
-          <h2>Noticias</h2>
-        </li>
-      </ul>
-    </li>
-  </ul>
-
+          <div class="content-info noticias">
+            <h2>Noticias</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 

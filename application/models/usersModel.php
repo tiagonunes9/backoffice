@@ -8,5 +8,6 @@ class UsersModel extends CI_Model {
     $result = $this->db->get_where('utilizadores', array('email' => $email, 'password' => $password));
     return $result->result();
   }
+  
 }
 ?>

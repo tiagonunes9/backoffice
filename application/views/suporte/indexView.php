@@ -80,21 +80,22 @@
     .resolvido {
       color: #42B19D;
       font-family: "Oswald";
+      font-weight: lighter;
       font-size: 100%;
     }
 
     .pendente {
       color: #E47A3F;
       font-family: "Oswald";
-      font-weight: normal;
+      font-weight: lighter;
       font-size: 100%;
     }
 
     .texto {
-      color: #707070;
       font-family: "Oswald";
-      font-weight: normal;
+      font-weight: lighter;
       font-size: 100%;
+      color: #707070;
     }
 
     .div-title {
@@ -128,7 +129,9 @@
       height: 10px;
       background-color: #EDB347;
     }
-
+.info{
+  color:white;
+}
   </style>
 </head>
 
@@ -218,12 +221,12 @@
           </div>
         </div>
 
-        <script>
-          $('input#txt_consulta').quicksearch('table#tabela tbody tr');
-        </script>
+        
         </ul>
       </div>
     </div>
 </body>
-
+<script>
+          $('input#txt_consulta').quicksearch('table#tabela tbody tr');
+        </script>
 </html>

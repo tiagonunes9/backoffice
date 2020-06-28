@@ -73,11 +73,15 @@
 
     .outros {
       width: 50%;
-      margin-left: 25%;
+      margin-left: 20%;
+      margin-top: -3%;
     }
 
     .texto {
-      text-align: left;
+      text-align: right;
+      margin-left: 10%;
+      margin-top:5%
+
     }
 
     .perfil {
@@ -95,10 +99,47 @@
       color: white;
       font-family: "Oswald";
       font-weight: bold;
+      margin-left: 40%;
+      margin-right: 60%;
     }
 
-    .titulo{
-      margin-top:7%;
+    .div-title {
+      height: 15%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .title-divider-right {
+      flex-grow: 1;
+      width: 60%;
+      padding: 2% 10% 0 0;
+    }
+
+    .title-h1 {
+      flex-grow: 1;
+      width: 0em;
+      margin-top:2%;
+      text-align: center;
+    }
+
+
+    .title-divider-right hr {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      height: 10px;
+      background-color: #EDB347;
+    }
+    .caixa{
+      background-color: white;
+      margin: 5%;
+      -webkit-box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.23);
+      box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.05);
+      border-radius: 15px;
     }
   </style>
 </head>
@@ -118,23 +159,32 @@
     </div>
     <div class="content-side">
       <div class="content-info">
-        <h1 class="titulo">Perfil</h1><hr> <br>
+      <div class="div-title">
+          <div class="title-h1">
+            <h1>Perfil</h1>
+          </div>
+          <div class="title-divider-right">
+            <hr>
+          </div>
+        </div>
+        <div class="caixa">
         <?php echo form_open(base_url() . 'index.php/perfil/update/' . $perfil[0]->id_user); ?>
         <!--<input type="image" name="imagem" value="<?php echo $perfil[0]->imagem; ?>" class="form-control"> -->
         <label class="texto">Email:</label>
         <input type="email" name="email" value="<?php echo $perfil[0]->email; ?>" class="form-control outros">
-        <label>Nome:</label>
+        <label class="texto">Nome:</label>
         <input type="text" name="nome" value="<?php echo $perfil[0]->nome; ?>" class="form-control outros">
-        <label>Morada:</label>
+        <label class="texto">Morada:</label>
         <input type="text" name="morada" value="<?php echo $perfil[0]->contato; ?>" class="form-control outros">
-        <label>Contato:</label>
+        <label class="texto">Contato:</label>
         <input type="text" name="contato" value="<?php echo $perfil[0]->morada; ?>" class="form-control outros">
-        <label>Password:</label>
+        <label class="texto">Password:</label>
         <input type="password" name="password" value="<?php echo $perfil[0]->password; ?>" class="form-control outros">
         <br>
         <div class="col-md-6 offset-md-3">
           <button type="submit" class="btn btn-default btnadmin">Guardar</button><br><br>
         </div>
+  </div>
       </div>
     </div>
 </body>

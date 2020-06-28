@@ -56,12 +56,12 @@ class Eventos extends CI_Controller {
 	public function uptade()
 	{
 		$uri =& load_class('URI', 'core');
-		$ID_Evento = $uri->segment(3);
+		$id_evento = $uri->segment(3);
 
 		$this->load->helper(array('form'));
 		$this->load->model('eventosModel');
 
-		$eventos = $this->eventosModel->get($ID_Evento);
+		$eventos = $this->eventosModel->get($id_evento);
 
 		$data['eventos'] = $eventos;
 
@@ -91,6 +91,26 @@ class Eventos extends CI_Controller {
 			'estado' => $estado,
 			'imagem' => $imagem,
 			'data' => $data,
+			
+		);
+		$this->load->model('eventosModel');
+
+		$eventos = $this->eventosModel->put($id, $data);
+		
+		redirect('eventos');
+	}
+
+	public function updateestado(){
+		$uri =& load_class('URI', 'core');
+		$id = $uri->segment(3);
+
+		$this->load->helper(array('form'));
+		
+		
+		$estado = $this->input->post('estado');
+		
+		$data = array(
+			'1' => $estado,
 			
 		);
 		$this->load->model('eventosModel');
