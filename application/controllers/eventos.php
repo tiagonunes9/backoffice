@@ -110,7 +110,7 @@ class Eventos extends CI_Controller {
 		$estado = $this->input->post('estado');
 		
 		$data = array(
-			'1' => $estado,
+			'estado' => $estado,
 			
 		);
 		$this->load->model('eventosModel');

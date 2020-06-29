@@ -11,7 +11,7 @@
   <?php
   $this->load->view('common/headLibraries');
   ?>
-  <link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.png">
+<link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.ico">  
   <style>
     .jumbotron {
       background-color: #F2F2F2 !important;
@@ -234,7 +234,7 @@
             if ($value->estado == "0") {
               echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
               echo '<td><button type="button" class="btn btn-info info" ' . '<p>Info</p></button></td>';
-              echo '<td><a href="' . base_url() . 'index.php/noticias/delete/' . $value->id_noticia . ' ><button type="button" class="btn btn-success aprovar">Aprovar</button></a></td>';
+              echo '<td><a href="' . base_url() . 'index.php/noticias/update/' . $value->id_noticia . ' ><button type="button" class="btn btn-success aprovar">Aprovar</button></a></td>';
               echo '<td><a href="' . base_url() . 'index.php/noticia/delete/' . $value->id_noticia . '" onclick="return confirm(\'Tem a certeza que pretende apagar esse utilizador?\')" ><button type="button" class="btn btn-danger rejeitar">Eliminar</button></a></td></tr>';
             } else {
             }

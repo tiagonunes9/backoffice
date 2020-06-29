@@ -11,7 +11,7 @@
   <?php
   $this->load->view('common/headLibraries');
   ?>
-  <link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.ico">
   <style>
     .jumbotron {
       background-color: #F2F2F2 !important;
@@ -169,7 +169,7 @@
         </div>
         <div class="caixa">
         <?php echo form_open(base_url() . 'index.php/perfil/update/' . $perfil[0]->id_user); ?>
-        <!--<input type="image" name="imagem" value="<?php echo $perfil[0]->imagem; ?>" class="form-control"> -->
+        <input type="file" name="imagem" value="<?php echo $perfil[0]->imagem; ?>" class="form-control">
         <label class="texto">Email:</label>
         <input type="email" name="email" value="<?php echo $perfil[0]->email; ?>" class="form-control outros">
         <label class="texto">Nome:</label>

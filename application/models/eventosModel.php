@@ -13,6 +13,8 @@ class eventosModel extends CI_Model {
   }
 
   function delete($id, $data){
+    $id = "0";
+    $eventos = array('data' => "1");  
     $this->db->where('id_evento', $id);
     $this->db->update('eventos', $data);
   }

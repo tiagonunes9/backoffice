@@ -98,7 +98,7 @@
 	<ul class="flex-container">
 		<li class="flex-item direito">
 			<div class="col-sm-8 branco">
-				<img src="assets/img/logo.svg" class="imagem" />
+				<img src="../assets/img/logo.svg" class="imagem" />
 			</div>
 		<li class="flex-x">
 			<ul class="flex-container formulario">
@@ -107,10 +107,7 @@
 				<form>
 					<label>Email</label>
 					<input type="text" name="email" class="form-control barra">
-					<label>Password</label>
-					<input type="password" name="password" class="form-control barra">
-					<a class="outra" href="<?php echo base_url(); ?>index.php/resetpassword">Esqueci-me da password</a>
-					<button type="submit" class="btn btn-default geral">LOGIN</button>
+					<button type="submit" class="btn btn-default geral">Enviar email</button>
 				</form>
 			</ul>
 		</li>

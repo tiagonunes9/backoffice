@@ -7,12 +7,15 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.3.1/jquery.quicksearch.js"></script>
 
   <?php
   $this->load->view('common/headLibraries');
   ?>
-  <link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.png">
-  <style>
+<link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.ico">  
+<style>
     .jumbotron {
       background-color: #F2F2F2 !important;
     }
@@ -188,9 +191,10 @@
           </div>
         </div>
 
-        <table class="table admin">
+        <table id="tabela" class="table admin">
           <tr class="outro">
             <th width="15%">
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.3.1/jquery.quicksearch.js"></script>
               <div class="form-group input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
                 <input name="consulta" id="txt_consulta" placeholder="Procurar..." type="text" class="form-control">
@@ -202,8 +206,7 @@
               <a href="utilizadores/novoutilizador" class="link"><img src="../assets/img/add.PNG" class="icone" />Adicionar utilizador</a>
               </a>
             </th>
-          </tr>
-
+          </tr>       
 
           <tr class="tabela">
             <th width="10%">
@@ -215,10 +218,11 @@
             </th>
             <th width="10%"></th>
           </tr>
+<tbody>
           <?php
           foreach ($utilizadores as $key => $value) {
             echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
-            echo '<td>' . '<button type="button" class="btn btn-info" data-toggle="modal" data-target="exampleModal">' . '<p>Info</p>' . '</button></td>';
+            echo '<td>' . '<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">' . '<p>Info</p>' . '</button></td>';
             echo '<td>';
             if ($value->tipo_user == "1") {
               echo '<p class="texto">' . "Administrador" . '</p>';
@@ -231,30 +235,33 @@
             echo '<td><a href="' . base_url() . 'index.php/utilizadores/delete/' . $value->id_user . '" onclick="return confirm(\'Tem a certeza que pretende apagar esse utilizador?\')" ><p class="eliminar">Eliminar</p></a></td></tr>';
           }
           ?>
+</tbody>
         </table>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
               </div>
               <div class="modal-body">
-                teste
+                <p>Some text in the modal.</p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
             </div>
+
           </div>
         </div>
       </div>
     </div>
   </div>
+
+
 </body>
 <script>
   $('input#txt_consulta').quicksearch('table#tabela tbody tr');

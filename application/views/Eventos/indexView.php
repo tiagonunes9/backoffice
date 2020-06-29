@@ -11,7 +11,7 @@
   <?php
   $this->load->view('common/headLibraries');
   ?>
-  <link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.png">
+<link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.ico">  
   <style>
     .jumbotron {
       background-color: #F2F2F2 !important;
@@ -112,7 +112,7 @@
 
     .flex-item {
       background: blue;
-      width: 250px;
+      width: 4;
       height: 200px;
       margin-top: 6%;
       margin-left: 3%;
@@ -164,11 +164,15 @@
         <a class="adicionar" href="eventos/novoevento"><img src="../assets/img/add.PNG" width="2%" />    Adicionar Evento</a>
         <div class="content-info">
           <ul class="flex-container">
-
+          <?php echo form_open(base_url() . 'index.php/eventos/updateestado/' . $eventos[0]->id_evento); ?>
             <?php
             foreach ($eventos as $key => $value) {
-              echo '<li class="flex-item myDIV">' . $value->nome . "</li>";
-              echo '<a href="' . base_url() . 'index.php/eventos/updateestado/' . $value->id_evento . '" class="btn btn-sm btn-danger">Eliminar</a>';
+              echo '<li class="flex-item myDIV">' . $value->nome . "</li>";            
+              if ($value->estado == "1") {
+                echo '<input type="hidden" name="estado" value="2"> <button type="submit" class="btn btn-danger" onclick="location.href='. base_url() . 'index.php/eventos/updateestado/' . $value->id_evento . '">Eliminar</button>';
+              } else if ($value->estado == "2") {
+                echo '<input type="hidden" name="estado" value="1"> <button type="submit" class="btn btn-success" onclick="location.href='. base_url() . 'index.php/eventos/updateestado/' . $value->id_evento . '">Reativar</button>';
+              }
             }
             ?>
           </ul>

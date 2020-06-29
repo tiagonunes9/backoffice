@@ -11,7 +11,7 @@
   <?php
   $this->load->view('common/headLibraries');
   ?>
-  <link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.png">
+<link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.ico">  
   <style>
     .jumbotron {
       background-color: #F2F2F2 !important;
@@ -117,7 +117,7 @@
     .title-h1 {
       flex-grow: 1;
       width: 0em;
-      margin-top:2%;
+      margin-top: 2%;
       text-align: center;
     }
 
@@ -129,9 +129,10 @@
       height: 10px;
       background-color: #EDB347;
     }
-.info{
-  color:white;
-}
+
+    .info {
+      color: white;
+    }
   </style>
 </head>
 
@@ -221,12 +222,14 @@
           </div>
         </div>
 
-        
+
         </ul>
       </div>
     </div>
 </body>
 <script>
-          $('input#txt_consulta').quicksearch('table#tabela tbody tr');
-        </script>
+  $('input#txt_consulta').quicksearch('table#tabela tbody tr');
+</script>
+
+
 </html>

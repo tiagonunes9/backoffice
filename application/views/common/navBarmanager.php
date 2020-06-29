@@ -44,7 +44,7 @@
 <div class="sidenav">
     <img src="../assets/img/logo.svg" class="imagem" /><br>
     <div class="novo">
-      <a class="nav-link teste" href="<?php echo base_url(); ?>index.php/dashboardadmin"><img src="../assets/img/speedometer.png" class="icone" />Dashboard</a>
+      <a class="nav-link teste" href="<?php echo base_url(); ?>index.php/dashboardmanager"><img src="../assets/img/speedometer.png" class="icone" />Dashboard</a>
       <a class="nav-link teste" href="<?php echo base_url(); ?>index.php/eventos"><img src="../assets/img/event.png" class="icone" />Eventos</a>
       <a class="nav-link teste" href="<?php echo base_url(); ?>index.php/noticias"><img src="../assets/img/news.png" class="icone" />Noticias</a>
       <a class="nav-link teste" href="<?php echo base_url(); ?>index.php/perfil"><img src="../assets/img/settings.png" class="icone" />Perfil</a>

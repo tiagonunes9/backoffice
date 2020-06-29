@@ -11,7 +11,7 @@
     <?php
     $this->load->view('common/headLibraries');
     ?>
-    <link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.png">
+<link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.ico">  
     <style>
         .jumbotron {
             background-color: #F2F2F2 !important;
@@ -127,12 +127,13 @@
                 <?php echo form_open(base_url() . 'index.php/eventos/novoevento/'); ?>
 
                 <div class="admin">
+                    <input type="file" name="image" class="form-control">
                     <label class="textito">Nome do Evento:</label>
                     <input type="teste" class="form-control" name="nome" required>
                     <label class="textito">Descrição:</label>
-                    <input type="text" name="descricao" value="" class="form-control">
+                    <input type="text" name="descricao" class="form-control">
                     <label class="textito">Data:</label>
-                    <input type="date" name="data" value="" class="form-control">
+                    <input type="date" name="data" class="form-control" required>
                     <input type="hidden" name="estado" value="0">
                     <button type="submit" class="btn btn-default">Adicionar</button><br><br>
                 </div>
