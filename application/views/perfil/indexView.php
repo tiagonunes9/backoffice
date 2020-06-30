@@ -80,8 +80,7 @@
     .texto {
       text-align: right;
       margin-left: 10%;
-      margin-top:5%
-
+      margin-top: 5%
     }
 
     .perfil {
@@ -115,14 +114,14 @@
 
     .title-divider-right {
       flex-grow: 1;
-      width: 60%;
-      padding: 2% 10% 0 0;
+      width: 55%;
+      padding: 2% 0% 0 0;
     }
 
     .title-h1 {
       flex-grow: 1;
       width: 0em;
-      margin-top:2%;
+      margin-top: 2%;
       text-align: center;
     }
 
@@ -134,7 +133,8 @@
       height: 10px;
       background-color: #EDB347;
     }
-    .caixa{
+
+    .caixa {
       background-color: white;
       margin: 5%;
       -webkit-box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.23);
@@ -148,18 +148,18 @@
 
   <div class="main-container">
     <div class="navigation-side">
-        <?php
-        if ($_SESSION['admin'] == "1")
-          $this->load->view('common/navBaradmin');
-        else if ($_SESSION['admin'] == "2")
-          $this->load->view('common/navBarmanager');
-        else
-          $this->load->view('common/navBaruser');
-        ?>
+      <?php
+      if ($_SESSION['admin'] == "1")
+        $this->load->view('common/navBaradmin');
+      else if ($_SESSION['admin'] == "2")
+        $this->load->view('common/navBarmanager');
+      else
+        $this->load->view('common/navBaruser');
+      ?>
     </div>
     <div class="content-side">
       <div class="content-info">
-      <div class="div-title">
+        <div class="div-title">
           <div class="title-h1">
             <h1>Perfil</h1>
           </div>
@@ -168,23 +168,25 @@
           </div>
         </div>
         <div class="caixa">
-        <?php echo form_open(base_url() . 'index.php/perfil/update/' . $perfil[0]->id_user); ?>
-        <input type="file" name="imagem" value="<?php echo $perfil[0]->imagem; ?>" class="form-control">
-        <label class="texto">Email:</label>
-        <input type="email" name="email" value="<?php echo $perfil[0]->email; ?>" class="form-control outros">
-        <label class="texto">Nome:</label>
-        <input type="text" name="nome" value="<?php echo $perfil[0]->nome; ?>" class="form-control outros">
-        <label class="texto">Morada:</label>
-        <input type="text" name="morada" value="<?php echo $perfil[0]->contato; ?>" class="form-control outros">
-        <label class="texto">Contato:</label>
-        <input type="text" name="contato" value="<?php echo $perfil[0]->morada; ?>" class="form-control outros">
-        <label class="texto">Password:</label>
-        <input type="password" name="password" value="<?php echo $perfil[0]->password; ?>" class="form-control outros">
-        <br>
-        <div class="col-md-6 offset-md-3">
-          <button type="submit" class="btn btn-default btnadmin">Guardar</button><br><br>
+          <?php echo form_open(base_url() . 'index.php/perfil/update/' . $perfil[0]->id_user); ?>
+          <?php echo form_open_multipart('perfil/do_upload'); ?>
+          <label class="texto">Email:</label>
+          <input type="email" name="email" value="<?php echo $perfil[0]->email; ?>" class="form-control outros">
+          <label class="texto">Nome:</label>
+          <input type="text" name="nome" value="<?php echo $perfil[0]->nome; ?>" class="form-control outros">
+          <label class="texto">Morada:</label>
+          <input type="text" name="morada" value="<?php echo $perfil[0]->contato; ?>" class="form-control outros">
+          <label class="texto">Contato:</label>
+          <input type="text" name="contato" value="<?php echo $perfil[0]->morada; ?>" class="form-control outros">
+          <label class="texto">Fotografia:</label>
+          <input type="file" name="imagem" size="9999" class="form-control outros" id="imagem">
+          <label class="texto">Password:</label>
+          <input type="password" name="password" value="<?php echo $perfil[0]->password; ?>" class="form-control outros">
+          <br>
+          <div class="col-md-6 offset-md-3">
+            <button type="submit" class="btn btn-default btnadmin">Guardar</button><br><br>
+          </div>
         </div>
-  </div>
       </div>
     </div>
 </body>

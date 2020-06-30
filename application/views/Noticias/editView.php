@@ -214,7 +214,7 @@
             <div class="content-info">
                 <div class="div-title">
                     <div class="title-h1">
-                        <h1>Eventos</h1>
+                        <h1>Noticias</h1>
                     </div>
                     <div class="title-divider-right">
                         <hr>
@@ -222,24 +222,29 @@
                 </div>
 
 
-                <?php echo form_open(base_url() . 'index.php/eventos/novoevento/'); ?>
+                <?php echo form_open(base_url() . 'index.php/noticias/update/' . $noticias[0]->id_noticia); ?>
 
                 <div class="admin">
-                    <label class="textito">Nome do Evento:</label>
-                    <input type="teste" class="form-control outros" name="nome" required>
+                    <label class="textito">Nome da Noticia:</label>
+                    <input type="teste" class="form-control outros" name="nome" value="<?php echo $noticias[0]->nome; ?>" required>
                     <label class="textito">Descrição:</label>
-                    <input type="text" name="descricao" class="form-control outros">
+                    <input type="text" name="descricao" value="<?php echo $noticias[0]->descricao; ?>" class="form-control outros">
                     <label class="textito">Data:</label>
-                    <input type="date" name="data" class="form-control outros">
+                    <input type="date" name="data" value="<?php echo $noticias[0]->data; ?>" class="form-control outros">
                     <label class="textito">Local:</label>
-                    <input type="text" name="local" class="form-control outros">
+                    <input type="text" name="local" value="<?php echo $noticias[0]->local; ?>" class="form-control outros">
                     <label class="textito">Imagem:</label>
                     <input type="file" name="imagem" class="form-control outros">
                     <label class="textito">Autor:</label>
-                    <input type="text" name="autor" class="form-control outros">
-                    <input type="hidden" name="estado" value="0">
+                    <input type="text" name="autor" value="<?php echo $noticias[0]->autor; ?>" class="form-control outros">
                     <div class="btn-group centrar">
-                        <button type="submit" class="btn btn-default btnadmin">Responder</button>
+                        <?php
+                        if ($noticias[0]->estado == "1") {
+                            echo '<input type="hidden" name="estado" value="2">' . '<button type="submit" class="btn btn-default btnadmin">Desativar</button>';
+                        } else if ($noticias[0]->estado == "2") {
+                            echo '<input type="hidden" name="estado" value="1"><button type="submit" class="btn btn-default btnadmin">Ativar</button>';
+                        };
+                        ?>
                         <button type="button" class="btn btn-default btnadmine" onclick="history.back()">Voltar</button>
                     </div>
                 </div>

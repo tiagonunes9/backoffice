@@ -7,28 +7,22 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.3.1/jquery.quicksearch.js"></script>
 
   <?php
   $this->load->view('common/headLibraries');
   ?>
-<link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.ico">  
+  <link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.ico">
   <style>
     .jumbotron {
       background-color: #F2F2F2 !important;
     }
 
-    h1 {
-      color: #EDB347;
-      font-family: "Oswald";
-      font-weight: bold;
-    }
-
-    
-    html,
-    body {
+    body,
+    html {
       background-color: #F2F2F2 !important;
-      height: 100%;
-      margin: 0;
     }
 
     .main-container {
@@ -53,24 +47,85 @@
       padding: 0px 10px;
       margin: 0px 100px;
     }
-    .adicionar {
-      color: #2F898D;
+
+    h1 {
+      color: #EDB347;
       font-family: "Oswald";
-      font-weight: normal;
-      font-size: 80%;
-      margin-left: 65%;
-      margin-right: 0;
+      font-weight: bold;
+      margin-left: 5%;
     }
 
-    .adicionar:hover {
-      color: #2F898D;
+    p {
+      color: #707070;
       font-family: "Oswald";
-      font-weight: normal;
-      font-size: 80%;
+      font-size: 55%;
+    }
+
+    .admin {
+      background-color: white;
+      margin: 5%;
+      -webkit-box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.23);
+      box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.23);
+      border-radius: 15px;
+      padding: 0;
+    }
+
+    .link {
+      color: #2F898D;
+      font-family: 'Oswald';
+      font-weight: bold;
+      font-size: 60%;
+    }
+
+    .link:hover {
+      color: #2F898D;
+      font-family: 'Oswald';
+      font-weight: bold;
+      font-size: 60%;
       text-decoration: none;
     }
 
-  .div-title {
+    .eliminar:hover {
+      color: #E47A3F;
+      font-family: 'Oswald';
+      font-weight: lighter;
+      font-size: 100%;
+      text-decoration: none;
+    }
+
+    .info {
+      background-color: #2F898D;
+      font-family: 'Oswald';
+      font-weight: normal;
+      color:white;
+    }
+
+    .texto {
+      font-family: "Oswald";
+      font-weight: lighter;
+      font-size: 100%;
+      color: #707070;
+    }
+
+    .tabela {
+      background-color: #F2F2F2;
+      border-radius: 15px;
+    }
+
+    .title-divider-right {
+      margin-left: 1%;
+      margin-top: 0.6%;
+      width: 81%;
+      padding: 0 10% 0 0;
+      border-radius: 5px;
+    }
+
+    .icone {
+      width: 20%;
+      height: auto;
+    }
+
+    .div-title {
       height: 15%;
       margin: 0;
       padding: 0;
@@ -82,14 +137,14 @@
 
     .title-divider-right {
       flex-grow: 1;
-      width: 60%;
-      padding: 2% 10% 0 0;
+      width: 55%;
+      padding: 2% 0% 0 0;
     }
 
     .title-h1 {
       flex-grow: 1;
       width: 0em;
-      margin-top:2%;
+      margin-top: 2%;
       text-align: center;
     }
 
@@ -102,38 +157,18 @@
       background-color: #EDB347;
     }
 
-    .flex-container {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-around;
-      padding: 0;
-      margin-left: 5%;
-      margin-right: 5%;
-      list-style: none;
+    .ativo {
+      color: #42B19D;
+      font-family: "Oswald";
+      font-weight: lighter;
+      font-size: 100%;
     }
 
-    .flex-item {
-      background: blue;
-      width: 250px;
-      height: 200px;
-      margin-top: 6%;
-      margin-left: 3%;
-      margin-right: 3%;
-      margin-bottom: 5%;
-      line-height: 150px;
-      color: white;
-      font-weight: bold;
-      font-size: 3em;
-      text-align: center;
-    }
-
-    .hide {
-      display: none;
-    }
-
-    .myDIV:hover+.hide {
-      display: block;
-      color: white;
+    .desativo {
+      color: #E47A3F;
+      font-family: "Oswald";
+      font-weight: lighter;
+      font-size: 100%;
     }
   </style>
 </head>
@@ -141,16 +176,16 @@
 <body>
 
 
-<div class="main-container">
+  <div class="main-container">
     <div class="navigation-side">
-        <?php
-        if ($_SESSION['admin'] == "1")
-          $this->load->view('common/navBaradmin');
-        else if ($_SESSION['admin'] == "2")
-          $this->load->view('common/navBarmanager');
-        else
-          $this->load->view('common/navBaruser');
-        ?>
+      <?php
+      if ($_SESSION['admin'] == "1")
+        $this->load->view('common/navBaradmin');
+      else if ($_SESSION['admin'] == "2")
+        $this->load->view('common/navBarmanager');
+      else
+        $this->load->view('common/navBaruser');
+      ?>
     </div>
     <div class="content-side">
       <div class="content-info">
@@ -163,21 +198,57 @@
           </div>
         </div>
 
+        <table id="tabela" class="table admin">
+          <tr class="outro">
+            <th width="15%">
+              <div class="form-group input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                <input name="consulta" id="txt_consulta" placeholder="Procurar..." type="text" class="form-control">
+              </div>
+            </th>
+            <th width="20%"></th>
+            <th width="10%"></th>
+            <th width="10%">
+              <a href="noticias/novanoticia" class="link"><img src="../assets/img/add.PNG" class="icone" />Adicionar Noticia</a>
+              </a>
+            </th>
+          </tr>
 
-        <a class="adicionar" href="noticias/novanoticia"><img src="../assets/img/add.PNG" width="2%" />        Adicionar Noticia</a>
-        <div class="content-info">
-          <ul class="flex-container">
-
+          <tr class="tabela">
+            <th width="15%">
+              <p>Nome</p>
+            </th>
+            <th width="20%"><p>Autor</p></th>
+            <th width="10%">
+            </th>
+            <th width="10%"></th>
+          </tr>
+          <tbody>
             <?php
             foreach ($noticias as $key => $value) {
-              echo '<li class="flex-item myDIV">' . $value->nome . "</li>";
-              echo '<a href="' . base_url() . 'index.php/noticias/delete/' . $value->id_noticia . '" class="btn btn-sm btn-danger hide">Eliminar</a>';
+              echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
+              echo '<td> <p class="texto">' . $value->autor . '</p></td>';
+              echo '<td>' . '<a href="' . base_url() . 'index.php/noticias/uptade/' . $value->id_noticia . '" class="btn btn-sm btn-info info">' . 'Info' . '</a></td>';
+              echo '<td>';
+              if ($value->estado == "1") {
+                echo '<p class="ativo"> Ativo </p>';
+              } else if ($value->estado == "2") {
+                echo '<p class="desativo"> Desativado </p>';
+              }'</td></tr>';
             }
             ?>
-          </ul>
-        </div>
+          </tbody>
+        </table>
+
+
       </div>
     </div>
+  </div>
+
+
 </body>
+<script>
+  $('input#txt_consulta').quicksearch('table#tabela tbody tr');
+</script>
 
 </html>

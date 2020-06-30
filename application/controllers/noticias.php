@@ -98,4 +98,24 @@ class Noticias extends CI_Controller {
 		
 		redirect('noticias');
 	}
+
+	public function updateestado(){
+		$uri =& load_class('URI', 'core');
+		$id = $uri->segment(3);
+
+		$this->load->helper(array('form'));
+		
+		
+		$estado = $this->input->post('estado');
+		
+		$data = array(
+			'estado' => $estado,
+			
+		);
+		$this->load->model('noticiasModel');
+
+		$noticias = $this->noticiasModel->put($id, $data);
+		
+		redirect('noticias');
+	}
 }

@@ -11,7 +11,7 @@
     <?php
     $this->load->view('common/headLibraries');
     ?>
-<link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.ico">  
+    <link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.ico">
     <style>
         .jumbotron {
             background-color: #F2F2F2 !important;
@@ -22,14 +22,8 @@
             background-color: #F2F2F2 !important;
         }
 
-        h1 {
-            color: #EDB347;
-            font-family: "Oswald";
-            font-weight: bold;
-        }
-
         .main-container {
-            height: 100%;
+            height: 100vh;
             display: flex;
             flex-direction: row;
         }
@@ -51,50 +45,153 @@
             margin: 0px 100px;
         }
 
-        .textito {
-            font-size: 50%;
+        h1 {
+            color: #EDB347;
+            font-family: "Oswald";
+            font-weight: bold;
+            margin-left: 5%;
+        }
+
+        p {
             color: #707070;
+            font-family: "Oswald";
+            font-size: 55%;
         }
 
         .admin {
             background-color: white;
+            margin: 5%;
             -webkit-box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.23);
-            box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.05);
-            width: 50vw;
-            height: 50%;
+            box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.23);
+            border-radius: 15px;
+            padding: 0;
         }
 
+        .link {
+            color: #2F898D;
+            font-family: 'Oswald';
+            font-weight: bold;
+            font-size: 60%;
+        }
+
+        .link:hover {
+            color: #2F898D;
+            font-family: 'Oswald';
+            font-weight: bold;
+            font-size: 60%;
+            text-decoration: none;
+        }
+
+        .eliminar:hover {
+            color: #E47A3F;
+            font-family: 'Oswald';
+            font-weight: lighter;
+            font-size: 100%;
+            text-decoration: none;
+        }
+
+        .info {
+            background-color: #2F898D;
+            font-family: 'Oswald';
+            font-weight: normal;
+            color: white;
+        }
+
+        .textito {
+            font-family: "Oswald";
+            font-weight: lighter;
+            font-size: 100%;
+            color: #707070;
+            text-align: right;
+            margin-left: 10%;
+            margin-top: 5%
+        }
+
+        .outros {
+            width: 60%;
+            margin-left: 30%;
+            margin-top: -3%;
+        }
+
+        .btnadmin {
+            background-color: #42B19D;
+            color: white;
+            font-family: "Oswald";
+            font-weight: bold;
+            margin-left: 40%;
+            margin-right: 60%;
+        }
+
+        .btnadmine {
+            background-color: #E47A3F;
+            color: white;
+            font-family: "Oswald";
+            font-weight: bold;
+            margin-left: 40%;
+            margin-right: 60%;
+        }
+
+        .title-divider-right {
+            margin-left: 1%;
+            margin-top: 0.6%;
+            width: 81%;
+            padding: 0 10% 0 0;
+            border-radius: 5px;
+        }
+
+
         .div-title {
-      height: 15%;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-wrap: nowrap;
-      align-items: center;
-      justify-content: center;
-    }
+            height: 15%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .title-divider-right {
-      flex-grow: 1;
-      width: 60%;
-      padding: 2% 10% 0 0;
-    }
+        .title-divider-right {
+            flex-grow: 1;
+            width: 55%;
+            padding: 2% 0% 0 0;
+        }
 
-    .title-h1 {
-      flex-grow: 1;
-      width: 0em;
-      margin-top:2%;
-      text-align: center;
-    }
+        .title-h1 {
+            flex-grow: 1;
+            width: 0em;
+            margin-top: 2%;
+            text-align: center;
+        }
 
 
-    .title-divider-right hr {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      height: 10px;
-      background-color: #EDB347;
-    }
+        .title-divider-right hr {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            height: 10px;
+            background-color: #EDB347;
+        }
+
+        .ativo {
+            color: #42B19D;
+            font-family: "Oswald";
+            font-weight: lighter;
+            font-size: 100%;
+        }
+
+        .desativo {
+            color: #E47A3F;
+            font-family: "Oswald";
+            font-weight: lighter;
+            font-size: 100%;
+        }
+
+        .centrar {
+            margin-left: 40%;
+            margin-right: 60%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
     </style>
 </head>
 
@@ -113,28 +210,37 @@
             ?>
         </div>
         <div class="content-side">
-      <div class="content-info">
-        <div class="div-title">
-          <div class="title-h1">
-            <h1>Noticias</h1>
-          </div>
-          <div class="title-divider-right">
-            <hr>
-          </div>
-        </div>
+            <div class="content-info">
+                <div class="div-title">
+                    <div class="title-h1">
+                        <h1>Noticias</h1>
+                    </div>
+                    <div class="title-divider-right">
+                        <hr>
+                    </div>
+                </div>
 
 
                 <?php echo form_open(base_url() . 'index.php/noticias/novanoticia/'); ?>
 
                 <div class="admin">
-                    <label class="textito">Nome do Evento:</label>
-                    <input type="teste" class="form-control" name="nome" required>
+                    <label class="textito">Nome da Noticia:</label>
+                    <input type="teste" class="form-control outros" name="nome" required>
                     <label class="textito">Descrição:</label>
-                    <input type="text" name="descricao" value="" class="form-control">
+                    <input type="text" name="descricao" class="form-control outros">
                     <label class="textito">Data:</label>
-                    <input type="date" name="data" value="" class="form-control">
+                    <input type="date" name="data" class="form-control outros">
+                    <label class="textito">Local:</label>
+                    <input type="text" name="local" class="form-control outros">
+                    <label class="textito">Imagem:</label>
+                    <input type="file" name="imagem" class="form-control outros">
+                    <label class="textito">Autor:</label>
+                    <input type="text" name="autor" class="form-control outros">
                     <input type="hidden" name="estado" value="0">
-                    <button type="submit" class="btn btn-default">Adicionar</button><br><br>
+                    <div class="btn-group centrar">
+                        <button type="submit" class="btn btn-default btnadmin">Responder</button>
+                        <button type="button" class="btn btn-default btnadmine" onclick="history.back()">Voltar</button>
+                    </div>
                 </div>
             </div>
         </div>

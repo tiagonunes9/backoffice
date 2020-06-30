@@ -7,11 +7,14 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.3.1/jquery.quicksearch.js"></script>
 
   <?php
   $this->load->view('common/headLibraries');
   ?>
-<link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.ico">  
+  <link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.ico">
   <style>
     .jumbotron {
       background-color: #F2F2F2 !important;
@@ -22,21 +25,15 @@
       background-color: #F2F2F2 !important;
     }
 
-    h1 {
-      color: #EDB347;
-      font-family: "Oswald";
-      font-weight: bold;
-    }
-
     .main-container {
-      height: 100%;
+      height: 100vh;
       display: flex;
       flex-direction: row;
     }
 
     .navigation-side {
       flex: 0 0 20%;
-      background-color: gray;
+      background-color: #333333;
     }
 
     .content-side {
@@ -45,16 +42,23 @@
       overflow: auto;
     }
 
-
     .content-info {
       font-size: 28px;
-      padding-right: 5%;
-      padding-left: 0%;
+      padding: 0px 10px;
       margin: 0px 100px;
+    }
+
+    h1 {
+      color: #EDB347;
+      font-family: "Oswald";
+      font-weight: bold;
+      margin-left: 5%;
     }
 
     p {
       color: #707070;
+      font-family: "Oswald";
+      font-size: 55%;
     }
 
     .admin {
@@ -66,29 +70,34 @@
       padding: 0;
     }
 
-    .tabela {
-      background-color: #F2F2F2;
-      padding: 0;
+    .link {
+      color: #2F898D;
+      font-family: 'Oswald';
+      font-weight: bold;
+      font-size: 60%;
     }
 
-    p {
-      color: #707070;
-      font-family: "Oswald";
-      font-size: 100%;
+    .link:hover {
+      color: #2F898D;
+      font-family: 'Oswald';
+      font-weight: bold;
+      font-size: 60%;
+      text-decoration: none;
     }
 
-    .resolvido {
-      color: #42B19D;
-      font-family: "Oswald";
-      font-weight: lighter;
-      font-size: 100%;
-    }
-
-    .pendente {
+    .eliminar:hover {
       color: #E47A3F;
-      font-family: "Oswald";
+      font-family: 'Oswald';
       font-weight: lighter;
       font-size: 100%;
+      text-decoration: none;
+    }
+
+    .info {
+      background-color: #2F898D;
+      font-family: 'Oswald';
+      font-weight: normal;
+      color:white;
     }
 
     .texto {
@@ -96,6 +105,24 @@
       font-weight: lighter;
       font-size: 100%;
       color: #707070;
+    }
+
+    .tabela {
+      background-color: #F2F2F2;
+      border-radius: 15px;
+    }
+
+    .title-divider-right {
+      margin-left: 1%;
+      margin-top: 0.6%;
+      width: 81%;
+      padding: 0 10% 0 0;
+      border-radius: 5px;
+    }
+
+    .icone {
+      width: 20%;
+      height: auto;
     }
 
     .div-title {
@@ -110,8 +137,8 @@
 
     .title-divider-right {
       flex-grow: 1;
-      width: 60%;
-      padding: 2% 10% 0 0;
+      width: 55%;
+      padding: 2% 0% 0 0;
     }
 
     .title-h1 {
@@ -130,8 +157,18 @@
       background-color: #EDB347;
     }
 
-    .info {
-      color: white;
+    .ativo {
+      color: #42B19D;
+      font-family: "Oswald";
+      font-weight: lighter;
+      font-size: 100%;
+    }
+
+    .desativo {
+      color: #E47A3F;
+      font-family: "Oswald";
+      font-weight: lighter;
+      font-size: 100%;
     }
   </style>
 </head>
@@ -149,7 +186,6 @@
       else
         $this->load->view('common/navBaruser');
       ?>
-
     </div>
     <div class="content-side">
       <div class="content-info">
@@ -162,74 +198,56 @@
           </div>
         </div>
 
-        <table class="table admin">
+        <table id="tabela" class="table admin">
           <tr class="outro">
-            <th width="10%">
+            <th width="15%">
               <div class="form-group input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                <input name="consulta" id="txt_consulta" placeholder="Pesquisar..." type="text" class="form-control">
+                <input name="consulta" id="txt_consulta" placeholder="Procurar..." type="text" class="form-control">
               </div>
             </th>
-            <th width="5%"></th>
-            <th width="30%"></th>
+            <th width="20%"></th>
+            <th width="10%"></th>
+            <th width="10%">
+              </a>
+            </th>
           </tr>
 
-
           <tr class="tabela">
-            <th width="20%">
+            <th width="15%">
               <p>Nome</p>
             </th>
-            <th width="15%">
-              <p>Assunto</p>
-            </th>
-            <th width="15%">
+            <th width="20%"><p>Autor</p></th>
+            <th width="10%">
             </th>
             <th width="10%"></th>
           </tr>
-          <?php
-          foreach ($suporte as $key => $value) {
-            echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
-            echo '<td>' . '<p class="texto">' . $value->assunto . '</p>' . '</td>';
-            echo '<td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">' . '<p>Info</p></button></td>';
-            echo '<td>';
-            if ($value->estado == "0") {
-              echo '<p class="pendente">' . "Pendente" . '</p>';
-            } else {
-              echo '<p class="resolvido">' . "Resolvido" . '</p>';
+          <tbody>
+            <?php
+            foreach ($suporte as $key => $value) {
+              echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
+              echo '<td> <p class="texto">' . $value->assunto . '</p></td>';
+              echo '<td>' . '<a href="' . base_url() . 'index.php/suporte/uptade/' . $value->id_suporte . '" class="btn btn-sm btn-info info">' . 'Info' . '</a></td>';
+              echo '<td>';
+              if ($value->estado == "0") {
+                echo '<p class="ativo"> Pendente </p>';
+              } else if ($value->estado == "1") {
+                echo '<p class="desativo"> Resolvido </p>';
+              }'</td></tr>';
             }
-            '</td>';
-          }
-          ?>
+            ?>
+          </tbody>
         </table>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-          </div>
-        </div>
 
-
-        </ul>
       </div>
     </div>
+  </div>
+
+
 </body>
 <script>
   $('input#txt_consulta').quicksearch('table#tabela tbody tr');
 </script>
-
 
 </html>

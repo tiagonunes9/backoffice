@@ -14,8 +14,8 @@
   <?php
   $this->load->view('common/headLibraries');
   ?>
-<link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.ico">  
-<style>
+  <link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.ico">
+  <style>
     .jumbotron {
       background-color: #F2F2F2 !important;
     }
@@ -206,7 +206,7 @@
               <a href="utilizadores/novoutilizador" class="link"><img src="../assets/img/add.PNG" class="icone" />Adicionar utilizador</a>
               </a>
             </th>
-          </tr>       
+          </tr>
 
           <tr class="tabela">
             <th width="10%">
@@ -218,45 +218,27 @@
             </th>
             <th width="10%"></th>
           </tr>
-<tbody>
-          <?php
-          foreach ($utilizadores as $key => $value) {
-            echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
-            echo '<td>' . '<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">' . '<p>Info</p>' . '</button></td>';
-            echo '<td>';
-            if ($value->tipo_user == "1") {
-              echo '<p class="texto">' . "Administrador" . '</p>';
-            } else if ($value->tipo_user == "2") {
-              echo '<p class="texto">' . "Gestor" . '</p>';
-            } else {
-              echo '<p class="texto">' . "Utilizador" . '</p>';
+          <tbody>
+            <?php
+            foreach ($utilizadores as $key => $value) {
+              echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
+              echo '<td>' . '<a href="' . base_url() . 'index.php/utilizadores/uptade/' . $value->id_user . '" class="btn btn-sm btn-info info">' . 'Info' . '</a></td>';
+              echo '<td>';
+              if ($value->tipo_user == "1") {
+                echo '<p class="texto">' . "Administrador" . '</p>';
+              } else if ($value->tipo_user == "2") {
+                echo '<p class="texto">' . "Gestor" . '</p>';
+              } else {
+                echo '<p class="texto">' . "Utilizador" . '</p>';
+              }
+              '</td>';
+              echo '<td><a href="' . base_url() . 'index.php/utilizadores/delete/' . $value->id_user . '" onclick="return confirm(\'Tem a certeza que pretende apagar esse utilizador?\')" ><p class="eliminar">Eliminar</p></a></td></tr>';
             }
-            '</td>';
-            echo '<td><a href="' . base_url() . 'index.php/utilizadores/delete/' . $value->id_user . '" onclick="return confirm(\'Tem a certeza que pretende apagar esse utilizador?\')" ><p class="eliminar">Eliminar</p></a></td></tr>';
-          }
-          ?>
-</tbody>
+            ?>
+          </tbody>
         </table>
 
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
-              </div>
-              <div class="modal-body">
-                <p>Some text in the modal.</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
       </div>
     </div>
   </div>

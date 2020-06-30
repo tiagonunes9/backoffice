@@ -19,12 +19,12 @@ class suporte extends CI_Controller {
 	public function uptade()
 	{
 		$uri =& load_class('URI', 'core');
-		$ID_Noticia = $uri->segment(3);
+		$id_suporte = $uri->segment(3);
 
 		$this->load->helper(array('form'));
 		$this->load->model('suporteModel');
 
-		$suporte = $this->suporteModel->get($ID_Noticia);
+		$suporte = $this->suporteModel->get($id_suporte);
 
 		$data['suporte'] = $suporte;
 
@@ -38,17 +38,19 @@ class suporte extends CI_Controller {
 		$this->load->helper(array('form'));
 
 		$nome = $this->input->post('nome');
-		$DescricaoNoticia = $this->input->post('DescricaoNoticia');
-		$DataNoticia = $this->input->post('DataNoticia');
-		$ClubeNoticia = $this ->input ->post ('ClubeNoticia');
-		$ProfNoticia = $this ->input ->post ('ProfNoticia');
+		$assunto = $this->input->post('assunto');
+		$mensagem = $this->input->post('mensagem');
+		$responsavel = $this ->input ->post ('responsavel');
+		$estado = $this ->input ->post ('estado');
+		$email = $this ->input ->post ('email');
 		
 		$data = array(
 			'nome' => $nome,
-			'DescricaoNoticia' => $DescricaoNoticia,
-			'DataNoticia' => $DataNoticia,
-			'ClubeNoticia' => $ClubeNoticia,
-			'ProfNoticia' => $ProfNoticia,
+			'assunto' => $assunto,
+			'mensagem' => $mensagem,
+			'responsavel' => $responsavel,
+			'estado' => $estado,
+			'email' => $email,
 			
 		);
 		$this->load->model('suporteModel');

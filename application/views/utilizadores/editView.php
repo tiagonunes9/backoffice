@@ -7,9 +7,6 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.3.1/jquery.quicksearch.js"></script>
 
   <?php
   $this->load->view('common/headLibraries');
@@ -97,20 +94,43 @@
       background-color: #2F898D;
       font-family: 'Oswald';
       font-weight: normal;
-      color:white;
+      color: white;
     }
 
-    .texto {
+    .textito {
       font-family: "Oswald";
       font-weight: lighter;
       font-size: 100%;
       color: #707070;
+      text-align: right;
+      margin-left: 10%;
+      margin-top: 5%
     }
 
-    .tabela {
-      background-color: #F2F2F2;
-      border-radius: 15px;
+    .outros {
+      width: 60%;
+      margin-left: 30%;
+      margin-top: -3%;
     }
+
+    .btnadmin {
+      background-color: #42B19D;
+      color: white;
+      font-family: "Oswald";
+      font-weight: bold;
+      margin-left: 40%;
+      margin-right: 60%;
+    }
+
+    .btnadmine {
+      background-color: #E47A3F;
+      color: white;
+      font-family: "Oswald";
+      font-weight: bold;
+      margin-left: 40%;
+      margin-right: 60%;
+    }
+
 
     .title-divider-right {
       margin-left: 1%;
@@ -120,10 +140,6 @@
       border-radius: 5px;
     }
 
-    .icone {
-      width: 20%;
-      height: auto;
-    }
 
     .div-title {
       height: 15%;
@@ -157,18 +173,11 @@
       background-color: #EDB347;
     }
 
-    .ativo {
-      color: #42B19D;
-      font-family: "Oswald";
-      font-weight: lighter;
-      font-size: 100%;
-    }
-
-    .desativo {
-      color: #E47A3F;
-      font-family: "Oswald";
-      font-weight: lighter;
-      font-size: 100%;
+    .centrar {
+      margin-left: 40%;
+      margin-right: 60%;
+      margin-top: 5%;
+      margin-bottom: 5%;
     }
   </style>
 </head>
@@ -191,64 +200,30 @@
       <div class="content-info">
         <div class="div-title">
           <div class="title-h1">
-            <h1>Eventos</h1>
+            <h1>Utilizador</h1>
           </div>
           <div class="title-divider-right">
             <hr>
           </div>
         </div>
 
-        <table id="tabela" class="table admin">
-          <tr class="outro">
-            <th width="15%">
-              <div class="form-group input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                <input name="consulta" id="txt_consulta" placeholder="Procurar..." type="text" class="form-control">
-              </div>
-            </th>
-            <th width="20%"></th>
-            <th width="10%"></th>
-            <th width="10%">
-              <a href="eventos/novoevento" class="link"><img src="../assets/img/add.PNG" class="icone" />Adicionar evento</a>
-              </a>
-            </th>
-          </tr>
 
-          <tr class="tabela">
-            <th width="15%">
-              <p>Nome</p>
-            </th>
-            <th width="20%"><p>Autor</p></th>
-            <th width="10%">
-            </th>
-            <th width="10%"></th>
-          </tr>
-          <tbody>
-            <?php
-            foreach ($eventos as $key => $value) {
-              echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
-              echo '<td> <p class="texto">' . $value->autor . '</p></td>';
-              echo '<td>' . '<a href="' . base_url() . 'index.php/eventos/uptade/' . $value->id_evento . '" class="btn btn-sm btn-info info">' . 'Info' . '</a></td>';
-              echo '<td>';
-              if ($value->estado == "1") {
-                echo '<p class="ativo"> Ativo </p>';
-              } else if ($value->estado == "2") {
-                echo '<p class="desativo"> Desativado </p>';
-              }'</td></tr>';
-            }
-            ?>
-          </tbody>
-        </table>
+        <?php echo form_open(base_url() . 'index.php/utilizadores/update/' . $utilizadores[0]->id_user); ?>
 
-
+        <div class="admin">
+          <label class="textito">Email:</label>
+          <input type="teste" class="form-control outros" name="email" value="<?php echo $utilizadores[0]->email; ?>">
+          <label class="textito">Nome:</label>
+          <input type="text" name="nome" value="<?php echo $utilizadores[0]->nome; ?>" class="form-control outros">
+          <label class="textito">Password:</label>
+          <input type="password" name="password" value="<?php echo $utilizadores[0]->password; ?>" class="form-control outros"><br>
+          <div class="btn-group centrar">
+            <button type="submit" class="btn btn-default btnadmin">Responder</button>
+            <button type="button" class="btn btn-default btnadmine" onclick="history.back()">Voltar</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-
-
 </body>
-<script>
-  $('input#txt_consulta').quicksearch('table#tabela tbody tr');
-</script>
 
 </html>
