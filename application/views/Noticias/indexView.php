@@ -9,7 +9,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.3.1/jquery.quicksearch.js"></script>
 
   <?php
   $this->load->view('common/headLibraries');
@@ -199,9 +198,11 @@
         </div>
 
         <table id="tabela" class="table admin">
+        <thead>
           <tr class="outro">
             <th width="15%">
               <div class="form-group input-group">
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.3.1/jquery.quicksearch.js"></script>
                 <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
                 <input name="consulta" id="txt_consulta" placeholder="Procurar..." type="text" class="form-control">
               </div>
@@ -223,10 +224,11 @@
             </th>
             <th width="10%"></th>
           </tr>
-          <tbody>
+  </thead>
+          
             <?php
             foreach ($noticias as $key => $value) {
-              echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
+              echo '<tbody><tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
               echo '<td> <p class="texto">' . $value->autor . '</p></td>';
               echo '<td>' . '<a href="' . base_url() . 'index.php/noticias/uptade/' . $value->id_noticia . '" class="btn btn-sm btn-info info">' . 'Info' . '</a></td>';
               echo '<td>';
