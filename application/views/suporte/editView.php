@@ -192,7 +192,9 @@
       margin-right: 60%;
       margin-top: 5%;
       margin-bottom: 5%;
+      padding:0;
     }
+    
   </style>
 </head>
 
@@ -235,8 +237,8 @@
           <input type="email" name="email" value="<?php echo $suporte[0]->email; ?>" class="form-control outros" readonly>
           <input type="hidden" name="estado" value="1" class="form-control outros">
           <div class="btn-group centrar">
-            <button type="submit" class="btn btn-default btnadmin">Responder</button>
-            <button type="button" class="btn btn-default btnadmine" onclick="history.back()">Voltar</button>
+          <a href="mailto:<?php echo $suporte[0]->email; ?>" class= "btn btn-default btnadmin">Responder</a>            
+          <button type="button" class="btn btn-default btnadmine" onclick="history.back()">Voltar</button>
           </div>
         </div>
       </div>

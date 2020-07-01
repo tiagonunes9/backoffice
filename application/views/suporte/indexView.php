@@ -224,7 +224,7 @@
             <th width="15%">
               <p>Nome</p>
             </th>
-            <th width="20%"><p>Autor</p></th>
+            <th width="20%"><p>Assunto</p></th>
             <th width="10%">
             </th>
             <th width="10%"></th>
