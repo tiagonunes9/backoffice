@@ -22,6 +22,8 @@
     body,
     html {
       background-color: #F2F2F2 !important;
+      height: 100%;
+    margin: 0;
     }
 
     .main-container {
@@ -39,12 +41,14 @@
       flex: 1 1;
       background-color: #F2F2F2;
       overflow: auto;
+      height: 100%;
     }
 
     .content-info {
       font-size: 28px;
       padding: 0px 10px;
       margin: 0px 100px;
+      height: 100vh;
     }
 
     h1 {
@@ -80,7 +84,7 @@
       color: #2F898D;
       font-family: 'Oswald';
       font-weight: bold;
-      font-size: 42%;
+      font-size: 60%;
       text-decoration: none;
     }
 
@@ -162,6 +166,11 @@
       height: 10px;
       background-color: #EDB347;
     }
+
+    td,
+th {
+  border-collapse: collapse;
+}
   </style>
 </head>
 

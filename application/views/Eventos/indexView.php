@@ -164,6 +164,12 @@
     }
 
     .desativo {
+      color: red;
+      font-family: "Oswald";
+      font-weight: lighter;
+      font-size: 100%;
+    }
+    .pendente{
       color: #E47A3F;
       font-family: "Oswald";
       font-weight: lighter;
@@ -237,6 +243,8 @@
                 echo '<p class="ativo"> Ativo </p>';
               } else if ($value->estado == "2") {
                 echo '<p class="desativo"> Desativado </p>';
+              }else if ($value->estado == "0") {
+                echo '<p class="pendente"> Pendente </p>';
               }'</td></tr>';
             }
             ?>

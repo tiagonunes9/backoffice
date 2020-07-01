@@ -226,24 +226,37 @@
 
         <div class="admin">
           <label class="textito">Nome da Noticia:</label>
-          <input type="teste" class="form-control outros" name="nome" value="<?php echo $eventos[0]->nome; ?>" required>
+          <input type="teste" class="form-control outros" name="nome" value="<?php echo $eventos[0]->nome; ?>" readonly>
           <label class="textito">Descrição:</label>
-          <input type="text" name="descricao" value="<?php echo $eventos[0]->descricao; ?>" class="form-control outros">
+          <input type="text" name="descricao" value="<?php echo $eventos[0]->descricao; ?>" class="form-control outros" readonly>
           <label class="textito">Data:</label>
-          <input type="date" name="data" value="<?php echo $eventos[0]->data; ?>" class="form-control outros">
+          <input type="date" name="data" value="<?php echo $eventos[0]->data; ?>" class="form-control outros" readonly>
           <label class="textito">Local:</label>
-          <input type="text" name="local" value="<?php echo $eventos[0]->local; ?>" class="form-control outros">
+          <input type="text" name="local" value="<?php echo $eventos[0]->local; ?>" class="form-control outros" readonly>
           <label class="textito">Imagem:</label>
-          <input type="file" name="imagem" class="form-control outros">
+          <input type="file" name="imagem" value="<?php echo $eventos[0]->local; ?>" class="form-control outros" disabled>
           <label class="textito">Autor:</label>
-          <input type="text" name="autor" value="<?php echo $eventos[0]->autor; ?>" class="form-control outros">
+          <input type="text" name="autor" value="<?php echo $eventos[0]->autor; ?>" class="form-control outros" readonly>
           <div class="btn-group centrar">
             <?php
-            if ($eventos[0]->estado == "1") {
-              echo '<input type="hidden" name="estado" value="2">' . '<button type="submit" class="btn btn-default btnadmin">Desativar</button>';
-            } else if ($eventos[0]->estado == "2") {
-              echo '<input type="hidden" name="estado" value="1"><button type="submit" class="btn btn-default btnadmin">Ativar</button>';
-            };
+            if ($_SESSION['admin'] == "1") {
+              if ($eventos[0]->estado == "1") {
+                echo '<input type="hidden" name="estado" value="2">' . '<button type="submit" class="btn btn-default btnadmin">Desativar</button>';
+              } else if ($eventos[0]->estado == "2") {
+                echo '<input type="hidden" name="estado" value="1"><button type="submit" class="btn btn-default btnadmin">Ativar</button>';
+              } else if ($eventos[0]->estado == "0") {
+                echo '<input type="hidden" name="estado" value="1"><button type="submit" class="btn btn-default btnadmin">Aprovar</button>';
+              };
+            } else if ($_SESSION['admin'] == "2") {
+              if ($eventos[0]->estado == "1") {
+                echo '<input type="hidden" name="estado" value="2">' . '<button type="submit" class="btn btn-default btnadmin">Desativar</button>';
+              } else if ($eventos[0]->estado == "2") {
+                echo '<input type="hidden" name="estado" value="1"><button type="submit" class="btn btn-default btnadmin">Ativar</button>';
+              } else if ($eventos[0]->estado == "0") {
+                echo '<input type="hidden" name="estado" value="1"><button type="submit" class="btn btn-default btnadmin">Aprovar</button>';
+              };
+            } else
+
             ?>
             <button type="button" class="btn btn-default btnadmine" onclick="history.back()">Voltar</button>
           </div>

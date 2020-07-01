@@ -217,7 +217,7 @@
                     <label class="textito">Password:</label>
                     <input type="text" name="password" class="form-control outros" required>
                     <div class="btn-group centrar">
-                        <button type="submit" class="btn btn-default btnadmin">Responder</button>
+                        <button type="submit" class="btn btn-default btnadmin">Adicionar</button>
                         <button type="button" class="btn btn-default btnadmine" onclick="history.back()">Voltar</button>
                     </div>
                 </div>

@@ -78,7 +78,7 @@
       color: #2F898D;
       font-family: 'Oswald';
       font-weight: bold;
-      font-size: 60%;
+      font-size: 80%;
       text-decoration: none;
     }
 
@@ -218,7 +218,7 @@
           <label class="textito">Password:</label>
           <input type="password" name="password" value="<?php echo $utilizadores[0]->password; ?>" class="form-control outros"><br>
           <div class="btn-group centrar">
-            <button type="submit" class="btn btn-default btnadmin">Responder</button>
+            <button type="submit" class="btn btn-default btnadmin">Guardar</button>
             <button type="button" class="btn btn-default btnadmine" onclick="history.back()">Voltar</button>
           </div>
         </div>

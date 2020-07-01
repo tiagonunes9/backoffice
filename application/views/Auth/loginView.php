@@ -109,7 +109,7 @@
 					<input type="text" name="email" class="form-control barra">
 					<label>Password</label>
 					<input type="password" name="password" class="form-control barra">
-					<a class="outra" href="<?php echo base_url(); ?>index.php/resetpassword">Esqueci-me da password</a>
+					<!--<a class="outra" href="<?php echo base_url(); ?>index.php/resetpassword">Esqueci-me da password</a>-->
 					<button type="submit" class="btn btn-default geral">LOGIN</button>
 				</form>
 			</ul>

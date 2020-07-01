@@ -6,25 +6,19 @@ class dashboardmanager extends CI_Controller {
     public function index()
     {
         if(!(isset($_SESSION['admin'])) || $_SESSION['admin']==null){redirect(base_url());}
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $this->load->model('eventosModel');
+        $this->load->model('noticiasModel');
 
-            $email = $this->input->post("email");
-            $password = $this->input ->post("password");
+        $noticias = $this->noticiasModel->getAll();
 
-            $this->load->model('adminModel');
-
-            $valid = $this->adminModel->getValid($email, $password);
-
-            if($valid)
-            {
-                redirect("dashboardmanager");
-            }
-        }
-
-        $this->load->view('dashboardmanager/indexView');
+        $data['noticias'] = $noticias;
         
-    }
+		$eventos = $this->eventosModel->getAll();
 
+		$data['eventos'] = $eventos;
+
+		$this->load->view('dashboardmanager/indexView.php', $data);
+    }
 }
 
 /* End of file welcome.php */

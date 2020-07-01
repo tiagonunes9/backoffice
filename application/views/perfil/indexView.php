@@ -102,6 +102,16 @@
       margin-right: 60%;
     }
 
+    .btnadmine {
+            background-color: #E47A3F;
+            color: white;
+            font-family: "Oswald";
+            font-weight: bold;
+            margin-left: 40%;
+            margin-right: 60%;
+        }
+
+
     .div-title {
       height: 15%;
       margin: 0;
@@ -140,6 +150,13 @@
       -webkit-box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.23);
       box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.05);
       border-radius: 15px;
+    }
+
+    .centrar {
+      margin-left: 40%;
+      margin-right: 60%;
+      margin-top: 5%;
+      margin-bottom: 5%;
     }
   </style>
 </head>
@@ -183,8 +200,9 @@
           <label class="texto">Password:</label>
           <input type="password" name="password" value="<?php echo $perfil[0]->password; ?>" class="form-control outros">
           <br>
-          <div class="col-md-6 offset-md-3">
-            <button type="submit" class="btn btn-default btnadmin">Guardar</button><br><br>
+          <div class="btn-group centrar">
+            <button type="submit" class="btn btn-default btnadmin">Guardar</button>
+            <button type="button" class="btn btn-default btnadmine" onclick="history.back()">Voltar</button>
           </div>
         </div>
       </div>
