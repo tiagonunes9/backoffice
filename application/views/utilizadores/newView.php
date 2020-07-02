@@ -199,7 +199,7 @@
             <div class="content-info">
                 <div class="div-title">
                     <div class="title-h1">
-                        <h1>Noticias</h1>
+                        <h1>Utilizadores</h1>
                     </div>
                     <div class="title-divider-right">
                         <hr>
@@ -216,6 +216,8 @@
                     <input type="text" name="email" class="form-control outros" required>
                     <label class="textito">Password:</label>
                     <input type="text" name="password" class="form-control outros" required>
+                    <label class="textito">Tipo de utilizador:</label>
+                    <input type="text" name="tipo_user" class="form-control outros" required>
                     <div class="btn-group centrar">
                         <button type="submit" class="btn btn-default btnadmin">Adicionar</button>
                         <button type="button" class="btn btn-default btnadmine" onclick="history.back()">Voltar</button>
