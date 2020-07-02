@@ -33,10 +33,7 @@ class auth extends CI_Controller {
 			$_SESSION['admin'] = $result[0]->email;
 		}
 		else{
-			echo('<div class="alert alert-danger" role="alert">
-			Erro!Este utilizador não existe. Tente outra vez.
-		  </div>');
-			$this->index();
+		  $this->load->view('Auth/loginView');
 		}
 		// se sim redirect -> home
 		// senão 

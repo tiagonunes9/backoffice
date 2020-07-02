@@ -223,6 +223,7 @@
 
 
                 <?php echo form_open(base_url() . 'index.php/eventos/novoevento/'); ?>
+                <?php echo form_open_multipart('perfil/do_upload');?>
 
                 <div class="admin">
                     <label class="textito">Nome do Evento:</label>

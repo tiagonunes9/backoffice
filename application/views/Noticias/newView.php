@@ -222,6 +222,7 @@
 
 
                 <?php echo form_open(base_url() . 'index.php/noticias/novanoticia/'); ?>
+                <?php echo form_open_multipart('perfil/do_upload');?>
 
                 <div class="admin">
                     <label class="textito">Nome da Noticia:</label>

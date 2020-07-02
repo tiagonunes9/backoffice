@@ -198,7 +198,7 @@
           <label class="texto">Fotografia:</label>
           <input type="file" name="imagem" size="9999" class="form-control outros" id="imagem">
           <label class="texto">Password:</label>
-          <input type="password" name="password" value="<?php echo $perfil[0]->password; ?>" class="form-control outros">
+          <input type="password" name="password" class="form-control outros">
           <br>
           <div class="btn-group centrar">
             <button type="submit" class="btn btn-default btnadmin">Guardar</button>

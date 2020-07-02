@@ -7,7 +7,7 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+	<link real="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<?php
 	$this->load->view('common/headLibraries');
 	?>
@@ -75,7 +75,7 @@
 			font-family: "Oswald";
 			font-weight: bold;
 			width: 100%;
-			margin-top:-50%
+			margin-top:-20%;
 		}
 
 		.imagem {
@@ -88,6 +88,12 @@
 
 		form {
 			margin-left: 35%;
+			margin-top: 35%;
+		}
+
+		.barra{
+			width: 20vw;
+			margin-top: 5%;
 		}
 	</style>
 </head>
@@ -105,10 +111,8 @@
 
 				<?php echo form_open(base_url() . 'index.php/auth/signIn'); ?>
 				<form>
-					<label>Email</label>
-					<input type="text" name="email" class="form-control barra">
-					<label>Password</label>
-					<input type="password" name="password" class="form-control barra">
+					<input type="text" name="email" class="form-control barra" placeholder="Email">
+					<input type="password" name="password" class="form-control barra" placeholder="Password">
 					<!--<a class="outra" href="<?php echo base_url(); ?>index.php/resetpassword">Esqueci-me da password</a>-->
 					<button type="submit" class="btn btn-default geral">LOGIN</button>
 				</form>
