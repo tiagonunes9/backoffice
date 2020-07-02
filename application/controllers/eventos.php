@@ -128,7 +128,7 @@ class Eventos extends CI_Controller
 
 	public function do_upload()
 	{
-		$config['upload_path']          = '../assets/img/upload';
+		$config['upload_path']          = 'upload/';
 		$config['allowed_types']        = 'gif|jpg|png';
 		$config['max_size']             = 100;
 		$config['max_width']            = 1023;

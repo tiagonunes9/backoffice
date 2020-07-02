@@ -325,7 +325,7 @@ th {
             foreach ($eventos as $key => $value) {
               echo '<td>';
               if ($value->estado == "0") {
-                echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
+                echo '<tr><td width="50%">' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
                 echo '<td><a href="' . base_url() . 'index.php/eventos/uptade/' . $value->id_evento . '" class="btn btn-sm btn-info info">' . 'Info' . '</a></td>';
                 echo '<td><a href="' . base_url() . 'index.php/eventos/delete/' . $value->id_evento . '" onclick="return confirm(\'Tem a certeza que pretende apagar este?\')" ><button type="button" class="btn btn-sm btn btn-danger rejeitar">Eliminar</button></a></td></tr>';
               } else {
