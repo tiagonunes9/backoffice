@@ -40,7 +40,7 @@
 
     .navigation-side {
       flex: 0 0 20%;
-      background-color: gray;
+      background-color: #333333;
     }
 
     .content-side {
@@ -74,7 +74,7 @@
     .outros {
       width: 50%;
       margin-left: 20%;
-      margin-top: -3%;
+      margin-top: -4%;
     }
 
     .texto {
@@ -148,8 +148,9 @@
       background-color: white;
       margin: 5%;
       -webkit-box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.23);
-      box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.05);
+      box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.23);
       border-radius: 15px;
+      padding: 0;
     }
 
     .centrar {
@@ -198,7 +199,7 @@
           <label class="texto">Fotografia:</label>
           <input type="file" name="imagem" size="9999" class="form-control outros" id="imagem">
           <label class="texto">Password:</label>
-          <input type="password" name="password" class="form-control outros">
+          <input type="password" name="password" class="form-control outros" required>
           <br>
           <div class="btn-group centrar">
             <button type="submit" class="btn btn-default btnadmin">Guardar</button>

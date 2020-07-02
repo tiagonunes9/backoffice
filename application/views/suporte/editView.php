@@ -17,13 +17,23 @@
       background-color: #F2F2F2 !important;
     }
 
-    body,
-    html {
+
+
+    h1 {
+      color: #EDB347;
+      font-family: "Oswald";
+      font-weight: bold;
+    }
+
+    html,
+    body {
       background-color: #F2F2F2 !important;
+      height: 100%;
+      margin: 0;
     }
 
     .main-container {
-      height: 100vh;
+      height: 100%;
       display: flex;
       flex-direction: row;
     }
@@ -43,13 +53,6 @@
       font-size: 28px;
       padding: 0px 10px;
       margin: 0px 100px;
-    }
-
-    h1 {
-      color: #EDB347;
-      font-family: "Oswald";
-      font-weight: bold;
-      margin-left: 5%;
     }
 
     p {
@@ -110,11 +113,11 @@
     .outros {
       width: 60%;
       margin-left: 30%;
-      margin-top: -3%;
+      margin-top: -5%;
     }
 
     .btnadmin {
-      background-color: #42B19D;
+      background-color: #8DC39F;
       color: white;
       font-family: "Oswald";
       font-weight: bold;
@@ -129,15 +132,6 @@
       font-weight: bold;
       margin-left: 40%;
       margin-right: 60%;
-    }
-
-
-    .title-divider-right {
-      margin-left: 1%;
-      margin-top: 0.6%;
-      width: 81%;
-      padding: 0 10% 0 0;
-      border-radius: 5px;
     }
 
 
@@ -193,8 +187,16 @@
       margin-top: 5%;
       margin-bottom: 5%;
       padding:0;
+      width: 1%;
     }
-    
+    .btnadmind{
+      background-color: #42B19D;
+      color: white;
+      font-family: "Oswald";
+      font-weight: bold;
+      margin-left: 40%;
+      margin-right: 60%;
+    }
   </style>
 </head>
 
@@ -205,11 +207,11 @@
     <div class="navigation-side">
       <?php
       if ($_SESSION['admin'] == "1")
-        $this->load->view('common/navBaradmin');
+        $this->load->view('common/navBaradmin2');
       else if ($_SESSION['admin'] == "2")
-        $this->load->view('common/navBarmanager');
+        $this->load->view('common/navBarmanager2');
       else
-        $this->load->view('common/navBaruser');
+        $this->load->view('common/navBaruser2');
       ?>
     </div>
     <div class="content-side">
@@ -237,7 +239,12 @@
           <input type="email" name="email" value="<?php echo $suporte[0]->email; ?>" class="form-control outros" readonly>
           <input type="hidden" name="estado" value="1" class="form-control outros">
           <div class="btn-group centrar">
-          <a href="mailto:<?php echo $suporte[0]->email; ?>" class= "btn btn-default btnadmin">Responder</a>            
+          <a href="mailto:<?php echo $suporte[0]->email; ?>" class= "btn btn-default btnadmin">Responder</a>
+          <?php
+              if ($suporte[0]->estado == "0") {
+                echo '<input type="hidden" name="estado" value="1">' . '<button type="submit" class="btn btn-default btnadmind">Resolvido</button>';
+              }
+             ?>            
           <button type="button" class="btn btn-default btnadmine" onclick="history.back()">Voltar</button>
           </div>
         </div>

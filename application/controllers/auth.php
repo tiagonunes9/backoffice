@@ -6,7 +6,7 @@ class auth extends CI_Controller {
 	public function index()
 	{
 		// redirect('Auth/login');
-		$this->load->view('Auth/loginView');
+		$this->load->view('auth/loginView');
 	}
 
 	public function signIn(){
@@ -33,7 +33,7 @@ class auth extends CI_Controller {
 			$_SESSION['admin'] = $result[0]->email;
 		}
 		else{
-		  $this->load->view('Auth/loginView');
+		  $this->load->view('auth/loginView1');
 		}
 		// se sim redirect -> home
 		// senão 

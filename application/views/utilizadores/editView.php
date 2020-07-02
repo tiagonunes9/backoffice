@@ -110,7 +110,7 @@
     .outros {
       width: 60%;
       margin-left: 30%;
-      margin-top: -3%;
+      margin-top: -5%;
     }
 
     .btnadmin {
@@ -189,11 +189,11 @@
     <div class="navigation-side">
       <?php
       if ($_SESSION['admin'] == "1")
-        $this->load->view('common/navBaradmin');
+        $this->load->view('common/navBaradmin2');
       else if ($_SESSION['admin'] == "2")
-        $this->load->view('common/navBarmanager');
+        $this->load->view('common/navBarmanager2');
       else
-        $this->load->view('common/navBaruser');
+        $this->load->view('common/navBaruser2');
       ?>
     </div>
     <div class="content-side">
@@ -216,7 +216,7 @@
           <label class="textito">Nome:</label>
           <input type="text" name="nome" value="<?php echo $utilizadores[0]->nome; ?>" class="form-control outros">
           <label class="textito">Password:</label>
-          <input type="password" name="password" value="<?php echo $utilizadores[0]->password; ?>" class="form-control outros"><br>
+          <input type="password" name="password" class="form-control outros" required><br>
           <div class="btn-group centrar">
             <button type="submit" class="btn btn-default btnadmin">Guardar</button>
             <button type="button" class="btn btn-default btnadmine" onclick="history.back()">Voltar</button>

@@ -110,7 +110,7 @@
         .outros {
             width: 60%;
             margin-left: 30%;
-            margin-top: -3%;
+            margin-top: -5%;
         }
 
         .btnadmin {
@@ -202,11 +202,11 @@
         <div class="navigation-side">
             <?php
             if ($_SESSION['admin'] == "1")
-                $this->load->view('common/navBaradmin');
+                $this->load->view('common/navBaradmin1');
             else if ($_SESSION['admin'] == "2")
-                $this->load->view('common/navBarmanager');
+                $this->load->view('common/navBarmanager1');
             else
-                $this->load->view('common/navBaruser');
+                $this->load->view('common/navBaruser1');
             ?>
         </div>
         <div class="content-side">
@@ -226,17 +226,17 @@
 
                 <div class="admin">
                     <label class="textito">Nome da Noticia:</label>
-                    <input type="teste" class="form-control outros" name="nome" required>
+                    <input type="teste" class="form-control outros" name="nome" placeholder="Nome" required>
                     <label class="textito">Descrição:</label>
-                    <input type="text" name="descricao" class="form-control outros">
+                    <input type="text" name="descricao" class="form-control outros" placeholder="Descrição">
                     <label class="textito">Data:</label>
-                    <input type="date" name="data" class="form-control outros">
+                    <input type="date" name="data" class="form-control outros" placeholder="Data">
                     <label class="textito">Local:</label>
-                    <input type="text" name="local" class="form-control outros">
+                    <input type="text" name="local" class="form-control outros" placeholder="Local">
                     <label class="textito">Imagem:</label>
                     <input type="file" name="imagem" class="form-control outros">
                     <label class="textito">Autor:</label>
-                    <input type="text" name="autor" class="form-control outros">
+                    <input type="text" name="autor" class="form-control outros" placeholder="Autor">
                     <input type="hidden" name="estado" value="0">
                     <div class="btn-group centrar">
                         <button type="submit" class="btn btn-default btnadmin">Guardar</button>

@@ -110,7 +110,7 @@
         .outros {
             width: 60%;
             margin-left: 30%;
-            margin-top: -3%;
+            margin-top: -5%;
         }
 
         .btnadmin {
@@ -203,11 +203,11 @@
         <div class="navigation-side">
             <?php
             if ($_SESSION['admin'] == "1")
-                $this->load->view('common/navBaradmin');
+                $this->load->view('common/navBaradmin2');
             else if ($_SESSION['admin'] == "2")
-                $this->load->view('common/navBarmanager');
+                $this->load->view('common/navBarmanager2');
             else
-                $this->load->view('common/navBaruser');
+                $this->load->view('common/navBaruser2');
             ?>
         </div>
         <div class="content-side">

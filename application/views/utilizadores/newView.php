@@ -110,7 +110,7 @@
         .outros {
             width: 60%;
             margin-left: 30%;
-            margin-top: -3%;
+            margin-top: -5%;
         }
 
         .btnadmin {
@@ -188,11 +188,11 @@
         <div class="navigation-side">
             <?php
             if ($_SESSION['admin'] == "1")
-                $this->load->view('common/navBaradmin');
+                $this->load->view('common/navBaradmin1');
             else if ($_SESSION['admin'] == "2")
-                $this->load->view('common/navBarmanager');
+                $this->load->view('common/navBarmanager1');
             else
-                $this->load->view('common/navBaruser');
+                $this->load->view('common/navBaruser1');
             ?>
         </div>
         <div class="content-side">
@@ -211,13 +211,13 @@
 
                 <div class="admin">
                     <label class="textito">Nome:</label>
-                    <input type="teste" class="form-control outros" name="nome" required>
+                    <input type="teste" class="form-control outros" name="nome" placeholder="Nome"required>
                     <label class="textito">Email:</label>
-                    <input type="text" name="email" class="form-control outros" required>
+                    <input type="text" name="email" class="form-control outros" placeholder=" Email" required>
                     <label class="textito">Password:</label>
-                    <input type="text" name="password" class="form-control outros" required>
+                    <input type="text" name="password" class="form-control outros" placeholder="Password" required>
                     <label class="textito">Tipo de utilizador:</label>
-                    <input type="text" name="tipo_user" class="form-control outros" required>
+                    <input type="number" name="tipo_user" class="form-control outros" placeholder="1 - Administrador 2 - Gestor 3 - Utilizador" required>
                     <div class="btn-group centrar">
                         <button type="submit" class="btn btn-default btnadmin">Adicionar</button>
                         <button type="button" class="btn btn-default btnadmine" onclick="history.back()">Voltar</button>
