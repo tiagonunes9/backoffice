@@ -235,7 +235,7 @@
                     <label class="textito">Local:</label>
                     <input type="text" name="local" class="form-control outros"placeholder=""Local >
                     <label class="textito">Imagem:</label>
-                    <input type="file" name="imagem" class="form-control outros">
+                    <input type="file" name="imagem" size="20" class="form-control outros">
                     <label class="textito">Autor:</label>
                     <input type="text" name="autor" class="form-control outros"placeholder="Autor" >
                     <input type="hidden" name="estado" value="0">
