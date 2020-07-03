@@ -18,8 +18,12 @@ class auth extends CI_Controller {
 		$result = $this->usersModel->isValidLogin($email, $password);
 		if($result != null){
 			$dados = $this->usersModel->getDados($email);
+			$this->session->set_userdata('ID', $dados['id_user']);
 			$this->session->set_userdata('NOME', $dados['nome']);
 			$this->session->set_userdata('IMG_AVATAR', $dados['imagem']);
+			$this->session->set_userdata('EMAIL', $dados['email']);
+			$this->session->set_userdata('MORADA', $dados['morada']);
+			$this->session->set_userdata('CONTACTO', $dados['contato']);
 			if($result[0]->tipo_user=="1"){
 			$_SESSION['admin']= 1;
 			redirect('dashboardadmin');

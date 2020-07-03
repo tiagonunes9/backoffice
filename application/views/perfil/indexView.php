@@ -159,6 +159,52 @@
       margin-top: 5%;
       margin-bottom: 5%;
     }
+
+    .container {
+      position: relative;
+      width: 50%;
+    }
+
+    .image {
+      opacity: 1;
+      display: block;
+      height: auto;
+      transition: .5s ease;
+      backface-visibility: hidden;
+      width:30%;
+      margin-top:5%;
+    }
+
+    .middle {
+      transition: .5s ease;
+      opacity: 0;
+      position: absolute;
+      top: 70%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+      border-radius: 15px;
+      width: 50%;
+      height: auto;
+    }
+
+    .container:hover .image {
+      opacity: 0.3;
+    }
+
+    .container:hover .middle {
+      opacity: 1;
+    }
+
+    .text {
+      background-color: gray;
+      font-family: "Oswald";
+      font-weight: bold;
+      color: white;
+      font-size: 50%;
+      padding: 16px 32px;
+    }
   </style>
 </head>
 
@@ -185,21 +231,32 @@
             <hr>
           </div>
         </div>
-        <div class="caixa">
-          <?php echo form_open_multipart(base_url() . 'index.php/perfil/update/' . $perfil[0]->id_user); ?>
-            <img src="<?php echo base_url('upload/' . $this->session->userdata('IMG_AVATAR')) ?>" class="img-fluid" width="15%" style="border-radius:15px; margin-left:20%; margin-top:3%;"><br>
+        <div class="caixa"><br>
+        <?php echo form_open_multipart(base_url() . 'index.php/perfil/update/' . $this->session->userdata('ID')) ?>
+          <div class="container">
+          <?php
+            if($this->session->userdata('IMG_AVATAR') == NULL){
+              $caminho = base_url('person.png');
+            }else{
+              $caminho = base_url('upload/' . $this->session->userdata('IMG_AVATAR'));
+            }
+            echo "<div> <img class='image' src='$caminho'></div>";
+          ?><br>
+            <div class="middle">
+              <div class="text">Alterar
+                <input type="file" style="visibility:none;" name="imagem" size="20" id="imagem">
+
+              </div>
+            </div>
+          </div>
           <label class="texto">Email:</label>
-          <input type="email" name="email" value="<?php echo $perfil[0]->email; ?>" class="form-control outros">
+          <input type="email" name="email" value="<?php echo $this->session->userdata('EMAIL') ?>" class="form-control outros">
           <label class="texto">Nome:</label>
-          <input type="text" name="nome" value="<?php echo $perfil[0]->nome; ?>" class="form-control outros">
+          <input type="text" name="nome" value="<?php echo $this->session->userdata('NOME') ?>" class="form-control outros">
           <label class="texto">Morada:</label>
-          <input type="text" name="morada" value="<?php echo $perfil[0]->contato; ?>" class="form-control outros">
+          <input type="text" name="morada" value="<?php echo $this->session->userdata('MORADA') ?>" class="form-control outros">
           <label class="texto">Contato:</label>
-          <input type="text" name="contato" value="<?php echo $perfil[0]->morada; ?>" class="form-control outros">
-          <label class="texto">Fotografia:</label>
-          <input type="file" name="imagem" size="20" class="form-control outros" id="imagem">
-
-
+          <input type="text" name="contato" value="<?php echo $this->session->userdata('CONTACTO') ?>" class="form-control outros">
 
           <label class="texto">Password:</label>
           <input type="password" name="password" class="form-control outros" required>

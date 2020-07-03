@@ -29,18 +29,26 @@ class perfil extends CI_Controller {
 		$this->load->view('perfil/indexView', $data);
 	}	
 
-
 	public function update(){
 		$uri =& load_class('URI', 'core');
 		$id = $uri->segment(3);
 
+		$this->load->library('upload', config_upload());
+		$this->upload->do_upload('imagem');
+		$dados_upload = $this->upload->data();
+
 		$this->load->helper(array('form'));
 		
+
+		$imagem = $dados_upload['file_name'];
+
+		
+
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 		$morada = $this->input->post('morada');
 		$contato = $this->input->post('contato');
-		$imagem = $this->input->post('imagem');
+		//$imagem = $this->input->post('imagem');
 		$nome = $this->input->post('nome');
 		$data = array(
 			'email' => $email,
