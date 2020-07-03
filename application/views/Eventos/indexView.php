@@ -73,14 +73,14 @@
       color: #2F898D;
       font-family: 'Oswald';
       font-weight: bold;
-      font-size: 60%;
+      font-size: 1vw;
     }
 
     .link:hover {
       color: #2F898D;
       font-family: 'Oswald';
       font-weight: bold;
-      font-size: 60%;
+      font-size: 1vw;
       text-decoration: none;
     }
 
@@ -216,7 +216,7 @@
             <th width="20%"></th>
             <th width="10%"></th>
             <th width="10%">
-              <a href="eventos/novoevento" class="link"><img src="../assets/img/add.PNG" class="icone" />Adicionar evento</a>
+              <a href="eventos/novoevento" class="link"><img src="./assets/img/add.PNG" class="icone" />Adicionar evento</a>
               </a>
             </th>
           </tr>
@@ -237,7 +237,7 @@
             foreach ($eventos as $key => $value) {
               echo '<tbody><tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
               echo '<td> <p class="texto">' . $value->autor . '</p></td>';
-              echo '<td>' . '<a href="' . base_url() . 'index.php/eventos/uptade/' . $value->id_evento . '" class="btn btn-sm btn-info info">' . 'Info' . '</a></td>';
+              echo '<td>' . '<a href="' . base_url() . 'eventos/uptade/' . $value->id_evento . '" class="btn btn-sm btn-info info">' . 'Info' . '</a></td>';
               echo '<td>';
               if ($value->estado == "1") {
                 echo '<p class="ativo"> Ativo </p>';

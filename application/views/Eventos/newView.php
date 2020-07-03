@@ -100,7 +100,7 @@
         .textito {
             font-family: "Oswald";
             font-weight: lighter;
-            font-size: 100%;
+            font-size: 1.5vw;
             color: #707070;
             text-align: right;
             margin-left: 10%;
@@ -120,6 +120,8 @@
             font-weight: bold;
             margin-left: 40%;
             margin-right: 60%;
+            width:5vw;
+      font-size: 1vw;
         }
 
         .btnadmine {
@@ -129,6 +131,8 @@
             font-weight: bold;
             margin-left: 40%;
             margin-right: 60%;
+            width:5vw;
+      font-size: 1vw;
         }
 
 
@@ -222,20 +226,20 @@
                 </div>
 
 
-                <?php echo form_open_multipart(base_url() . 'index.php/eventos/novoevento/'); ?>
+                <?php echo form_open_multipart(base_url() . 'eventos/novoevento/'); ?>
                
 
                 <div class="admin">
                     <label class="textito">Nome do Evento:</label>
-                    <input type="teste" class="form-control outros" name="nome" placeholder="Nome" required>
+                    <input type="teste" class="form-control outros" name="nome" maxlength="50" placeholder="Nome" required>
                     <label class="textito">Descrição:</label>
-                    <input type="text" name="descricao" class="form-control outros"placeholder="Descrição" >
+                    <textarea name="descricao" placeholder="Descrição" class="form-control outros" rows="4" cols="50"></textarea>
                     <label class="textito">Data:</label>
                     <input type="date" name="data" class="form-control outros"placeholder="Data" >
                     <label class="textito">Local:</label>
                     <input type="text" name="local" class="form-control outros"placeholder=""Local >
                     <label class="textito">Imagem:</label>
-                    <input type="file" name="imagem" size="20" class="form-control outros">
+                    <input type="file" name="imagem" size="20" class="form-control outros" required>
                     <label class="textito">Autor:</label>
                     <input type="text" name="autor" class="form-control outros"placeholder="Autor" >
                     <input type="hidden" name="estado" value="0">

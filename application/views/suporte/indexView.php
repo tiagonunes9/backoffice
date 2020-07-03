@@ -234,7 +234,7 @@
             foreach ($suporte as $key => $value) {
               echo '<tbody><tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
               echo '<td> <p class="texto">' . $value->assunto . '</p></td>';
-              echo '<td>' . '<a href="' . base_url() . 'index.php/suporte/uptade/' . $value->id_suporte . '" class="btn btn-sm btn-info info">' . 'Info' . '</a></td>';
+              echo '<td>' . '<a href="' . base_url() . 'suporte/uptade/' . $value->id_suporte . '" class="btn btn-sm btn-info info">' . 'Info' . '</a></td>';
               echo '<td>';
               if ($value->estado == "0") {
                 echo '<p class="ativo"> Pendente </p>';

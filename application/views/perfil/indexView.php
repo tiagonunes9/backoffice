@@ -100,6 +100,8 @@
       font-weight: bold;
       margin-left: 40%;
       margin-right: 60%;
+      width:5vw;
+      font-size: 1vw;
     }
 
     .btnadmine {
@@ -109,6 +111,8 @@
       font-weight: bold;
       margin-left: 40%;
       margin-right: 60%;
+      width:5vw;
+      font-size: 1vw;
     }
 
 
@@ -232,7 +236,7 @@
           </div>
         </div>
         <div class="caixa"><br>
-        <?php echo form_open_multipart(base_url() . 'index.php/perfil/update/' . $this->session->userdata('ID')) ?>
+        <?php echo form_open_multipart(base_url() . 'perfil/update/' . $this->session->userdata('ID')) ?>
           <div class="container">
           <?php
             if($this->session->userdata('IMG_AVATAR') == NULL){

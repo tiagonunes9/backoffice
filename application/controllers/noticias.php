@@ -36,7 +36,7 @@ class Noticias extends CI_Controller {
 
 			$valid = $this->noticiasModel->post($dados);
 
-			redirect("eventos");
+			redirect("noticias");
 		}
 
 		$this->load->helper(array('form', 'url'));
@@ -86,7 +86,6 @@ class Noticias extends CI_Controller {
 		$descricao = $this->input->post('descricao');
 		$autor = $this ->input ->post ('autor');
 		$estado = $this ->input ->post ('estado');
-		$imagem = $this ->input ->post ('imagem');
 		$data = $this ->input ->post ('data');
 		
 		$data = array(
@@ -95,7 +94,6 @@ class Noticias extends CI_Controller {
 			'descricao' => $descricao,
 			'autor' => $autor,
 			'estado' => $estado,
-			'imagem' => $imagem,
 			'data' => $data,
 			
 		);
@@ -129,7 +127,7 @@ class Noticias extends CI_Controller {
 	public function do_upload()
 	{
 		$config['upload_path']          = '../assets/img/upload';
-		$config['allowed_types']        = 'gif|jpg|png';
+		$config['allowed_types']        = 'gif|jpg|png|jpeg';
 		$config['max_size']             = 100;
 		$config['max_width']            = 1023;
 		$config['max_height']           = 768;

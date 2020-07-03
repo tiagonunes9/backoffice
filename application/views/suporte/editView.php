@@ -103,7 +103,7 @@
     .textito {
       font-family: "Oswald";
       font-weight: lighter;
-      font-size: 100%;
+      font-size: 1.5vw;
       color: #707070;
       text-align: right;
       margin-left: 10%;
@@ -123,6 +123,8 @@
       font-weight: bold;
       margin-left: 40%;
       margin-right: 60%;
+      width:5vw;
+      font-size: 1vw;
     }
 
     .btnadmine {
@@ -132,6 +134,8 @@
       font-weight: bold;
       margin-left: 40%;
       margin-right: 60%;
+      width:5vw;
+      font-size: 1vw;
     }
 
 
@@ -196,6 +200,8 @@
       font-weight: bold;
       margin-left: 40%;
       margin-right: 60%;
+      width:5vw;
+      font-size: 1vw;
     }
   </style>
 </head>
@@ -226,7 +232,7 @@
         </div>
 
 
-        <?php echo form_open(base_url() . 'index.php/suporte/update/' . $suporte[0]->id_suporte); ?>
+        <?php echo form_open(base_url() . 'suporte/update/' . $suporte[0]->id_suporte); ?>
 
         <div class="admin">
           <label class="textito">Nome da Pessoa:</label>

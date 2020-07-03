@@ -100,7 +100,7 @@
     .textito {
       font-family: "Oswald";
       font-weight: lighter;
-      font-size: 100%;
+      font-size: 1.5vw;
       color: #707070;
       text-align: right;
       margin-left: 10%;
@@ -120,6 +120,8 @@
       font-weight: bold;
       margin-left: 40%;
       margin-right: 60%;
+      width:5vw;
+      font-size: 1vw;
     }
 
     .btnadmine {
@@ -129,6 +131,8 @@
       font-weight: bold;
       margin-left: 40%;
       margin-right: 60%;
+      width:5vw;
+      font-size: 1vw;
     }
 
 
@@ -222,19 +226,19 @@
         </div>
 
 
-        <?php echo form_open(base_url() . 'index.php/eventos/update/' . $eventos[0]->id_evento); ?>
+        <?php echo form_open(base_url() . 'eventos/update/' . $eventos[0]->id_evento); ?>
 
         <div class="admin">
           <label class="textito">Nome da Noticia:</label>
           <input type="teste" class="form-control outros" name="nome" value="<?php echo $eventos[0]->nome; ?>" readonly>
           <label class="textito">Descrição:</label>
-          <input type="text" name="descricao" value="<?php echo $eventos[0]->descricao; ?>" class="form-control outros" readonly>
+          <textarea  name="descricao" placeholder="<?php echo $eventos[0]->descricao; ?>" class="form-control outros" rows="4" cols="50"readonly></textarea>
           <label class="textito">Data:</label>
           <input type="date" name="data" value="<?php echo $eventos[0]->data; ?>" class="form-control outros" readonly>
           <label class="textito">Local:</label>
           <input type="text" name="local" value="<?php echo $eventos[0]->local; ?>" class="form-control outros" readonly>
           <label class="textito">Imagem:</label>
-          <img src="<?php echo base_url('upload/'.$eventos[0]->imagem)?>" class="form-control outros" alt="">
+          <img src="<?php echo base_url('upload/'.$eventos[0]->imagem)?>" value="<?php echo base_url('upload/'.$eventos[0]->imagem)?>"class="form-control outros" alt=""readonly>
           <label class="textito">Autor:</label>
           <input type="text" name="autor" value="<?php echo $eventos[0]->autor; ?>" class="form-control outros" readonly>
           <div class="btn-group centrar">

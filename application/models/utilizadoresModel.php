@@ -3,7 +3,7 @@ class utilizadoresModel extends CI_Model {
 
   function getAll()
   {
-    $result=$this->db->query('SELECT * FROM utilizadores');
+    $result=$this->db->query('SELECT * FROM utilizadores ORDER BY nome');
 		
 		return $result->result();
   }

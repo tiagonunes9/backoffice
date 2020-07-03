@@ -105,12 +105,12 @@
 	<ul class="flex-container">
 		<li class="flex-item direito">
 			<div class="col-sm-8 branco">
-				<img src="../../assets/img/logo.svg" class="imagem" />
+				<img src=".././assets/img/logo.svg" class="imagem" />
 			</div>
 		<li class="flex-x">
 			<ul class="flex-container formulario">
 
-				<?php echo form_open(base_url() . 'index.php/auth/signIn'); ?>
+				<?php echo form_open(base_url() . 'auth/signIn'); ?>
 				<form>
 					<input type="text" name="email" class="form-control barra" placeholder="Email">
 					<input type="password" name="password" class="form-control barra" placeholder="Password">

@@ -318,7 +318,7 @@
           <a href="perfil" class="w3-button w3-black"><button class="btn btn-warning extra">Editar Perfil</button></a>
         </li>
         <li class="flex-item">
-          <div> <img src="../assets/img/users.png" height="100px"></div>
+          <div> <img src="./assets/img/users.png" height="100px"></div>
           <h2>Gestão de Utilizadores</h2>
           <h3>Adicione ou remova utilizadores</h3>
           <a href="utilizadores" class="w3-button w3-black"><button class="btn btn-warning extra">Ir para lá</button></a>
@@ -352,8 +352,8 @@
               echo '<td>';
               if ($value->estado == "0") {
                 echo '<tr><td width="50%">' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
-                echo '<td><a href="' . base_url() . 'index.php/eventos/uptade/' . $value->id_evento . '" class="btn btn-sm btn-info info">' . 'Info' . '</a></td>';
-                echo '<td><a href="' . base_url() . 'index.php/eventos/delete/' . $value->id_evento . '" onclick="return confirm(\'Tem a certeza que pretende apagar este?\')" ><button type="button" class="btn btn-sm btn btn-danger rejeitar">Eliminar</button></a></td></tr>';
+                echo '<td><a href="' . base_url() . 'eventos/uptade/' . $value->id_evento . '" class="btn btn-sm btn-info info">' . 'Info' . '</a></td>';
+                echo '<td><a href="' . base_url() . 'eventos/delete/' . $value->id_evento . '" onclick="return confirm(\'Tem a certeza que pretende apagar este?\')" ><button type="button" class="btn btn-sm btn btn-danger rejeitar">Eliminar</button></a></td></tr>';
               } else {
               }
               '</td>';
@@ -378,8 +378,8 @@
               echo '<td>';
               if ($value->estado == "0") {
                 echo '<tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
-                echo '<td>' . '<a href="' . base_url() . 'index.php/noticias/uptade/' . $value->id_noticia . '" class="btn btn-sm btn-info info">' . 'Info' . '</a></td>';
-                echo '<td><a href="' . base_url() . 'index.php/noticias/delete/' . $value->id_noticia . '" onclick="return confirm(\'Tem a certeza que pretende apagar esta noticia?\')" ><button type="button" class="btn btn-sm btn-danger rejeitar">Eliminar</button></a></td></tr>';
+                echo '<td>' . '<a href="' . base_url() . 'noticias/uptade/' . $value->id_noticia . '" class="btn btn-sm btn-info info">' . 'Info' . '</a></td>';
+                echo '<td><a href="' . base_url() . 'noticias/delete/' . $value->id_noticia . '" onclick="return confirm(\'Tem a certeza que pretende apagar esta noticia?\')" ><button type="button" class="btn btn-sm btn-danger rejeitar">Eliminar</button></a></td></tr>';
               } else {
               }
               '</td>';

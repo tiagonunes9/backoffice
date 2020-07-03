@@ -100,7 +100,7 @@
         .textito {
             font-family: "Oswald";
             font-weight: lighter;
-            font-size: 100%;
+            font-size: 1.5vw;
             color: #707070;
             text-align: right;
             margin-left: 10%;
@@ -120,6 +120,8 @@
             font-weight: bold;
             margin-left: 40%;
             margin-right: 60%;
+            width:5vw;
+      font-size: 1vw;
         }
 
         .btnadmine {
@@ -129,6 +131,8 @@
             font-weight: bold;
             margin-left: 40%;
             margin-right: 60%;
+            width:5vw;
+      font-size: 1vw;
         }
 
         .title-divider-right {
@@ -207,7 +211,7 @@
                 </div>
 
 
-                <?php echo form_open_multipart(base_url() . 'index.php/utilizadores/novoutilizador/'); ?>
+                <?php echo form_open_multipart(base_url() . 'utilizadores/novoutilizador/'); ?>
 
                 <div class="admin">
                     <label class="textito">Nome:</label>

@@ -103,7 +103,7 @@
 		<li class="flex-x">
 			<ul class="flex-container formulario">
 
-				<?php echo form_open(base_url() . 'index.php/auth/signIn'); ?>
+				<?php echo form_open(base_url() . 'auth/signIn'); ?>
 				<form>
 					<label>Email</label>
 					<input type="text" name="email" class="form-control barra">

@@ -262,11 +262,11 @@
 
       <ul class="flex-container">
         <li class="flex-item eventos">
-          <a href="eventos/novoevento"><img src="../assets/img/plus.png" class="mais">
+          <a href="eventos/novoevento"><img src="./assets/img/plus.png" class="mais">
             <h2 class="adde">Adicionar evento </h2>
           </a>
         <li class="flex-item noticias">
-          <a href="noticias/novanoticia"><img src="../assets/img/plus.png" class="mais">
+          <a href="noticias/novanoticia"><img src="./assets/img/plus.png" class="mais">
             <h2 class="adde">Adicionar Noticia </h2>
           </a>
         </li>

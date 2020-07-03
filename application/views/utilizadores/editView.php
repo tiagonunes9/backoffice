@@ -100,7 +100,7 @@
     .textito {
       font-family: "Oswald";
       font-weight: lighter;
-      font-size: 100%;
+      font-size: 1.5vw;
       color: #707070;
       text-align: right;
       margin-left: 10%;
@@ -120,6 +120,8 @@
       font-weight: bold;
       margin-left: 40%;
       margin-right: 60%;
+      width:5vw;
+      font-size: 1vw;
     }
 
     .btnadmine {
@@ -129,6 +131,8 @@
       font-weight: bold;
       margin-left: 40%;
       margin-right: 60%;
+      width:5vw;
+      font-size: 1vw;
     }
 
 
@@ -208,7 +212,7 @@
         </div>
 
 
-        <?php echo form_open(base_url() . 'index.php/utilizadores/update/' . $utilizadores[0]->id_user); ?>
+        <?php echo form_open(base_url() . 'utilizadores/update/' . $utilizadores[0]->id_user); ?>
 
         <div class="admin">
           <label class="textito">Email:</label>

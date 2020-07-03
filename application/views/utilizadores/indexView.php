@@ -76,14 +76,14 @@
       color: #2F898D;
       font-family: 'Oswald';
       font-weight: bold;
-      font-size: 60%;
+      font-size: 1vw;
     }
 
     .link:hover {
       color: #2F898D;
       font-family: 'Oswald';
       font-weight: bold;
-      font-size: 60%;
+      font-size: 1vw;
       text-decoration: none;
     }
 
@@ -210,7 +210,7 @@ th {
             <th width="10%"></th>
             <th width="30%"></th>
             <th width="15%">
-              <a href="utilizadores/novoutilizador" class="link"><img src="../assets/img/add.PNG" class="icone" />Adicionar utilizador</a>
+              <a href="utilizadores/novoutilizador" class="link"><img src="./assets/img/add.PNG" class="icone" />Adicionar utilizador</a>
               </a>
             </th>
           </tr>
@@ -230,7 +230,7 @@ th {
             <?php
             foreach ($utilizadores as $key => $value) {
               echo '<tbody><tr><td>' . '<p class="texto">' . $value->nome . '</p>' . '</td>';
-              echo '<td>' . '<a href="' . base_url() . 'index.php/utilizadores/uptade/' . $value->id_user . '" class="btn btn-sm btn-info info">' . 'Info' . '</a></td>';
+              echo '<td>' . '<a href="' . base_url() . 'utilizadores/uptade/' . $value->id_user . '" class="btn btn-sm btn-info info">' . 'Info' . '</a></td>';
               echo '<td>';
               if ($value->tipo_user == "1") {
                 echo '<p class="texto">' . "Administrador" . '</p>';
@@ -240,7 +240,7 @@ th {
                 echo '<p class="texto">' . "Utilizador" . '</p>';
               }
               '</td>';
-              echo '<td><a href="' . base_url() . 'index.php/utilizadores/delete/' . $value->id_user . '" onclick="return confirm(\'Tem a certeza que pretende apagar esse utilizador?\')" ><p class="eliminar">Eliminar</p></a></td></tr>';
+              echo '<td><a href="' . base_url() . 'utilizadores/delete/' . $value->id_user . '" onclick="return confirm(\'Tem a certeza que pretende apagar esse utilizador?\')" ><p class="eliminar">Eliminar</p></a></td></tr>';
             }
             ?>
           </tbody>
