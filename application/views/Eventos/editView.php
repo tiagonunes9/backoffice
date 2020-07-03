@@ -234,7 +234,7 @@
           <label class="textito">Local:</label>
           <input type="text" name="local" value="<?php echo $eventos[0]->local; ?>" class="form-control outros" readonly>
           <label class="textito">Imagem:</label>
-          <input type="file" name="imagem" value="<?php echo $eventos[0]->imagem; ?>" class="form-control outros" disabled>
+          <img src="<?php echo base_url('upload/'.$eventos[0]->imagem)?>" class="form-control outros" alt="">
           <label class="textito">Autor:</label>
           <input type="text" name="autor" value="<?php echo $eventos[0]->autor; ?>" class="form-control outros" readonly>
           <div class="btn-group centrar">

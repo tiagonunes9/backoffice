@@ -14,24 +14,31 @@ class Noticias extends CI_Controller {
 		$this->load->view('noticias/indexView', $data);
 	}
 
+
 	public function novanoticia()
 	{
+
+		$this->load->library('upload', config_upload());
+		$this->upload->do_upload('imagem');
+		
+		$dados_upload = $this->upload->data();
+
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$dados['nome'] = $this->input->post("nome");
-			$dados['local'] = $this->input ->post("local");
-			$dados['descricao'] = $this->input ->post("descricao");
-			$dados['autor'] = $this->input ->post("autor");
-			$dados['estado'] = $this->input ->post("estado");
-			$dados['imagem'] = $this->input ->post("imagem");
-			$dados['data'] = $this->input ->post("data");
-			
+			$dados['local'] = $this->input->post("local");
+			$dados['descricao'] = $this->input->post("descricao");
+			$dados['autor'] = $this->input->post("autor");
+			$dados['estado'] = $this->input->post("estado");
+			$dados['data'] = $this->input->post("data");
+			$dados['imagem'] = $dados_upload['file_name'];
+
 			$this->load->model('noticiasModel');
 
 			$valid = $this->noticiasModel->post($dados);
 
-			redirect("noticias");
+			redirect("eventos");
 		}
-		
+
 		$this->load->helper(array('form', 'url'));
 		$this->load->view("noticias/newView");
 	}
@@ -48,7 +55,7 @@ class Noticias extends CI_Controller {
 
 		$this->noticiasModel->delete($id);
 		
-		redirect('noticias');
+		redirect('dashboardadmin');
 	}
 
 	

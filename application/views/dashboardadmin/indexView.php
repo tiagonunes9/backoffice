@@ -21,7 +21,7 @@
     html {
       background-color: #F2F2F2 !important;
       height: 100%;
-    margin: 0;
+      margin: 0;
     }
 
     .main-container {
@@ -235,9 +235,10 @@
       font-weight: bold;
       font-size: 3em;
       text-align: center;
-      margin:0;
-      margin-top:2%;
+      margin: 0;
+      margin-top: 2%;
     }
+
     .admin {
       background-color: white;
       margin: 5%;
@@ -247,22 +248,34 @@
       padding: 0;
     }
 
-    h2{
+    h2 {
       color: #707070;
       font-family: "Oswald";
       font-size: 55%;
     }
-    h3{
+
+    h3 {
       color: #707070;
       font-family: "Oswald";
       font-size: 40%;
     }
 
-td,
-th {
-  border-collapse: collapse;
-}
+    td,
+    th {
+      border-collapse: collapse;
+    }
 
+    .esquerda {
+      flex: 0 0 20%;
+      background-color: #333333;
+    }
+
+    .content-side {
+      flex: 1 1;
+      background-color: #F2F2F2;
+      overflow: auto;
+      height: 100%;
+    }
   </style>
 </head>
 
@@ -277,27 +290,28 @@ th {
     </div>
     <div class="content-side">
 
-    <ul class="flex-container">
+      <ul class="flex-container">
         <li class="flex-item">
-        <div> <img src="../assets/img/person.png" height="100px"></div>
-        <h2><?php
-            if ($_SESSION['admin'] == "1")
-              echo "Administrador";
-            else if ($_SESSION['admin'] == "2")
-              echo "Gestor";
-            else
-              echo "Utilizador";
-            ?>
-        </h2>
-        <a href="perfil" class="w3-button w3-black"><button class="btn btn-warning extra">Editar Perfil</button></a>
-  </li>
-  <li class="flex-item">
-        <div> <img src="../assets/img/users.png" height="100px"></div>
-        <h2>Gestão de Utilizadores</h2>
-        <h3>Adicione ou remova utilizadores</h3>
-        <a href="utilizadores" class="w3-button w3-black"><button class="btn btn-warning extra">Ir para lá</button></a>
-  </li>
-  </ul><br>
+          <div> <img src="<?php echo base_url('upload/' . $this->session->userdata('IMG_AVATAR')) ?>" height="100px"></div>
+          <h2><?php
+              if ($_SESSION['admin'] == "1")
+                echo "Administrador";
+              else if ($_SESSION['admin'] == "2")
+                echo "Gestor";
+              else
+                echo "Utilizador";
+              ?>
+            <br><small><?php echo $this->session->userdata('NOME') ?></small>
+          </h2>
+          <a href="perfil" class="w3-button w3-black"><button class="btn btn-warning extra">Editar Perfil</button></a>
+        </li>
+        <li class="flex-item">
+          <div> <img src="../assets/img/users.png" height="100px"></div>
+          <h2>Gestão de Utilizadores</h2>
+          <h3>Adicione ou remova utilizadores</h3>
+          <a href="utilizadores" class="w3-button w3-black"><button class="btn btn-warning extra">Ir para lá</button></a>
+        </li>
+      </ul><br>
       <div class="div-title">
         <div class="title-h1">
           <h1 class="titulo">Por Aprovar</h1>

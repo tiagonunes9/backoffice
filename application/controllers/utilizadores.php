@@ -24,15 +24,18 @@ class utilizadores extends CI_Controller
 
 	public function novoutilizador()
 	{
+		
+		$this->load->library('upload', config_upload());
+		$this->upload->do_upload('imagem');
+		$dados_upload = $this->upload->data();
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
 			$dados['tipo_user'] = $this->input->post("tipo_user");
 			$dados['email'] = $this->input->post("email");
 			$dados['password'] = $this->input->post("password");
 			$dados['nome'] = $this->input->post("nome");
 			$dados['morada'] = $this->input->post("morada");
 			$dados['contato'] = $this->input->post("contato");
-			$dados['imagem'] = $this->input->post("imagem");
+			$dados['imagem'] = $dados_upload['file_name'];
 
 			$this->load->model('utilizadoresModel');
 
@@ -40,6 +43,7 @@ class utilizadores extends CI_Controller
 
 			redirect("utilizadores");
 		}
+
 		$this->load->helper(array('form', 'url'));
 		$this->load->view("utilizadores/newView");
 	}

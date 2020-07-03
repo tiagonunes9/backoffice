@@ -222,8 +222,8 @@
                 </div>
 
 
-                <?php echo form_open(base_url() . 'index.php/eventos/novoevento/'); ?>
-                <?php echo form_open_multipart('perfil/do_upload');?>
+                <?php echo form_open_multipart(base_url() . 'index.php/eventos/novoevento/'); ?>
+               
 
                 <div class="admin">
                     <label class="textito">Nome do Evento:</label>

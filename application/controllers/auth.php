@@ -17,6 +17,9 @@ class auth extends CI_Controller {
 
 		$result = $this->usersModel->isValidLogin($email, $password);
 		if($result != null){
+			$dados = $this->usersModel->getDados($email);
+			$this->session->set_userdata('NOME', $dados['nome']);
+			$this->session->set_userdata('IMG_AVATAR', $dados['imagem']);
 			if($result[0]->tipo_user=="1"){
 			$_SESSION['admin']= 1;
 			redirect('dashboardadmin');

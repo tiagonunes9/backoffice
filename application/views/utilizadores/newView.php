@@ -207,7 +207,7 @@
                 </div>
 
 
-                <?php echo form_open(base_url() . 'index.php/utilizadores/novoutilizador/'); ?>
+                <?php echo form_open_multipart(base_url() . 'index.php/utilizadores/novoutilizador/'); ?>
 
                 <div class="admin">
                     <label class="textito">Nome:</label>
@@ -216,6 +216,8 @@
                     <input type="text" name="email" class="form-control outros" placeholder=" Email" required>
                     <label class="textito">Password:</label>
                     <input type="text" name="password" class="form-control outros" placeholder="Password" required>
+                    <label class="textito">Imagem:</label>
+                    <input type="file" name="imagem" size="20" class="form-control outros">
                     <label class="textito">Tipo de utilizador:</label>
                     <input type="number" name="tipo_user" class="form-control outros" placeholder="1 - Administrador 2 - Gestor 3 - Utilizador" required>
                     <div class="btn-group centrar">

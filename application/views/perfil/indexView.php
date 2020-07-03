@@ -103,13 +103,13 @@
     }
 
     .btnadmine {
-            background-color: #E47A3F;
-            color: white;
-            font-family: "Oswald";
-            font-weight: bold;
-            margin-left: 40%;
-            margin-right: 60%;
-        }
+      background-color: #E47A3F;
+      color: white;
+      font-family: "Oswald";
+      font-weight: bold;
+      margin-left: 40%;
+      margin-right: 60%;
+    }
 
 
     .div-title {
@@ -186,8 +186,8 @@
           </div>
         </div>
         <div class="caixa">
-          <?php echo form_open(base_url() . 'index.php/perfil/update/' . $perfil[0]->id_user); ?>
-          <?php echo form_open_multipart('perfil/do_upload'); ?>
+          <?php echo form_open_multipart(base_url() . 'index.php/perfil/update/' . $perfil[0]->id_user); ?>
+            <img src="<?php echo base_url('upload/' . $this->session->userdata('IMG_AVATAR')) ?>" class="img-fluid" width="15%" style="border-radius:15px; margin-left:20%; margin-top:3%;"><br>
           <label class="texto">Email:</label>
           <input type="email" name="email" value="<?php echo $perfil[0]->email; ?>" class="form-control outros">
           <label class="texto">Nome:</label>
@@ -197,7 +197,10 @@
           <label class="texto">Contato:</label>
           <input type="text" name="contato" value="<?php echo $perfil[0]->morada; ?>" class="form-control outros">
           <label class="texto">Fotografia:</label>
-          <input type="file" name="imagem" size="9999" class="form-control outros" id="imagem">
+          <input type="file" name="imagem" size="20" class="form-control outros" id="imagem">
+
+
+
           <label class="texto">Password:</label>
           <input type="password" name="password" class="form-control outros" required>
           <br>

@@ -221,9 +221,7 @@
                 </div>
 
 
-                <?php echo form_open(base_url() . 'index.php/noticias/novanoticia/'); ?>
-                <?php echo form_open_multipart('perfil/do_upload');?>
-
+                <?php echo form_open_multipart(base_url() . 'index.php/noticias/novanoticia/'); ?>
                 <div class="admin">
                     <label class="textito">Nome da Noticia:</label>
                     <input type="teste" class="form-control outros" name="nome" placeholder="Nome" required>

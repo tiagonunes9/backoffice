@@ -278,19 +278,20 @@ th {
     <div class="content-side">
 
     <ul class="flex-container">
-        <li class="flex-item">
-        <div> <img src="../assets/img/person.png" height="100px"></div>
-        <h2><?php
-            if ($_SESSION['admin'] == "1")
-              echo "Administrador";
-            else if ($_SESSION['admin'] == "2")
-              echo "Gestor";
-            else
-              echo "Utilizador";
-            ?>
-        </h2>
-        <a href="perfil" class="w3-button w3-black"><button class="btn btn-warning extra">Editar Perfil</button></a>
-  </li>
+    <li class="flex-item">
+          <div> <img src="<?php echo base_url('upload/' . $this->session->userdata('IMG_AVATAR')) ?>" height="100px"></div>
+          <h2><?php
+              if ($_SESSION['admin'] == "1")
+                echo "Administrador";
+              else if ($_SESSION['admin'] == "2")
+                echo "Gestor";
+              else
+                echo "Utilizador";
+              ?>
+            <br><small><?php echo $this->session->userdata('NOME') ?></small>
+          </h2>
+          <a href="perfil" class="w3-button w3-black"><button class="btn btn-warning extra">Editar Perfil</button></a>
+        </li>
   </ul><br>
       <div class="div-title">
         <div class="title-h1">

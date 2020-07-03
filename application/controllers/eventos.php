@@ -19,14 +19,18 @@ class Eventos extends CI_Controller
 
 	public function novoevento()
 	{
+		
+		$this->load->library('upload', config_upload());
+		$this->upload->do_upload('imagem');
+		$dados_upload = $this->upload->data();
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$dados['nome'] = $this->input->post("nome");
 			$dados['local'] = $this->input->post("local");
 			$dados['descricao'] = $this->input->post("descricao");
 			$dados['autor'] = $this->input->post("autor");
 			$dados['estado'] = $this->input->post("estado");
-			$dados['imagem'] = $this->input->post("imagem");
 			$dados['data'] = $this->input->post("data");
+			$dados['imagem'] = $dados_upload['file_name'];
 
 			$this->load->model('eventosModel');
 
@@ -52,7 +56,7 @@ class Eventos extends CI_Controller
 
 		$this->eventosModel->delete($id);
 
-		redirect('eventos');
+		redirect('dashboardadmin');
 	}
 
 
