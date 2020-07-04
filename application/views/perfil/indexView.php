@@ -18,7 +18,6 @@
     }
 
 
-
     h1 {
       color: #EDB347;
       font-family: "Oswald";
